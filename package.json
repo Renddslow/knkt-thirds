@@ -1,0 +1,22 @@
+{
+	"name": "knkt-thirds",
+	"version": "0.1.0",
+	"private": false,
+	"description": "A lower thirds graphic pack generator for sermon videos.",
+	"repository": "https://github.com/Renddslow/knkt-thirds",
+	"license": "MIT",
+	"author": "Matt McElwee <mubatt@wyopub.com>",
+	"main": "src/index.js",
+	"scripts": {},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.{js,css,json,md,ts,tsx}": [
+			"prettier --write"
+		]
+	},
+	"prettier": "@dmsi/prettier-config"
+}
