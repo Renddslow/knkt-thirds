@@ -1,0 +1,2986 @@
+{
+  "id": "src/index.js",
+  "dependencies": [
+    {
+      "name": "/Users/mmcelwee/repos/knkt-thirds/package.json",
+      "includedInParent": true,
+      "mtime": 1585238106980
+    },
+    {
+      "name": "state-watcher",
+      "loc": { "line": 1, "column": 24 },
+      "parent": "/Users/mmcelwee/repos/knkt-thirds/src/index.js",
+      "resolved": "/Users/mmcelwee/repos/knkt-thirds/node_modules/state-watcher/dist/index.mjs"
+    },
+    {
+      "name": "./styles.css",
+      "loc": { "line": 3, "column": 7 },
+      "parent": "/Users/mmcelwee/repos/knkt-thirds/src/index.js",
+      "resolved": "/Users/mmcelwee/repos/knkt-thirds/src/styles.css"
+    },
+    {
+      "name": "./renderVerseBox",
+      "loc": { "line": 5, "column": 27 },
+      "parent": "/Users/mmcelwee/repos/knkt-thirds/src/index.js",
+      "resolved": "/Users/mmcelwee/repos/knkt-thirds/src/renderVerseBox.js"
+    },
+    {
+      "name": "./renderText",
+      "loc": { "line": 6, "column": 23 },
+      "parent": "/Users/mmcelwee/repos/knkt-thirds/src/index.js",
+      "resolved": "/Users/mmcelwee/repos/knkt-thirds/src/renderText.js"
+    },
+    {
+      "name": "./renderContentBox",
+      "loc": { "line": 7, "column": 29 },
+      "parent": "/Users/mmcelwee/repos/knkt-thirds/src/index.js",
+      "resolved": "/Users/mmcelwee/repos/knkt-thirds/src/renderContentBox.js"
+    },
+    {
+      "name": "./dotSermon",
+      "loc": { "line": 8, "column": 18 },
+      "parent": "/Users/mmcelwee/repos/knkt-thirds/src/index.js",
+      "resolved": "/Users/mmcelwee/repos/knkt-thirds/src/dotSermon.js"
+    },
+    {
+      "name": "./settings",
+      "loc": { "line": 10, "column": 82 },
+      "parent": "/Users/mmcelwee/repos/knkt-thirds/src/index.js",
+      "resolved": "/Users/mmcelwee/repos/knkt-thirds/src/settings.js"
+    }
+  ],
+  "generated": {
+    "js": "\"use strict\";\n\nvar _stateWatcher = _interopRequireDefault(require(\"state-watcher\"));\n\nrequire(\"./styles.css\");\n\nvar _renderVerseBox = _interopRequireDefault(require(\"./renderVerseBox\"));\n\nvar _renderText = _interopRequireDefault(require(\"./renderText\"));\n\nvar _renderContentBox = _interopRequireDefault(require(\"./renderContentBox\"));\n\nvar _dotSermon = _interopRequireDefault(require(\"./dotSermon\"));\n\nvar _settings = require(\"./settings\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }\n\nfunction _nonIterableRest() { throw new TypeError(\"Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\n\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(n); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\n\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }\n\nfunction _iterableToArrayLimit(arr, i) { if (typeof Symbol === \"undefined\" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i[\"return\"] != null) _i[\"return\"](); } finally { if (_d) throw _e; } } return _arr; }\n\nfunction _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }\n\nvar _createState = (0, _stateWatcher.default)({\n  blockImage: new Image(),\n  verseColor: '#000',\n  verseBackground: '#000',\n  blockColor: '#000',\n  blockImageReady: false,\n  blockImageOffset: 0,\n  currentBlockText: '',\n  currentVerseText: '',\n  rawText: '',\n  content: []\n}),\n    _createState2 = _slicedToArray(_createState, 2),\n    state = _createState2[0],\n    watcher = _createState2[1];\n\nvar canvas = document.getElementById('cvs');\nvar ctx = canvas.getContext('2d');\nvar fullText = \"In the spring, at the time when kings go off to war, David sent Joab out with the king's men and the whole Israelite army. They destroyed the Ammonites and besieged Rabbah. But David remained in Jerusalem. One evening David got up from his bed and walked around on the roof of the palace. From the roof he saw a woman bathing. The woman was very beautiful, One evening David got up from his bed and walked around on the roof of the palace. From the roof he saw a woman bathing. The woman was very beautiful,\";\n(0, _renderVerseBox.default)(ctx, '2 Samuel 11:1-3 NIV');\n\nvar openFilePicker = function openFilePicker(id) {\n  return function () {\n    document.getElementById(id).click();\n  };\n};\n\nvar colorBackground = function colorBackground(name) {\n  return function (e) {\n    var el = e.target.parentNode.querySelector('.color-preview');\n    el.style.background = e.target.value.indexOf('#') !== -1 ? e.target.value : \"#\".concat(e.target.value);\n    state[name] = e.target.value;\n  };\n}; // File Pickers\n\n\ndocument.getElementById('block-image-btn').addEventListener('click', openFilePicker('block-image'));\ndocument.getElementById('sermon-notes-btn').addEventListener('click', openFilePicker('sermon-notes')); // Color Pickers\n\ndocument.getElementById('verse-color').addEventListener('keyup', colorBackground('verseColor'));\ndocument.getElementById('verse-bg-color').addEventListener('keyup', colorBackground('verseBackground'));\ndocument.getElementById('note-color').addEventListener('keyup', colorBackground('blockColor')); // File Handlers\n\ndocument.getElementById('block-image').addEventListener('change', function (e) {\n  state.blockImage.src = URL.createObjectURL(e.target.files[0]);\n\n  state.blockImage.onload = function () {\n    state.blockImageReady = true;\n  };\n});\ndocument.getElementById('sermon-notes').addEventListener('change', function (e) {\n  var file = e.target.files[0];\n  var fr = new FileReader();\n\n  fr.onload = function () {\n    state.rawText = fr.result;\n  };\n\n  fr.readAsText(file);\n}); // Input Listeners\n\ndocument.getElementById('block-offset').addEventListener('change', function (e) {\n  state.blockImageOffset = parseInt(e.target.value, 10);\n}); // State watchers\n\nwatcher.on('change', ['blockImageOffset', 'blockImageReady'], function (s) {\n  (0, _renderContentBox.default)(ctx, s.blockImage, s.blockImageOffset);\n\n  if (s.content.length) {\n    (0, _renderText.default)(ctx, s.content[0].content, _settings.BOX_X_START + _settings.BOX_PADDING_X, _settings.BOX_Y_START + _settings.BOX_PADDING_Y);\n  }\n});\nwatcher.on('change', ['rawText'], function (s) {\n  state.content = (0, _dotSermon.default)(s.rawText);\n});\nwatcher.on('change', ['content'], function (s) {\n  document.getElementById('create').disabled = false;\n  (0, _renderText.default)(ctx, s.content[0].content, _settings.BOX_X_START + _settings.BOX_PADDING_X, _settings.BOX_Y_START + _settings.BOX_PADDING_Y);\n});"
+  },
+  "sourceMaps": {
+    "js": {
+      "mappings": [
+        {
+          "generated": { "line": 3, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 1, "column": 0 }
+        },
+        {
+          "generated": { "line": 5, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 3, "column": 0 }
+        },
+        {
+          "generated": { "line": 7, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 5, "column": 0 }
+        },
+        {
+          "generated": { "line": 9, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 6, "column": 0 }
+        },
+        {
+          "generated": { "line": 11, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 7, "column": 0 }
+        },
+        {
+          "generated": { "line": 13, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 8, "column": 0 }
+        },
+        {
+          "generated": { "line": 15, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 10, "column": 0 }
+        },
+        {
+          "generated": { "line": 31, "column": 19 },
+          "source": "src/index.js",
+          "original": { "line": 12, "column": 25 }
+        },
+        {
+          "generated": { "line": 31, "column": 46 },
+          "source": "src/index.js",
+          "original": { "line": 12, "column": 37 }
+        },
+        {
+          "name": "blockImage",
+          "generated": { "line": 32, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 13, "column": 2 }
+        },
+        {
+          "name": "blockImage",
+          "generated": { "line": 32, "column": 2 },
+          "source": "src/index.js",
+          "original": { "line": 13, "column": 2 }
+        },
+        {
+          "generated": { "line": 32, "column": 12 },
+          "source": "src/index.js",
+          "original": { "line": 13, "column": 12 }
+        },
+        {
+          "generated": { "line": 32, "column": 14 },
+          "source": "src/index.js",
+          "original": { "line": 13, "column": 14 }
+        },
+        {
+          "name": "Image",
+          "generated": { "line": 32, "column": 18 },
+          "source": "src/index.js",
+          "original": { "line": 13, "column": 18 }
+        },
+        {
+          "generated": { "line": 32, "column": 23 },
+          "source": "src/index.js",
+          "original": { "line": 13, "column": 14 }
+        },
+        {
+          "generated": { "line": 32, "column": 25 },
+          "source": "src/index.js",
+          "original": { "line": 12, "column": 37 }
+        },
+        {
+          "name": "verseColor",
+          "generated": { "line": 33, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 14, "column": 2 }
+        },
+        {
+          "name": "verseColor",
+          "generated": { "line": 33, "column": 2 },
+          "source": "src/index.js",
+          "original": { "line": 14, "column": 2 }
+        },
+        {
+          "generated": { "line": 33, "column": 12 },
+          "source": "src/index.js",
+          "original": { "line": 14, "column": 12 }
+        },
+        {
+          "generated": { "line": 33, "column": 14 },
+          "source": "src/index.js",
+          "original": { "line": 14, "column": 14 }
+        },
+        {
+          "generated": { "line": 33, "column": 20 },
+          "source": "src/index.js",
+          "original": { "line": 12, "column": 37 }
+        },
+        {
+          "name": "verseBackground",
+          "generated": { "line": 34, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 15, "column": 2 }
+        },
+        {
+          "name": "verseBackground",
+          "generated": { "line": 34, "column": 2 },
+          "source": "src/index.js",
+          "original": { "line": 15, "column": 2 }
+        },
+        {
+          "generated": { "line": 34, "column": 17 },
+          "source": "src/index.js",
+          "original": { "line": 15, "column": 17 }
+        },
+        {
+          "generated": { "line": 34, "column": 19 },
+          "source": "src/index.js",
+          "original": { "line": 15, "column": 19 }
+        },
+        {
+          "generated": { "line": 34, "column": 25 },
+          "source": "src/index.js",
+          "original": { "line": 12, "column": 37 }
+        },
+        {
+          "name": "blockColor",
+          "generated": { "line": 35, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 16, "column": 2 }
+        },
+        {
+          "name": "blockColor",
+          "generated": { "line": 35, "column": 2 },
+          "source": "src/index.js",
+          "original": { "line": 16, "column": 2 }
+        },
+        {
+          "generated": { "line": 35, "column": 12 },
+          "source": "src/index.js",
+          "original": { "line": 16, "column": 12 }
+        },
+        {
+          "generated": { "line": 35, "column": 14 },
+          "source": "src/index.js",
+          "original": { "line": 16, "column": 14 }
+        },
+        {
+          "generated": { "line": 35, "column": 20 },
+          "source": "src/index.js",
+          "original": { "line": 12, "column": 37 }
+        },
+        {
+          "name": "blockImageReady",
+          "generated": { "line": 36, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 17, "column": 2 }
+        },
+        {
+          "name": "blockImageReady",
+          "generated": { "line": 36, "column": 2 },
+          "source": "src/index.js",
+          "original": { "line": 17, "column": 2 }
+        },
+        {
+          "generated": { "line": 36, "column": 17 },
+          "source": "src/index.js",
+          "original": { "line": 17, "column": 17 }
+        },
+        {
+          "generated": { "line": 36, "column": 19 },
+          "source": "src/index.js",
+          "original": { "line": 17, "column": 19 }
+        },
+        {
+          "generated": { "line": 36, "column": 24 },
+          "source": "src/index.js",
+          "original": { "line": 12, "column": 37 }
+        },
+        {
+          "name": "blockImageOffset",
+          "generated": { "line": 37, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 18, "column": 2 }
+        },
+        {
+          "name": "blockImageOffset",
+          "generated": { "line": 37, "column": 2 },
+          "source": "src/index.js",
+          "original": { "line": 18, "column": 2 }
+        },
+        {
+          "generated": { "line": 37, "column": 18 },
+          "source": "src/index.js",
+          "original": { "line": 18, "column": 18 }
+        },
+        {
+          "generated": { "line": 37, "column": 20 },
+          "source": "src/index.js",
+          "original": { "line": 18, "column": 20 }
+        },
+        {
+          "generated": { "line": 37, "column": 21 },
+          "source": "src/index.js",
+          "original": { "line": 12, "column": 37 }
+        },
+        {
+          "name": "currentBlockText",
+          "generated": { "line": 38, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 19, "column": 2 }
+        },
+        {
+          "name": "currentBlockText",
+          "generated": { "line": 38, "column": 2 },
+          "source": "src/index.js",
+          "original": { "line": 19, "column": 2 }
+        },
+        {
+          "generated": { "line": 38, "column": 18 },
+          "source": "src/index.js",
+          "original": { "line": 19, "column": 18 }
+        },
+        {
+          "generated": { "line": 38, "column": 20 },
+          "source": "src/index.js",
+          "original": { "line": 19, "column": 20 }
+        },
+        {
+          "generated": { "line": 38, "column": 22 },
+          "source": "src/index.js",
+          "original": { "line": 12, "column": 37 }
+        },
+        {
+          "name": "currentVerseText",
+          "generated": { "line": 39, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 20, "column": 2 }
+        },
+        {
+          "name": "currentVerseText",
+          "generated": { "line": 39, "column": 2 },
+          "source": "src/index.js",
+          "original": { "line": 20, "column": 2 }
+        },
+        {
+          "generated": { "line": 39, "column": 18 },
+          "source": "src/index.js",
+          "original": { "line": 20, "column": 18 }
+        },
+        {
+          "generated": { "line": 39, "column": 20 },
+          "source": "src/index.js",
+          "original": { "line": 20, "column": 20 }
+        },
+        {
+          "generated": { "line": 39, "column": 22 },
+          "source": "src/index.js",
+          "original": { "line": 12, "column": 37 }
+        },
+        {
+          "name": "rawText",
+          "generated": { "line": 40, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 21, "column": 2 }
+        },
+        {
+          "name": "rawText",
+          "generated": { "line": 40, "column": 2 },
+          "source": "src/index.js",
+          "original": { "line": 21, "column": 2 }
+        },
+        {
+          "generated": { "line": 40, "column": 9 },
+          "source": "src/index.js",
+          "original": { "line": 21, "column": 9 }
+        },
+        {
+          "generated": { "line": 40, "column": 11 },
+          "source": "src/index.js",
+          "original": { "line": 21, "column": 11 }
+        },
+        {
+          "generated": { "line": 40, "column": 13 },
+          "source": "src/index.js",
+          "original": { "line": 12, "column": 37 }
+        },
+        {
+          "name": "content",
+          "generated": { "line": 41, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 22, "column": 2 }
+        },
+        {
+          "name": "content",
+          "generated": { "line": 41, "column": 2 },
+          "source": "src/index.js",
+          "original": { "line": 22, "column": 2 }
+        },
+        {
+          "generated": { "line": 41, "column": 9 },
+          "source": "src/index.js",
+          "original": { "line": 22, "column": 9 }
+        },
+        {
+          "generated": { "line": 41, "column": 11 },
+          "source": "src/index.js",
+          "original": { "line": 22, "column": 11 }
+        },
+        {
+          "generated": { "line": 42, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 12, "column": 37 }
+        },
+        {
+          "generated": { "line": 42, "column": 1 },
+          "source": "src/index.js",
+          "original": { "line": 12, "column": 25 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 44, "column": 4 },
+          "source": "src/index.js",
+          "original": { "line": 12, "column": 7 }
+        },
+        {
+          "name": "watcher",
+          "generated": { "line": 45, "column": 4 },
+          "source": "src/index.js",
+          "original": { "line": 12, "column": 14 }
+        },
+        {
+          "generated": { "line": 47, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 25, "column": 0 }
+        },
+        {
+          "name": "canvas",
+          "generated": { "line": 47, "column": 4 },
+          "source": "src/index.js",
+          "original": { "line": 25, "column": 6 }
+        },
+        {
+          "generated": { "line": 47, "column": 10 },
+          "source": "src/index.js",
+          "original": { "line": 25, "column": 12 }
+        },
+        {
+          "name": "document",
+          "generated": { "line": 47, "column": 13 },
+          "source": "src/index.js",
+          "original": { "line": 25, "column": 15 }
+        },
+        {
+          "generated": { "line": 47, "column": 21 },
+          "source": "src/index.js",
+          "original": { "line": 25, "column": 23 }
+        },
+        {
+          "name": "getElementById",
+          "generated": { "line": 47, "column": 22 },
+          "source": "src/index.js",
+          "original": { "line": 25, "column": 24 }
+        },
+        {
+          "generated": { "line": 47, "column": 36 },
+          "source": "src/index.js",
+          "original": { "line": 25, "column": 15 }
+        },
+        {
+          "generated": { "line": 47, "column": 37 },
+          "source": "src/index.js",
+          "original": { "line": 25, "column": 39 }
+        },
+        {
+          "generated": { "line": 47, "column": 42 },
+          "source": "src/index.js",
+          "original": { "line": 25, "column": 15 }
+        },
+        {
+          "generated": { "line": 47, "column": 43 },
+          "source": "src/index.js",
+          "original": { "line": 25, "column": 0 }
+        },
+        {
+          "generated": { "line": 48, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 26, "column": 0 }
+        },
+        {
+          "name": "ctx",
+          "generated": { "line": 48, "column": 4 },
+          "source": "src/index.js",
+          "original": { "line": 26, "column": 6 }
+        },
+        {
+          "generated": { "line": 48, "column": 7 },
+          "source": "src/index.js",
+          "original": { "line": 26, "column": 9 }
+        },
+        {
+          "name": "canvas",
+          "generated": { "line": 48, "column": 10 },
+          "source": "src/index.js",
+          "original": { "line": 26, "column": 12 }
+        },
+        {
+          "generated": { "line": 48, "column": 16 },
+          "source": "src/index.js",
+          "original": { "line": 26, "column": 18 }
+        },
+        {
+          "name": "getContext",
+          "generated": { "line": 48, "column": 17 },
+          "source": "src/index.js",
+          "original": { "line": 26, "column": 19 }
+        },
+        {
+          "generated": { "line": 48, "column": 27 },
+          "source": "src/index.js",
+          "original": { "line": 26, "column": 12 }
+        },
+        {
+          "generated": { "line": 48, "column": 28 },
+          "source": "src/index.js",
+          "original": { "line": 26, "column": 30 }
+        },
+        {
+          "generated": { "line": 48, "column": 32 },
+          "source": "src/index.js",
+          "original": { "line": 26, "column": 12 }
+        },
+        {
+          "generated": { "line": 48, "column": 33 },
+          "source": "src/index.js",
+          "original": { "line": 26, "column": 0 }
+        },
+        {
+          "generated": { "line": 49, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 28, "column": 0 }
+        },
+        {
+          "name": "fullText",
+          "generated": { "line": 49, "column": 4 },
+          "source": "src/index.js",
+          "original": { "line": 28, "column": 6 }
+        },
+        {
+          "generated": { "line": 49, "column": 12 },
+          "source": "src/index.js",
+          "original": { "line": 28, "column": 14 }
+        },
+        {
+          "generated": { "line": 49, "column": 15 },
+          "source": "src/index.js",
+          "original": { "line": 29, "column": 2 }
+        },
+        {
+          "generated": { "line": 49, "column": 524 },
+          "source": "src/index.js",
+          "original": { "line": 28, "column": 0 }
+        },
+        {
+          "generated": { "line": 50, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 31, "column": 0 }
+        },
+        {
+          "name": "ctx",
+          "generated": { "line": 50, "column": 29 },
+          "source": "src/index.js",
+          "original": { "line": 31, "column": 15 }
+        },
+        {
+          "generated": { "line": 50, "column": 32 },
+          "source": "src/index.js",
+          "original": { "line": 31, "column": 0 }
+        },
+        {
+          "generated": { "line": 50, "column": 34 },
+          "source": "src/index.js",
+          "original": { "line": 31, "column": 20 }
+        },
+        {
+          "generated": { "line": 50, "column": 55 },
+          "source": "src/index.js",
+          "original": { "line": 31, "column": 0 }
+        },
+        {
+          "generated": { "line": 52, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 33, "column": 0 }
+        },
+        {
+          "name": "openFilePicker",
+          "generated": { "line": 52, "column": 4 },
+          "source": "src/index.js",
+          "original": { "line": 33, "column": 6 }
+        },
+        {
+          "generated": { "line": 52, "column": 18 },
+          "source": "src/index.js",
+          "original": { "line": 33, "column": 20 }
+        },
+        {
+          "generated": { "line": 52, "column": 21 },
+          "source": "src/index.js",
+          "original": { "line": 33, "column": 23 }
+        },
+        {
+          "name": "openFilePicker",
+          "generated": { "line": 52, "column": 30 },
+          "source": "src/index.js",
+          "original": { "line": 33, "column": 6 }
+        },
+        {
+          "generated": { "line": 52, "column": 44 },
+          "source": "src/index.js",
+          "original": { "line": 33, "column": 23 }
+        },
+        {
+          "name": "id",
+          "generated": { "line": 52, "column": 45 },
+          "source": "src/index.js",
+          "original": { "line": 33, "column": 24 }
+        },
+        {
+          "generated": { "line": 52, "column": 47 },
+          "source": "src/index.js",
+          "original": { "line": 33, "column": 23 }
+        },
+        {
+          "generated": { "line": 53, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 33, "column": 23 }
+        },
+        {
+          "generated": { "line": 53, "column": 9 },
+          "source": "src/index.js",
+          "original": { "line": 33, "column": 31 }
+        },
+        {
+          "generated": { "line": 53, "column": 21 },
+          "source": "src/index.js",
+          "original": { "line": 33, "column": 37 }
+        },
+        {
+          "name": "document",
+          "generated": { "line": 54, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 34, "column": 2 }
+        },
+        {
+          "name": "document",
+          "generated": { "line": 54, "column": 4 },
+          "source": "src/index.js",
+          "original": { "line": 34, "column": 2 }
+        },
+        {
+          "generated": { "line": 54, "column": 12 },
+          "source": "src/index.js",
+          "original": { "line": 34, "column": 10 }
+        },
+        {
+          "name": "getElementById",
+          "generated": { "line": 54, "column": 13 },
+          "source": "src/index.js",
+          "original": { "line": 34, "column": 11 }
+        },
+        {
+          "generated": { "line": 54, "column": 27 },
+          "source": "src/index.js",
+          "original": { "line": 34, "column": 2 }
+        },
+        {
+          "name": "id",
+          "generated": { "line": 54, "column": 28 },
+          "source": "src/index.js",
+          "original": { "line": 34, "column": 26 }
+        },
+        {
+          "generated": { "line": 54, "column": 30 },
+          "source": "src/index.js",
+          "original": { "line": 34, "column": 2 }
+        },
+        {
+          "name": "click",
+          "generated": { "line": 54, "column": 32 },
+          "source": "src/index.js",
+          "original": { "line": 34, "column": 30 }
+        },
+        {
+          "generated": { "line": 54, "column": 37 },
+          "source": "src/index.js",
+          "original": { "line": 34, "column": 2 }
+        },
+        {
+          "generated": { "line": 55, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 35, "column": 1 }
+        },
+        {
+          "generated": { "line": 55, "column": 3 },
+          "source": "src/index.js",
+          "original": { "line": 33, "column": 23 }
+        },
+        {
+          "generated": { "line": 56, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 33, "column": 23 }
+        },
+        {
+          "generated": { "line": 56, "column": 1 },
+          "source": "src/index.js",
+          "original": { "line": 33, "column": 0 }
+        },
+        {
+          "generated": { "line": 58, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 37, "column": 0 }
+        },
+        {
+          "name": "colorBackground",
+          "generated": { "line": 58, "column": 4 },
+          "source": "src/index.js",
+          "original": { "line": 37, "column": 6 }
+        },
+        {
+          "generated": { "line": 58, "column": 19 },
+          "source": "src/index.js",
+          "original": { "line": 37, "column": 21 }
+        },
+        {
+          "generated": { "line": 58, "column": 22 },
+          "source": "src/index.js",
+          "original": { "line": 37, "column": 24 }
+        },
+        {
+          "name": "colorBackground",
+          "generated": { "line": 58, "column": 31 },
+          "source": "src/index.js",
+          "original": { "line": 37, "column": 6 }
+        },
+        {
+          "generated": { "line": 58, "column": 46 },
+          "source": "src/index.js",
+          "original": { "line": 37, "column": 24 }
+        },
+        {
+          "name": "name",
+          "generated": { "line": 58, "column": 47 },
+          "source": "src/index.js",
+          "original": { "line": 37, "column": 25 }
+        },
+        {
+          "generated": { "line": 58, "column": 51 },
+          "source": "src/index.js",
+          "original": { "line": 37, "column": 24 }
+        },
+        {
+          "generated": { "line": 59, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 37, "column": 24 }
+        },
+        {
+          "generated": { "line": 59, "column": 9 },
+          "source": "src/index.js",
+          "original": { "line": 37, "column": 34 }
+        },
+        {
+          "name": "e",
+          "generated": { "line": 59, "column": 19 },
+          "source": "src/index.js",
+          "original": { "line": 37, "column": 35 }
+        },
+        {
+          "generated": { "line": 59, "column": 20 },
+          "source": "src/index.js",
+          "original": { "line": 37, "column": 34 }
+        },
+        {
+          "generated": { "line": 59, "column": 22 },
+          "source": "src/index.js",
+          "original": { "line": 37, "column": 41 }
+        },
+        {
+          "generated": { "line": 60, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 38, "column": 2 }
+        },
+        {
+          "name": "el",
+          "generated": { "line": 60, "column": 8 },
+          "source": "src/index.js",
+          "original": { "line": 38, "column": 8 }
+        },
+        {
+          "generated": { "line": 60, "column": 10 },
+          "source": "src/index.js",
+          "original": { "line": 38, "column": 10 }
+        },
+        {
+          "name": "e",
+          "generated": { "line": 60, "column": 13 },
+          "source": "src/index.js",
+          "original": { "line": 38, "column": 13 }
+        },
+        {
+          "generated": { "line": 60, "column": 14 },
+          "source": "src/index.js",
+          "original": { "line": 38, "column": 14 }
+        },
+        {
+          "name": "target",
+          "generated": { "line": 60, "column": 15 },
+          "source": "src/index.js",
+          "original": { "line": 38, "column": 15 }
+        },
+        {
+          "generated": { "line": 60, "column": 21 },
+          "source": "src/index.js",
+          "original": { "line": 38, "column": 13 }
+        },
+        {
+          "name": "parentNode",
+          "generated": { "line": 60, "column": 22 },
+          "source": "src/index.js",
+          "original": { "line": 38, "column": 22 }
+        },
+        {
+          "generated": { "line": 60, "column": 32 },
+          "source": "src/index.js",
+          "original": { "line": 38, "column": 13 }
+        },
+        {
+          "name": "querySelector",
+          "generated": { "line": 60, "column": 33 },
+          "source": "src/index.js",
+          "original": { "line": 38, "column": 33 }
+        },
+        {
+          "generated": { "line": 60, "column": 46 },
+          "source": "src/index.js",
+          "original": { "line": 38, "column": 13 }
+        },
+        {
+          "generated": { "line": 60, "column": 47 },
+          "source": "src/index.js",
+          "original": { "line": 38, "column": 47 }
+        },
+        {
+          "generated": { "line": 60, "column": 63 },
+          "source": "src/index.js",
+          "original": { "line": 38, "column": 13 }
+        },
+        {
+          "generated": { "line": 60, "column": 64 },
+          "source": "src/index.js",
+          "original": { "line": 38, "column": 2 }
+        },
+        {
+          "name": "el",
+          "generated": { "line": 61, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 2 }
+        },
+        {
+          "name": "el",
+          "generated": { "line": 61, "column": 4 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 2 }
+        },
+        {
+          "generated": { "line": 61, "column": 6 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 4 }
+        },
+        {
+          "name": "style",
+          "generated": { "line": 61, "column": 7 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 5 }
+        },
+        {
+          "generated": { "line": 61, "column": 12 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 2 }
+        },
+        {
+          "name": "background",
+          "generated": { "line": 61, "column": 13 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 11 }
+        },
+        {
+          "generated": { "line": 61, "column": 23 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 2 }
+        },
+        {
+          "name": "e",
+          "generated": { "line": 61, "column": 26 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 24 }
+        },
+        {
+          "generated": { "line": 61, "column": 27 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 25 }
+        },
+        {
+          "name": "target",
+          "generated": { "line": 61, "column": 28 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 26 }
+        },
+        {
+          "generated": { "line": 61, "column": 34 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 24 }
+        },
+        {
+          "name": "value",
+          "generated": { "line": 61, "column": 35 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 33 }
+        },
+        {
+          "generated": { "line": 61, "column": 40 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 24 }
+        },
+        {
+          "name": "indexOf",
+          "generated": { "line": 61, "column": 41 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 39 }
+        },
+        {
+          "generated": { "line": 61, "column": 48 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 24 }
+        },
+        {
+          "generated": { "line": 61, "column": 49 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 47 }
+        },
+        {
+          "generated": { "line": 61, "column": 52 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 24 }
+        },
+        {
+          "generated": { "line": 61, "column": 58 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 56 }
+        },
+        {
+          "generated": { "line": 61, "column": 59 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 57 }
+        },
+        {
+          "generated": { "line": 61, "column": 60 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 24 }
+        },
+        {
+          "name": "e",
+          "generated": { "line": 61, "column": 63 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 61 }
+        },
+        {
+          "generated": { "line": 61, "column": 64 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 62 }
+        },
+        {
+          "name": "target",
+          "generated": { "line": 61, "column": 65 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 63 }
+        },
+        {
+          "generated": { "line": 61, "column": 71 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 61 }
+        },
+        {
+          "name": "value",
+          "generated": { "line": 61, "column": 72 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 70 }
+        },
+        {
+          "generated": { "line": 61, "column": 77 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 24 }
+        },
+        {
+          "name": "e",
+          "generated": { "line": 61, "column": 91 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 82 }
+        },
+        {
+          "generated": { "line": 61, "column": 92 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 83 }
+        },
+        {
+          "name": "target",
+          "generated": { "line": 61, "column": 93 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 84 }
+        },
+        {
+          "generated": { "line": 61, "column": 99 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 82 }
+        },
+        {
+          "name": "value",
+          "generated": { "line": 61, "column": 100 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 91 }
+        },
+        {
+          "generated": { "line": 61, "column": 105 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 24 }
+        },
+        {
+          "generated": { "line": 61, "column": 106 },
+          "source": "src/index.js",
+          "original": { "line": 39, "column": 2 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 62, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 40, "column": 2 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 62, "column": 4 },
+          "source": "src/index.js",
+          "original": { "line": 40, "column": 2 }
+        },
+        {
+          "generated": { "line": 62, "column": 9 },
+          "source": "src/index.js",
+          "original": { "line": 40, "column": 7 }
+        },
+        {
+          "name": "name",
+          "generated": { "line": 62, "column": 10 },
+          "source": "src/index.js",
+          "original": { "line": 40, "column": 8 }
+        },
+        {
+          "generated": { "line": 62, "column": 14 },
+          "source": "src/index.js",
+          "original": { "line": 40, "column": 7 }
+        },
+        {
+          "generated": { "line": 62, "column": 15 },
+          "source": "src/index.js",
+          "original": { "line": 40, "column": 2 }
+        },
+        {
+          "name": "e",
+          "generated": { "line": 62, "column": 18 },
+          "source": "src/index.js",
+          "original": { "line": 40, "column": 16 }
+        },
+        {
+          "generated": { "line": 62, "column": 19 },
+          "source": "src/index.js",
+          "original": { "line": 40, "column": 17 }
+        },
+        {
+          "name": "target",
+          "generated": { "line": 62, "column": 20 },
+          "source": "src/index.js",
+          "original": { "line": 40, "column": 18 }
+        },
+        {
+          "generated": { "line": 62, "column": 26 },
+          "source": "src/index.js",
+          "original": { "line": 40, "column": 16 }
+        },
+        {
+          "name": "value",
+          "generated": { "line": 62, "column": 27 },
+          "source": "src/index.js",
+          "original": { "line": 40, "column": 25 }
+        },
+        {
+          "generated": { "line": 62, "column": 32 },
+          "source": "src/index.js",
+          "original": { "line": 40, "column": 2 }
+        },
+        {
+          "generated": { "line": 63, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 41, "column": 1 }
+        },
+        {
+          "generated": { "line": 63, "column": 3 },
+          "source": "src/index.js",
+          "original": { "line": 37, "column": 24 }
+        },
+        {
+          "generated": { "line": 64, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 37, "column": 24 }
+        },
+        {
+          "generated": { "line": 64, "column": 1 },
+          "source": "src/index.js",
+          "original": { "line": 37, "column": 0 }
+        },
+        {
+          "generated": { "line": 64, "column": 3 },
+          "source": "src/index.js",
+          "original": { "line": 43, "column": 0 }
+        },
+        {
+          "name": "document",
+          "generated": { "line": 67, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 44, "column": 0 }
+        },
+        {
+          "generated": { "line": 67, "column": 8 },
+          "source": "src/index.js",
+          "original": { "line": 44, "column": 8 }
+        },
+        {
+          "name": "getElementById",
+          "generated": { "line": 67, "column": 9 },
+          "source": "src/index.js",
+          "original": { "line": 44, "column": 9 }
+        },
+        {
+          "generated": { "line": 67, "column": 23 },
+          "source": "src/index.js",
+          "original": { "line": 44, "column": 0 }
+        },
+        {
+          "generated": { "line": 67, "column": 24 },
+          "source": "src/index.js",
+          "original": { "line": 44, "column": 24 }
+        },
+        {
+          "generated": { "line": 67, "column": 41 },
+          "source": "src/index.js",
+          "original": { "line": 44, "column": 0 }
+        },
+        {
+          "name": "addEventListener",
+          "generated": { "line": 67, "column": 43 },
+          "source": "src/index.js",
+          "original": { "line": 44, "column": 43 }
+        },
+        {
+          "generated": { "line": 67, "column": 59 },
+          "source": "src/index.js",
+          "original": { "line": 44, "column": 0 }
+        },
+        {
+          "generated": { "line": 67, "column": 60 },
+          "source": "src/index.js",
+          "original": { "line": 44, "column": 60 }
+        },
+        {
+          "generated": { "line": 67, "column": 67 },
+          "source": "src/index.js",
+          "original": { "line": 44, "column": 0 }
+        },
+        {
+          "name": "openFilePicker",
+          "generated": { "line": 67, "column": 69 },
+          "source": "src/index.js",
+          "original": { "line": 44, "column": 69 }
+        },
+        {
+          "generated": { "line": 67, "column": 83 },
+          "source": "src/index.js",
+          "original": { "line": 44, "column": 83 }
+        },
+        {
+          "generated": { "line": 67, "column": 84 },
+          "source": "src/index.js",
+          "original": { "line": 44, "column": 84 }
+        },
+        {
+          "generated": { "line": 67, "column": 97 },
+          "source": "src/index.js",
+          "original": { "line": 44, "column": 83 }
+        },
+        {
+          "generated": { "line": 67, "column": 98 },
+          "source": "src/index.js",
+          "original": { "line": 44, "column": 0 }
+        },
+        {
+          "name": "document",
+          "generated": { "line": 68, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 45, "column": 0 }
+        },
+        {
+          "generated": { "line": 68, "column": 8 },
+          "source": "src/index.js",
+          "original": { "line": 45, "column": 8 }
+        },
+        {
+          "name": "getElementById",
+          "generated": { "line": 68, "column": 9 },
+          "source": "src/index.js",
+          "original": { "line": 46, "column": 3 }
+        },
+        {
+          "generated": { "line": 68, "column": 23 },
+          "source": "src/index.js",
+          "original": { "line": 45, "column": 0 }
+        },
+        {
+          "generated": { "line": 68, "column": 24 },
+          "source": "src/index.js",
+          "original": { "line": 46, "column": 18 }
+        },
+        {
+          "generated": { "line": 68, "column": 42 },
+          "source": "src/index.js",
+          "original": { "line": 45, "column": 0 }
+        },
+        {
+          "name": "addEventListener",
+          "generated": { "line": 68, "column": 44 },
+          "source": "src/index.js",
+          "original": { "line": 47, "column": 3 }
+        },
+        {
+          "generated": { "line": 68, "column": 60 },
+          "source": "src/index.js",
+          "original": { "line": 45, "column": 0 }
+        },
+        {
+          "generated": { "line": 68, "column": 61 },
+          "source": "src/index.js",
+          "original": { "line": 47, "column": 20 }
+        },
+        {
+          "generated": { "line": 68, "column": 68 },
+          "source": "src/index.js",
+          "original": { "line": 45, "column": 0 }
+        },
+        {
+          "name": "openFilePicker",
+          "generated": { "line": 68, "column": 70 },
+          "source": "src/index.js",
+          "original": { "line": 47, "column": 29 }
+        },
+        {
+          "generated": { "line": 68, "column": 84 },
+          "source": "src/index.js",
+          "original": { "line": 47, "column": 43 }
+        },
+        {
+          "generated": { "line": 68, "column": 85 },
+          "source": "src/index.js",
+          "original": { "line": 47, "column": 44 }
+        },
+        {
+          "generated": { "line": 68, "column": 99 },
+          "source": "src/index.js",
+          "original": { "line": 47, "column": 43 }
+        },
+        {
+          "generated": { "line": 68, "column": 100 },
+          "source": "src/index.js",
+          "original": { "line": 45, "column": 0 }
+        },
+        {
+          "generated": { "line": 68, "column": 103 },
+          "source": "src/index.js",
+          "original": { "line": 49, "column": 0 }
+        },
+        {
+          "name": "document",
+          "generated": { "line": 70, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 50, "column": 0 }
+        },
+        {
+          "generated": { "line": 70, "column": 8 },
+          "source": "src/index.js",
+          "original": { "line": 50, "column": 8 }
+        },
+        {
+          "name": "getElementById",
+          "generated": { "line": 70, "column": 9 },
+          "source": "src/index.js",
+          "original": { "line": 50, "column": 9 }
+        },
+        {
+          "generated": { "line": 70, "column": 23 },
+          "source": "src/index.js",
+          "original": { "line": 50, "column": 0 }
+        },
+        {
+          "generated": { "line": 70, "column": 24 },
+          "source": "src/index.js",
+          "original": { "line": 50, "column": 24 }
+        },
+        {
+          "generated": { "line": 70, "column": 37 },
+          "source": "src/index.js",
+          "original": { "line": 50, "column": 0 }
+        },
+        {
+          "name": "addEventListener",
+          "generated": { "line": 70, "column": 39 },
+          "source": "src/index.js",
+          "original": { "line": 50, "column": 39 }
+        },
+        {
+          "generated": { "line": 70, "column": 55 },
+          "source": "src/index.js",
+          "original": { "line": 50, "column": 0 }
+        },
+        {
+          "generated": { "line": 70, "column": 56 },
+          "source": "src/index.js",
+          "original": { "line": 50, "column": 56 }
+        },
+        {
+          "generated": { "line": 70, "column": 63 },
+          "source": "src/index.js",
+          "original": { "line": 50, "column": 0 }
+        },
+        {
+          "name": "colorBackground",
+          "generated": { "line": 70, "column": 65 },
+          "source": "src/index.js",
+          "original": { "line": 50, "column": 65 }
+        },
+        {
+          "generated": { "line": 70, "column": 80 },
+          "source": "src/index.js",
+          "original": { "line": 50, "column": 80 }
+        },
+        {
+          "generated": { "line": 70, "column": 81 },
+          "source": "src/index.js",
+          "original": { "line": 50, "column": 81 }
+        },
+        {
+          "generated": { "line": 70, "column": 93 },
+          "source": "src/index.js",
+          "original": { "line": 50, "column": 80 }
+        },
+        {
+          "generated": { "line": 70, "column": 94 },
+          "source": "src/index.js",
+          "original": { "line": 50, "column": 0 }
+        },
+        {
+          "name": "document",
+          "generated": { "line": 71, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 51, "column": 0 }
+        },
+        {
+          "generated": { "line": 71, "column": 8 },
+          "source": "src/index.js",
+          "original": { "line": 51, "column": 8 }
+        },
+        {
+          "name": "getElementById",
+          "generated": { "line": 71, "column": 9 },
+          "source": "src/index.js",
+          "original": { "line": 52, "column": 3 }
+        },
+        {
+          "generated": { "line": 71, "column": 23 },
+          "source": "src/index.js",
+          "original": { "line": 51, "column": 0 }
+        },
+        {
+          "generated": { "line": 71, "column": 24 },
+          "source": "src/index.js",
+          "original": { "line": 52, "column": 18 }
+        },
+        {
+          "generated": { "line": 71, "column": 40 },
+          "source": "src/index.js",
+          "original": { "line": 51, "column": 0 }
+        },
+        {
+          "name": "addEventListener",
+          "generated": { "line": 71, "column": 42 },
+          "source": "src/index.js",
+          "original": { "line": 53, "column": 3 }
+        },
+        {
+          "generated": { "line": 71, "column": 58 },
+          "source": "src/index.js",
+          "original": { "line": 51, "column": 0 }
+        },
+        {
+          "generated": { "line": 71, "column": 59 },
+          "source": "src/index.js",
+          "original": { "line": 53, "column": 20 }
+        },
+        {
+          "generated": { "line": 71, "column": 66 },
+          "source": "src/index.js",
+          "original": { "line": 51, "column": 0 }
+        },
+        {
+          "name": "colorBackground",
+          "generated": { "line": 71, "column": 68 },
+          "source": "src/index.js",
+          "original": { "line": 53, "column": 29 }
+        },
+        {
+          "generated": { "line": 71, "column": 83 },
+          "source": "src/index.js",
+          "original": { "line": 53, "column": 44 }
+        },
+        {
+          "generated": { "line": 71, "column": 84 },
+          "source": "src/index.js",
+          "original": { "line": 53, "column": 45 }
+        },
+        {
+          "generated": { "line": 71, "column": 101 },
+          "source": "src/index.js",
+          "original": { "line": 53, "column": 44 }
+        },
+        {
+          "generated": { "line": 71, "column": 102 },
+          "source": "src/index.js",
+          "original": { "line": 51, "column": 0 }
+        },
+        {
+          "name": "document",
+          "generated": { "line": 72, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 54, "column": 0 }
+        },
+        {
+          "generated": { "line": 72, "column": 8 },
+          "source": "src/index.js",
+          "original": { "line": 54, "column": 8 }
+        },
+        {
+          "name": "getElementById",
+          "generated": { "line": 72, "column": 9 },
+          "source": "src/index.js",
+          "original": { "line": 54, "column": 9 }
+        },
+        {
+          "generated": { "line": 72, "column": 23 },
+          "source": "src/index.js",
+          "original": { "line": 54, "column": 0 }
+        },
+        {
+          "generated": { "line": 72, "column": 24 },
+          "source": "src/index.js",
+          "original": { "line": 54, "column": 24 }
+        },
+        {
+          "generated": { "line": 72, "column": 36 },
+          "source": "src/index.js",
+          "original": { "line": 54, "column": 0 }
+        },
+        {
+          "name": "addEventListener",
+          "generated": { "line": 72, "column": 38 },
+          "source": "src/index.js",
+          "original": { "line": 54, "column": 38 }
+        },
+        {
+          "generated": { "line": 72, "column": 54 },
+          "source": "src/index.js",
+          "original": { "line": 54, "column": 0 }
+        },
+        {
+          "generated": { "line": 72, "column": 55 },
+          "source": "src/index.js",
+          "original": { "line": 54, "column": 55 }
+        },
+        {
+          "generated": { "line": 72, "column": 62 },
+          "source": "src/index.js",
+          "original": { "line": 54, "column": 0 }
+        },
+        {
+          "name": "colorBackground",
+          "generated": { "line": 72, "column": 64 },
+          "source": "src/index.js",
+          "original": { "line": 54, "column": 64 }
+        },
+        {
+          "generated": { "line": 72, "column": 79 },
+          "source": "src/index.js",
+          "original": { "line": 54, "column": 79 }
+        },
+        {
+          "generated": { "line": 72, "column": 80 },
+          "source": "src/index.js",
+          "original": { "line": 54, "column": 80 }
+        },
+        {
+          "generated": { "line": 72, "column": 92 },
+          "source": "src/index.js",
+          "original": { "line": 54, "column": 79 }
+        },
+        {
+          "generated": { "line": 72, "column": 93 },
+          "source": "src/index.js",
+          "original": { "line": 54, "column": 0 }
+        },
+        {
+          "generated": { "line": 72, "column": 96 },
+          "source": "src/index.js",
+          "original": { "line": 56, "column": 0 }
+        },
+        {
+          "name": "document",
+          "generated": { "line": 74, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 57, "column": 0 }
+        },
+        {
+          "generated": { "line": 74, "column": 8 },
+          "source": "src/index.js",
+          "original": { "line": 57, "column": 8 }
+        },
+        {
+          "name": "getElementById",
+          "generated": { "line": 74, "column": 9 },
+          "source": "src/index.js",
+          "original": { "line": 57, "column": 9 }
+        },
+        {
+          "generated": { "line": 74, "column": 23 },
+          "source": "src/index.js",
+          "original": { "line": 57, "column": 0 }
+        },
+        {
+          "generated": { "line": 74, "column": 24 },
+          "source": "src/index.js",
+          "original": { "line": 57, "column": 24 }
+        },
+        {
+          "generated": { "line": 74, "column": 37 },
+          "source": "src/index.js",
+          "original": { "line": 57, "column": 0 }
+        },
+        {
+          "name": "addEventListener",
+          "generated": { "line": 74, "column": 39 },
+          "source": "src/index.js",
+          "original": { "line": 57, "column": 39 }
+        },
+        {
+          "generated": { "line": 74, "column": 55 },
+          "source": "src/index.js",
+          "original": { "line": 57, "column": 0 }
+        },
+        {
+          "generated": { "line": 74, "column": 56 },
+          "source": "src/index.js",
+          "original": { "line": 57, "column": 56 }
+        },
+        {
+          "generated": { "line": 74, "column": 64 },
+          "source": "src/index.js",
+          "original": { "line": 57, "column": 0 }
+        },
+        {
+          "generated": { "line": 74, "column": 66 },
+          "source": "src/index.js",
+          "original": { "line": 57, "column": 66 }
+        },
+        {
+          "name": "e",
+          "generated": { "line": 74, "column": 76 },
+          "source": "src/index.js",
+          "original": { "line": 57, "column": 67 }
+        },
+        {
+          "generated": { "line": 74, "column": 77 },
+          "source": "src/index.js",
+          "original": { "line": 57, "column": 66 }
+        },
+        {
+          "generated": { "line": 74, "column": 79 },
+          "source": "src/index.js",
+          "original": { "line": 57, "column": 73 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 75, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 2 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 75, "column": 2 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 2 }
+        },
+        {
+          "generated": { "line": 75, "column": 7 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 7 }
+        },
+        {
+          "name": "blockImage",
+          "generated": { "line": 75, "column": 8 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 8 }
+        },
+        {
+          "generated": { "line": 75, "column": 18 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 2 }
+        },
+        {
+          "name": "src",
+          "generated": { "line": 75, "column": 19 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 19 }
+        },
+        {
+          "generated": { "line": 75, "column": 22 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 2 }
+        },
+        {
+          "name": "URL",
+          "generated": { "line": 75, "column": 25 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 25 }
+        },
+        {
+          "generated": { "line": 75, "column": 28 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 28 }
+        },
+        {
+          "name": "createObjectURL",
+          "generated": { "line": 75, "column": 29 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 29 }
+        },
+        {
+          "generated": { "line": 75, "column": 44 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 25 }
+        },
+        {
+          "name": "e",
+          "generated": { "line": 75, "column": 45 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 45 }
+        },
+        {
+          "generated": { "line": 75, "column": 46 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 46 }
+        },
+        {
+          "name": "target",
+          "generated": { "line": 75, "column": 47 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 47 }
+        },
+        {
+          "generated": { "line": 75, "column": 53 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 45 }
+        },
+        {
+          "name": "files",
+          "generated": { "line": 75, "column": 54 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 54 }
+        },
+        {
+          "generated": { "line": 75, "column": 59 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 45 }
+        },
+        {
+          "generated": { "line": 75, "column": 60 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 60 }
+        },
+        {
+          "generated": { "line": 75, "column": 61 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 45 }
+        },
+        {
+          "generated": { "line": 75, "column": 62 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 25 }
+        },
+        {
+          "generated": { "line": 75, "column": 63 },
+          "source": "src/index.js",
+          "original": { "line": 58, "column": 2 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 77, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 59, "column": 2 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 77, "column": 2 },
+          "source": "src/index.js",
+          "original": { "line": 59, "column": 2 }
+        },
+        {
+          "generated": { "line": 77, "column": 7 },
+          "source": "src/index.js",
+          "original": { "line": 59, "column": 7 }
+        },
+        {
+          "name": "blockImage",
+          "generated": { "line": 77, "column": 8 },
+          "source": "src/index.js",
+          "original": { "line": 59, "column": 8 }
+        },
+        {
+          "generated": { "line": 77, "column": 18 },
+          "source": "src/index.js",
+          "original": { "line": 59, "column": 2 }
+        },
+        {
+          "name": "onload",
+          "generated": { "line": 77, "column": 19 },
+          "source": "src/index.js",
+          "original": { "line": 59, "column": 19 }
+        },
+        {
+          "generated": { "line": 77, "column": 25 },
+          "source": "src/index.js",
+          "original": { "line": 59, "column": 2 }
+        },
+        {
+          "generated": { "line": 77, "column": 28 },
+          "source": "src/index.js",
+          "original": { "line": 59, "column": 28 }
+        },
+        {
+          "generated": { "line": 77, "column": 40 },
+          "source": "src/index.js",
+          "original": { "line": 59, "column": 34 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 78, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 60, "column": 4 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 78, "column": 4 },
+          "source": "src/index.js",
+          "original": { "line": 60, "column": 4 }
+        },
+        {
+          "generated": { "line": 78, "column": 9 },
+          "source": "src/index.js",
+          "original": { "line": 60, "column": 9 }
+        },
+        {
+          "name": "blockImageReady",
+          "generated": { "line": 78, "column": 10 },
+          "source": "src/index.js",
+          "original": { "line": 60, "column": 10 }
+        },
+        {
+          "generated": { "line": 78, "column": 25 },
+          "source": "src/index.js",
+          "original": { "line": 60, "column": 4 }
+        },
+        {
+          "generated": { "line": 78, "column": 28 },
+          "source": "src/index.js",
+          "original": { "line": 60, "column": 28 }
+        },
+        {
+          "generated": { "line": 78, "column": 32 },
+          "source": "src/index.js",
+          "original": { "line": 60, "column": 4 }
+        },
+        {
+          "generated": { "line": 79, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 61, "column": 3 }
+        },
+        {
+          "generated": { "line": 79, "column": 3 },
+          "source": "src/index.js",
+          "original": { "line": 59, "column": 2 }
+        },
+        {
+          "generated": { "line": 80, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 62, "column": 1 }
+        },
+        {
+          "generated": { "line": 80, "column": 1 },
+          "source": "src/index.js",
+          "original": { "line": 57, "column": 0 }
+        },
+        {
+          "name": "document",
+          "generated": { "line": 81, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 63, "column": 0 }
+        },
+        {
+          "generated": { "line": 81, "column": 8 },
+          "source": "src/index.js",
+          "original": { "line": 63, "column": 8 }
+        },
+        {
+          "name": "getElementById",
+          "generated": { "line": 81, "column": 9 },
+          "source": "src/index.js",
+          "original": { "line": 63, "column": 9 }
+        },
+        {
+          "generated": { "line": 81, "column": 23 },
+          "source": "src/index.js",
+          "original": { "line": 63, "column": 0 }
+        },
+        {
+          "generated": { "line": 81, "column": 24 },
+          "source": "src/index.js",
+          "original": { "line": 63, "column": 24 }
+        },
+        {
+          "generated": { "line": 81, "column": 38 },
+          "source": "src/index.js",
+          "original": { "line": 63, "column": 0 }
+        },
+        {
+          "name": "addEventListener",
+          "generated": { "line": 81, "column": 40 },
+          "source": "src/index.js",
+          "original": { "line": 63, "column": 40 }
+        },
+        {
+          "generated": { "line": 81, "column": 56 },
+          "source": "src/index.js",
+          "original": { "line": 63, "column": 0 }
+        },
+        {
+          "generated": { "line": 81, "column": 57 },
+          "source": "src/index.js",
+          "original": { "line": 63, "column": 57 }
+        },
+        {
+          "generated": { "line": 81, "column": 65 },
+          "source": "src/index.js",
+          "original": { "line": 63, "column": 0 }
+        },
+        {
+          "generated": { "line": 81, "column": 67 },
+          "source": "src/index.js",
+          "original": { "line": 63, "column": 67 }
+        },
+        {
+          "name": "e",
+          "generated": { "line": 81, "column": 77 },
+          "source": "src/index.js",
+          "original": { "line": 63, "column": 68 }
+        },
+        {
+          "generated": { "line": 81, "column": 78 },
+          "source": "src/index.js",
+          "original": { "line": 63, "column": 67 }
+        },
+        {
+          "generated": { "line": 81, "column": 80 },
+          "source": "src/index.js",
+          "original": { "line": 63, "column": 74 }
+        },
+        {
+          "generated": { "line": 82, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 64, "column": 2 }
+        },
+        {
+          "name": "file",
+          "generated": { "line": 82, "column": 6 },
+          "source": "src/index.js",
+          "original": { "line": 64, "column": 8 }
+        },
+        {
+          "generated": { "line": 82, "column": 10 },
+          "source": "src/index.js",
+          "original": { "line": 64, "column": 12 }
+        },
+        {
+          "name": "e",
+          "generated": { "line": 82, "column": 13 },
+          "source": "src/index.js",
+          "original": { "line": 64, "column": 15 }
+        },
+        {
+          "generated": { "line": 82, "column": 14 },
+          "source": "src/index.js",
+          "original": { "line": 64, "column": 16 }
+        },
+        {
+          "name": "target",
+          "generated": { "line": 82, "column": 15 },
+          "source": "src/index.js",
+          "original": { "line": 64, "column": 17 }
+        },
+        {
+          "generated": { "line": 82, "column": 21 },
+          "source": "src/index.js",
+          "original": { "line": 64, "column": 15 }
+        },
+        {
+          "name": "files",
+          "generated": { "line": 82, "column": 22 },
+          "source": "src/index.js",
+          "original": { "line": 64, "column": 24 }
+        },
+        {
+          "generated": { "line": 82, "column": 27 },
+          "source": "src/index.js",
+          "original": { "line": 64, "column": 15 }
+        },
+        {
+          "generated": { "line": 82, "column": 28 },
+          "source": "src/index.js",
+          "original": { "line": 64, "column": 30 }
+        },
+        {
+          "generated": { "line": 82, "column": 29 },
+          "source": "src/index.js",
+          "original": { "line": 64, "column": 15 }
+        },
+        {
+          "generated": { "line": 82, "column": 30 },
+          "source": "src/index.js",
+          "original": { "line": 64, "column": 2 }
+        },
+        {
+          "generated": { "line": 83, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 65, "column": 2 }
+        },
+        {
+          "name": "fr",
+          "generated": { "line": 83, "column": 6 },
+          "source": "src/index.js",
+          "original": { "line": 65, "column": 8 }
+        },
+        {
+          "generated": { "line": 83, "column": 8 },
+          "source": "src/index.js",
+          "original": { "line": 65, "column": 10 }
+        },
+        {
+          "generated": { "line": 83, "column": 11 },
+          "source": "src/index.js",
+          "original": { "line": 65, "column": 13 }
+        },
+        {
+          "name": "FileReader",
+          "generated": { "line": 83, "column": 15 },
+          "source": "src/index.js",
+          "original": { "line": 65, "column": 17 }
+        },
+        {
+          "generated": { "line": 83, "column": 25 },
+          "source": "src/index.js",
+          "original": { "line": 65, "column": 13 }
+        },
+        {
+          "generated": { "line": 83, "column": 27 },
+          "source": "src/index.js",
+          "original": { "line": 65, "column": 2 }
+        },
+        {
+          "name": "fr",
+          "generated": { "line": 85, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 66, "column": 2 }
+        },
+        {
+          "name": "fr",
+          "generated": { "line": 85, "column": 2 },
+          "source": "src/index.js",
+          "original": { "line": 66, "column": 2 }
+        },
+        {
+          "generated": { "line": 85, "column": 4 },
+          "source": "src/index.js",
+          "original": { "line": 66, "column": 4 }
+        },
+        {
+          "name": "onload",
+          "generated": { "line": 85, "column": 5 },
+          "source": "src/index.js",
+          "original": { "line": 66, "column": 5 }
+        },
+        {
+          "generated": { "line": 85, "column": 11 },
+          "source": "src/index.js",
+          "original": { "line": 66, "column": 2 }
+        },
+        {
+          "generated": { "line": 85, "column": 14 },
+          "source": "src/index.js",
+          "original": { "line": 66, "column": 14 }
+        },
+        {
+          "generated": { "line": 85, "column": 26 },
+          "source": "src/index.js",
+          "original": { "line": 66, "column": 20 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 86, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 66, "column": 22 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 86, "column": 4 },
+          "source": "src/index.js",
+          "original": { "line": 66, "column": 22 }
+        },
+        {
+          "generated": { "line": 86, "column": 9 },
+          "source": "src/index.js",
+          "original": { "line": 66, "column": 27 }
+        },
+        {
+          "name": "rawText",
+          "generated": { "line": 86, "column": 10 },
+          "source": "src/index.js",
+          "original": { "line": 66, "column": 28 }
+        },
+        {
+          "generated": { "line": 86, "column": 17 },
+          "source": "src/index.js",
+          "original": { "line": 66, "column": 22 }
+        },
+        {
+          "name": "fr",
+          "generated": { "line": 86, "column": 20 },
+          "source": "src/index.js",
+          "original": { "line": 66, "column": 38 }
+        },
+        {
+          "generated": { "line": 86, "column": 22 },
+          "source": "src/index.js",
+          "original": { "line": 66, "column": 40 }
+        },
+        {
+          "name": "result",
+          "generated": { "line": 86, "column": 23 },
+          "source": "src/index.js",
+          "original": { "line": 66, "column": 41 }
+        },
+        {
+          "generated": { "line": 86, "column": 29 },
+          "source": "src/index.js",
+          "original": { "line": 66, "column": 22 }
+        },
+        {
+          "generated": { "line": 87, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 66, "column": 50 }
+        },
+        {
+          "generated": { "line": 87, "column": 3 },
+          "source": "src/index.js",
+          "original": { "line": 66, "column": 2 }
+        },
+        {
+          "name": "fr",
+          "generated": { "line": 89, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 67, "column": 2 }
+        },
+        {
+          "name": "fr",
+          "generated": { "line": 89, "column": 2 },
+          "source": "src/index.js",
+          "original": { "line": 67, "column": 2 }
+        },
+        {
+          "generated": { "line": 89, "column": 4 },
+          "source": "src/index.js",
+          "original": { "line": 67, "column": 4 }
+        },
+        {
+          "name": "readAsText",
+          "generated": { "line": 89, "column": 5 },
+          "source": "src/index.js",
+          "original": { "line": 67, "column": 5 }
+        },
+        {
+          "generated": { "line": 89, "column": 15 },
+          "source": "src/index.js",
+          "original": { "line": 67, "column": 2 }
+        },
+        {
+          "name": "file",
+          "generated": { "line": 89, "column": 16 },
+          "source": "src/index.js",
+          "original": { "line": 67, "column": 16 }
+        },
+        {
+          "generated": { "line": 89, "column": 20 },
+          "source": "src/index.js",
+          "original": { "line": 67, "column": 2 }
+        },
+        {
+          "generated": { "line": 90, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 68, "column": 1 }
+        },
+        {
+          "generated": { "line": 90, "column": 1 },
+          "source": "src/index.js",
+          "original": { "line": 63, "column": 0 }
+        },
+        {
+          "generated": { "line": 90, "column": 4 },
+          "source": "src/index.js",
+          "original": { "line": 70, "column": 0 }
+        },
+        {
+          "name": "document",
+          "generated": { "line": 92, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 71, "column": 0 }
+        },
+        {
+          "generated": { "line": 92, "column": 8 },
+          "source": "src/index.js",
+          "original": { "line": 71, "column": 8 }
+        },
+        {
+          "name": "getElementById",
+          "generated": { "line": 92, "column": 9 },
+          "source": "src/index.js",
+          "original": { "line": 71, "column": 9 }
+        },
+        {
+          "generated": { "line": 92, "column": 23 },
+          "source": "src/index.js",
+          "original": { "line": 71, "column": 0 }
+        },
+        {
+          "generated": { "line": 92, "column": 24 },
+          "source": "src/index.js",
+          "original": { "line": 71, "column": 24 }
+        },
+        {
+          "generated": { "line": 92, "column": 38 },
+          "source": "src/index.js",
+          "original": { "line": 71, "column": 0 }
+        },
+        {
+          "name": "addEventListener",
+          "generated": { "line": 92, "column": 40 },
+          "source": "src/index.js",
+          "original": { "line": 71, "column": 40 }
+        },
+        {
+          "generated": { "line": 92, "column": 56 },
+          "source": "src/index.js",
+          "original": { "line": 71, "column": 0 }
+        },
+        {
+          "generated": { "line": 92, "column": 57 },
+          "source": "src/index.js",
+          "original": { "line": 71, "column": 57 }
+        },
+        {
+          "generated": { "line": 92, "column": 65 },
+          "source": "src/index.js",
+          "original": { "line": 71, "column": 0 }
+        },
+        {
+          "generated": { "line": 92, "column": 67 },
+          "source": "src/index.js",
+          "original": { "line": 71, "column": 67 }
+        },
+        {
+          "name": "e",
+          "generated": { "line": 92, "column": 77 },
+          "source": "src/index.js",
+          "original": { "line": 71, "column": 68 }
+        },
+        {
+          "generated": { "line": 92, "column": 78 },
+          "source": "src/index.js",
+          "original": { "line": 71, "column": 67 }
+        },
+        {
+          "generated": { "line": 92, "column": 80 },
+          "source": "src/index.js",
+          "original": { "line": 71, "column": 74 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 93, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 72, "column": 2 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 93, "column": 2 },
+          "source": "src/index.js",
+          "original": { "line": 72, "column": 2 }
+        },
+        {
+          "generated": { "line": 93, "column": 7 },
+          "source": "src/index.js",
+          "original": { "line": 72, "column": 7 }
+        },
+        {
+          "name": "blockImageOffset",
+          "generated": { "line": 93, "column": 8 },
+          "source": "src/index.js",
+          "original": { "line": 72, "column": 8 }
+        },
+        {
+          "generated": { "line": 93, "column": 24 },
+          "source": "src/index.js",
+          "original": { "line": 72, "column": 2 }
+        },
+        {
+          "name": "parseInt",
+          "generated": { "line": 93, "column": 27 },
+          "source": "src/index.js",
+          "original": { "line": 72, "column": 27 }
+        },
+        {
+          "generated": { "line": 93, "column": 35 },
+          "source": "src/index.js",
+          "original": { "line": 72, "column": 35 }
+        },
+        {
+          "name": "e",
+          "generated": { "line": 93, "column": 36 },
+          "source": "src/index.js",
+          "original": { "line": 72, "column": 36 }
+        },
+        {
+          "generated": { "line": 93, "column": 37 },
+          "source": "src/index.js",
+          "original": { "line": 72, "column": 37 }
+        },
+        {
+          "name": "target",
+          "generated": { "line": 93, "column": 38 },
+          "source": "src/index.js",
+          "original": { "line": 72, "column": 38 }
+        },
+        {
+          "generated": { "line": 93, "column": 44 },
+          "source": "src/index.js",
+          "original": { "line": 72, "column": 36 }
+        },
+        {
+          "name": "value",
+          "generated": { "line": 93, "column": 45 },
+          "source": "src/index.js",
+          "original": { "line": 72, "column": 45 }
+        },
+        {
+          "generated": { "line": 93, "column": 50 },
+          "source": "src/index.js",
+          "original": { "line": 72, "column": 35 }
+        },
+        {
+          "generated": { "line": 93, "column": 52 },
+          "source": "src/index.js",
+          "original": { "line": 72, "column": 52 }
+        },
+        {
+          "generated": { "line": 93, "column": 54 },
+          "source": "src/index.js",
+          "original": { "line": 72, "column": 35 }
+        },
+        {
+          "generated": { "line": 93, "column": 55 },
+          "source": "src/index.js",
+          "original": { "line": 72, "column": 2 }
+        },
+        {
+          "generated": { "line": 94, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 73, "column": 1 }
+        },
+        {
+          "generated": { "line": 94, "column": 1 },
+          "source": "src/index.js",
+          "original": { "line": 71, "column": 0 }
+        },
+        {
+          "generated": { "line": 94, "column": 4 },
+          "source": "src/index.js",
+          "original": { "line": 75, "column": 0 }
+        },
+        {
+          "name": "watcher",
+          "generated": { "line": 96, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 76, "column": 0 }
+        },
+        {
+          "generated": { "line": 96, "column": 7 },
+          "source": "src/index.js",
+          "original": { "line": 76, "column": 7 }
+        },
+        {
+          "name": "on",
+          "generated": { "line": 96, "column": 8 },
+          "source": "src/index.js",
+          "original": { "line": 76, "column": 8 }
+        },
+        {
+          "generated": { "line": 96, "column": 10 },
+          "source": "src/index.js",
+          "original": { "line": 76, "column": 0 }
+        },
+        {
+          "generated": { "line": 96, "column": 11 },
+          "source": "src/index.js",
+          "original": { "line": 76, "column": 11 }
+        },
+        {
+          "generated": { "line": 96, "column": 19 },
+          "source": "src/index.js",
+          "original": { "line": 76, "column": 0 }
+        },
+        {
+          "generated": { "line": 96, "column": 21 },
+          "source": "src/index.js",
+          "original": { "line": 76, "column": 21 }
+        },
+        {
+          "generated": { "line": 96, "column": 22 },
+          "source": "src/index.js",
+          "original": { "line": 76, "column": 22 }
+        },
+        {
+          "generated": { "line": 96, "column": 40 },
+          "source": "src/index.js",
+          "original": { "line": 76, "column": 21 }
+        },
+        {
+          "generated": { "line": 96, "column": 42 },
+          "source": "src/index.js",
+          "original": { "line": 76, "column": 42 }
+        },
+        {
+          "generated": { "line": 96, "column": 59 },
+          "source": "src/index.js",
+          "original": { "line": 76, "column": 21 }
+        },
+        {
+          "generated": { "line": 96, "column": 60 },
+          "source": "src/index.js",
+          "original": { "line": 76, "column": 0 }
+        },
+        {
+          "generated": { "line": 96, "column": 62 },
+          "source": "src/index.js",
+          "original": { "line": 76, "column": 62 }
+        },
+        {
+          "name": "s",
+          "generated": { "line": 96, "column": 72 },
+          "source": "src/index.js",
+          "original": { "line": 76, "column": 63 }
+        },
+        {
+          "generated": { "line": 96, "column": 73 },
+          "source": "src/index.js",
+          "original": { "line": 76, "column": 62 }
+        },
+        {
+          "generated": { "line": 96, "column": 75 },
+          "source": "src/index.js",
+          "original": { "line": 76, "column": 69 }
+        },
+        {
+          "generated": { "line": 97, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 77, "column": 2 }
+        },
+        {
+          "name": "ctx",
+          "generated": { "line": 97, "column": 33 },
+          "source": "src/index.js",
+          "original": { "line": 77, "column": 19 }
+        },
+        {
+          "generated": { "line": 97, "column": 36 },
+          "source": "src/index.js",
+          "original": { "line": 77, "column": 2 }
+        },
+        {
+          "name": "s",
+          "generated": { "line": 97, "column": 38 },
+          "source": "src/index.js",
+          "original": { "line": 77, "column": 24 }
+        },
+        {
+          "generated": { "line": 97, "column": 39 },
+          "source": "src/index.js",
+          "original": { "line": 77, "column": 25 }
+        },
+        {
+          "name": "blockImage",
+          "generated": { "line": 97, "column": 40 },
+          "source": "src/index.js",
+          "original": { "line": 77, "column": 26 }
+        },
+        {
+          "generated": { "line": 97, "column": 50 },
+          "source": "src/index.js",
+          "original": { "line": 77, "column": 2 }
+        },
+        {
+          "name": "s",
+          "generated": { "line": 97, "column": 52 },
+          "source": "src/index.js",
+          "original": { "line": 77, "column": 38 }
+        },
+        {
+          "generated": { "line": 97, "column": 53 },
+          "source": "src/index.js",
+          "original": { "line": 77, "column": 39 }
+        },
+        {
+          "name": "blockImageOffset",
+          "generated": { "line": 97, "column": 54 },
+          "source": "src/index.js",
+          "original": { "line": 77, "column": 40 }
+        },
+        {
+          "generated": { "line": 97, "column": 70 },
+          "source": "src/index.js",
+          "original": { "line": 77, "column": 2 }
+        },
+        {
+          "generated": { "line": 99, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 78, "column": 2 }
+        },
+        {
+          "name": "s",
+          "generated": { "line": 99, "column": 6 },
+          "source": "src/index.js",
+          "original": { "line": 78, "column": 6 }
+        },
+        {
+          "generated": { "line": 99, "column": 7 },
+          "source": "src/index.js",
+          "original": { "line": 78, "column": 7 }
+        },
+        {
+          "name": "content",
+          "generated": { "line": 99, "column": 8 },
+          "source": "src/index.js",
+          "original": { "line": 78, "column": 8 }
+        },
+        {
+          "generated": { "line": 99, "column": 15 },
+          "source": "src/index.js",
+          "original": { "line": 78, "column": 6 }
+        },
+        {
+          "name": "length",
+          "generated": { "line": 99, "column": 16 },
+          "source": "src/index.js",
+          "original": { "line": 78, "column": 16 }
+        },
+        {
+          "generated": { "line": 99, "column": 22 },
+          "source": "src/index.js",
+          "original": { "line": 78, "column": 2 }
+        },
+        {
+          "generated": { "line": 99, "column": 24 },
+          "source": "src/index.js",
+          "original": { "line": 78, "column": 24 }
+        },
+        {
+          "generated": { "line": 100, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 79, "column": 4 }
+        },
+        {
+          "name": "ctx",
+          "generated": { "line": 100, "column": 29 },
+          "source": "src/index.js",
+          "original": { "line": 79, "column": 15 }
+        },
+        {
+          "generated": { "line": 100, "column": 32 },
+          "source": "src/index.js",
+          "original": { "line": 79, "column": 4 }
+        },
+        {
+          "name": "s",
+          "generated": { "line": 100, "column": 34 },
+          "source": "src/index.js",
+          "original": { "line": 79, "column": 20 }
+        },
+        {
+          "generated": { "line": 100, "column": 35 },
+          "source": "src/index.js",
+          "original": { "line": 79, "column": 21 }
+        },
+        {
+          "name": "content",
+          "generated": { "line": 100, "column": 36 },
+          "source": "src/index.js",
+          "original": { "line": 79, "column": 22 }
+        },
+        {
+          "generated": { "line": 100, "column": 43 },
+          "source": "src/index.js",
+          "original": { "line": 79, "column": 20 }
+        },
+        {
+          "generated": { "line": 100, "column": 44 },
+          "source": "src/index.js",
+          "original": { "line": 79, "column": 30 }
+        },
+        {
+          "generated": { "line": 100, "column": 45 },
+          "source": "src/index.js",
+          "original": { "line": 79, "column": 20 }
+        },
+        {
+          "name": "content",
+          "generated": { "line": 100, "column": 47 },
+          "source": "src/index.js",
+          "original": { "line": 79, "column": 33 }
+        },
+        {
+          "generated": { "line": 100, "column": 54 },
+          "source": "src/index.js",
+          "original": { "line": 79, "column": 4 }
+        },
+        {
+          "name": "BOX_X_START",
+          "generated": { "line": 100, "column": 56 },
+          "source": "src/index.js",
+          "original": { "line": 79, "column": 42 }
+        },
+        {
+          "name": "BOX_PADDING_X",
+          "generated": { "line": 100, "column": 80 },
+          "source": "src/index.js",
+          "original": { "line": 79, "column": 56 }
+        },
+        {
+          "generated": { "line": 100, "column": 103 },
+          "source": "src/index.js",
+          "original": { "line": 79, "column": 4 }
+        },
+        {
+          "name": "BOX_Y_START",
+          "generated": { "line": 100, "column": 105 },
+          "source": "src/index.js",
+          "original": { "line": 79, "column": 71 }
+        },
+        {
+          "name": "BOX_PADDING_Y",
+          "generated": { "line": 100, "column": 129 },
+          "source": "src/index.js",
+          "original": { "line": 79, "column": 85 }
+        },
+        {
+          "generated": { "line": 100, "column": 152 },
+          "source": "src/index.js",
+          "original": { "line": 79, "column": 4 }
+        },
+        {
+          "generated": { "line": 101, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 80, "column": 3 }
+        },
+        {
+          "generated": { "line": 102, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 81, "column": 1 }
+        },
+        {
+          "generated": { "line": 102, "column": 1 },
+          "source": "src/index.js",
+          "original": { "line": 76, "column": 0 }
+        },
+        {
+          "name": "watcher",
+          "generated": { "line": 103, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 83, "column": 0 }
+        },
+        {
+          "generated": { "line": 103, "column": 7 },
+          "source": "src/index.js",
+          "original": { "line": 83, "column": 7 }
+        },
+        {
+          "name": "on",
+          "generated": { "line": 103, "column": 8 },
+          "source": "src/index.js",
+          "original": { "line": 83, "column": 8 }
+        },
+        {
+          "generated": { "line": 103, "column": 10 },
+          "source": "src/index.js",
+          "original": { "line": 83, "column": 0 }
+        },
+        {
+          "generated": { "line": 103, "column": 11 },
+          "source": "src/index.js",
+          "original": { "line": 83, "column": 11 }
+        },
+        {
+          "generated": { "line": 103, "column": 19 },
+          "source": "src/index.js",
+          "original": { "line": 83, "column": 0 }
+        },
+        {
+          "generated": { "line": 103, "column": 21 },
+          "source": "src/index.js",
+          "original": { "line": 83, "column": 21 }
+        },
+        {
+          "generated": { "line": 103, "column": 22 },
+          "source": "src/index.js",
+          "original": { "line": 83, "column": 22 }
+        },
+        {
+          "generated": { "line": 103, "column": 31 },
+          "source": "src/index.js",
+          "original": { "line": 83, "column": 21 }
+        },
+        {
+          "generated": { "line": 103, "column": 32 },
+          "source": "src/index.js",
+          "original": { "line": 83, "column": 0 }
+        },
+        {
+          "generated": { "line": 103, "column": 34 },
+          "source": "src/index.js",
+          "original": { "line": 83, "column": 34 }
+        },
+        {
+          "name": "s",
+          "generated": { "line": 103, "column": 44 },
+          "source": "src/index.js",
+          "original": { "line": 83, "column": 35 }
+        },
+        {
+          "generated": { "line": 103, "column": 45 },
+          "source": "src/index.js",
+          "original": { "line": 83, "column": 34 }
+        },
+        {
+          "generated": { "line": 103, "column": 47 },
+          "source": "src/index.js",
+          "original": { "line": 83, "column": 41 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 104, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 84, "column": 2 }
+        },
+        {
+          "name": "state",
+          "generated": { "line": 104, "column": 2 },
+          "source": "src/index.js",
+          "original": { "line": 84, "column": 2 }
+        },
+        {
+          "generated": { "line": 104, "column": 7 },
+          "source": "src/index.js",
+          "original": { "line": 84, "column": 7 }
+        },
+        {
+          "name": "content",
+          "generated": { "line": 104, "column": 8 },
+          "source": "src/index.js",
+          "original": { "line": 84, "column": 8 }
+        },
+        {
+          "generated": { "line": 104, "column": 15 },
+          "source": "src/index.js",
+          "original": { "line": 84, "column": 2 }
+        },
+        {
+          "generated": { "line": 104, "column": 18 },
+          "source": "src/index.js",
+          "original": { "line": 84, "column": 18 }
+        },
+        {
+          "name": "s",
+          "generated": { "line": 104, "column": 42 },
+          "source": "src/index.js",
+          "original": { "line": 84, "column": 24 }
+        },
+        {
+          "generated": { "line": 104, "column": 43 },
+          "source": "src/index.js",
+          "original": { "line": 84, "column": 25 }
+        },
+        {
+          "name": "rawText",
+          "generated": { "line": 104, "column": 44 },
+          "source": "src/index.js",
+          "original": { "line": 84, "column": 26 }
+        },
+        {
+          "generated": { "line": 104, "column": 51 },
+          "source": "src/index.js",
+          "original": { "line": 84, "column": 18 }
+        },
+        {
+          "generated": { "line": 104, "column": 52 },
+          "source": "src/index.js",
+          "original": { "line": 84, "column": 2 }
+        },
+        {
+          "generated": { "line": 105, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 85, "column": 1 }
+        },
+        {
+          "generated": { "line": 105, "column": 1 },
+          "source": "src/index.js",
+          "original": { "line": 83, "column": 0 }
+        },
+        {
+          "name": "watcher",
+          "generated": { "line": 106, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 87, "column": 0 }
+        },
+        {
+          "generated": { "line": 106, "column": 7 },
+          "source": "src/index.js",
+          "original": { "line": 87, "column": 7 }
+        },
+        {
+          "name": "on",
+          "generated": { "line": 106, "column": 8 },
+          "source": "src/index.js",
+          "original": { "line": 87, "column": 8 }
+        },
+        {
+          "generated": { "line": 106, "column": 10 },
+          "source": "src/index.js",
+          "original": { "line": 87, "column": 0 }
+        },
+        {
+          "generated": { "line": 106, "column": 11 },
+          "source": "src/index.js",
+          "original": { "line": 87, "column": 11 }
+        },
+        {
+          "generated": { "line": 106, "column": 19 },
+          "source": "src/index.js",
+          "original": { "line": 87, "column": 0 }
+        },
+        {
+          "generated": { "line": 106, "column": 21 },
+          "source": "src/index.js",
+          "original": { "line": 87, "column": 21 }
+        },
+        {
+          "generated": { "line": 106, "column": 22 },
+          "source": "src/index.js",
+          "original": { "line": 87, "column": 22 }
+        },
+        {
+          "generated": { "line": 106, "column": 31 },
+          "source": "src/index.js",
+          "original": { "line": 87, "column": 21 }
+        },
+        {
+          "generated": { "line": 106, "column": 32 },
+          "source": "src/index.js",
+          "original": { "line": 87, "column": 0 }
+        },
+        {
+          "generated": { "line": 106, "column": 34 },
+          "source": "src/index.js",
+          "original": { "line": 87, "column": 34 }
+        },
+        {
+          "name": "s",
+          "generated": { "line": 106, "column": 44 },
+          "source": "src/index.js",
+          "original": { "line": 87, "column": 35 }
+        },
+        {
+          "generated": { "line": 106, "column": 45 },
+          "source": "src/index.js",
+          "original": { "line": 87, "column": 34 }
+        },
+        {
+          "generated": { "line": 106, "column": 47 },
+          "source": "src/index.js",
+          "original": { "line": 87, "column": 41 }
+        },
+        {
+          "name": "document",
+          "generated": { "line": 107, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 88, "column": 2 }
+        },
+        {
+          "name": "document",
+          "generated": { "line": 107, "column": 2 },
+          "source": "src/index.js",
+          "original": { "line": 88, "column": 2 }
+        },
+        {
+          "generated": { "line": 107, "column": 10 },
+          "source": "src/index.js",
+          "original": { "line": 88, "column": 10 }
+        },
+        {
+          "name": "getElementById",
+          "generated": { "line": 107, "column": 11 },
+          "source": "src/index.js",
+          "original": { "line": 88, "column": 11 }
+        },
+        {
+          "generated": { "line": 107, "column": 25 },
+          "source": "src/index.js",
+          "original": { "line": 88, "column": 2 }
+        },
+        {
+          "generated": { "line": 107, "column": 26 },
+          "source": "src/index.js",
+          "original": { "line": 88, "column": 26 }
+        },
+        {
+          "generated": { "line": 107, "column": 34 },
+          "source": "src/index.js",
+          "original": { "line": 88, "column": 2 }
+        },
+        {
+          "name": "disabled",
+          "generated": { "line": 107, "column": 36 },
+          "source": "src/index.js",
+          "original": { "line": 88, "column": 36 }
+        },
+        {
+          "generated": { "line": 107, "column": 44 },
+          "source": "src/index.js",
+          "original": { "line": 88, "column": 2 }
+        },
+        {
+          "generated": { "line": 107, "column": 47 },
+          "source": "src/index.js",
+          "original": { "line": 88, "column": 47 }
+        },
+        {
+          "generated": { "line": 107, "column": 52 },
+          "source": "src/index.js",
+          "original": { "line": 88, "column": 2 }
+        },
+        {
+          "generated": { "line": 108, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 89, "column": 2 }
+        },
+        {
+          "name": "ctx",
+          "generated": { "line": 108, "column": 27 },
+          "source": "src/index.js",
+          "original": { "line": 89, "column": 13 }
+        },
+        {
+          "generated": { "line": 108, "column": 30 },
+          "source": "src/index.js",
+          "original": { "line": 89, "column": 2 }
+        },
+        {
+          "name": "s",
+          "generated": { "line": 108, "column": 32 },
+          "source": "src/index.js",
+          "original": { "line": 89, "column": 18 }
+        },
+        {
+          "generated": { "line": 108, "column": 33 },
+          "source": "src/index.js",
+          "original": { "line": 89, "column": 19 }
+        },
+        {
+          "name": "content",
+          "generated": { "line": 108, "column": 34 },
+          "source": "src/index.js",
+          "original": { "line": 89, "column": 20 }
+        },
+        {
+          "generated": { "line": 108, "column": 41 },
+          "source": "src/index.js",
+          "original": { "line": 89, "column": 18 }
+        },
+        {
+          "generated": { "line": 108, "column": 42 },
+          "source": "src/index.js",
+          "original": { "line": 89, "column": 28 }
+        },
+        {
+          "generated": { "line": 108, "column": 43 },
+          "source": "src/index.js",
+          "original": { "line": 89, "column": 18 }
+        },
+        {
+          "name": "content",
+          "generated": { "line": 108, "column": 45 },
+          "source": "src/index.js",
+          "original": { "line": 89, "column": 31 }
+        },
+        {
+          "generated": { "line": 108, "column": 52 },
+          "source": "src/index.js",
+          "original": { "line": 89, "column": 2 }
+        },
+        {
+          "name": "BOX_X_START",
+          "generated": { "line": 108, "column": 54 },
+          "source": "src/index.js",
+          "original": { "line": 89, "column": 40 }
+        },
+        {
+          "name": "BOX_PADDING_X",
+          "generated": { "line": 108, "column": 78 },
+          "source": "src/index.js",
+          "original": { "line": 89, "column": 54 }
+        },
+        {
+          "generated": { "line": 108, "column": 101 },
+          "source": "src/index.js",
+          "original": { "line": 89, "column": 2 }
+        },
+        {
+          "name": "BOX_Y_START",
+          "generated": { "line": 108, "column": 103 },
+          "source": "src/index.js",
+          "original": { "line": 89, "column": 69 }
+        },
+        {
+          "name": "BOX_PADDING_Y",
+          "generated": { "line": 108, "column": 127 },
+          "source": "src/index.js",
+          "original": { "line": 89, "column": 83 }
+        },
+        {
+          "generated": { "line": 108, "column": 150 },
+          "source": "src/index.js",
+          "original": { "line": 89, "column": 2 }
+        },
+        {
+          "generated": { "line": 109, "column": 0 },
+          "source": "src/index.js",
+          "original": { "line": 90, "column": 1 }
+        },
+        {
+          "generated": { "line": 109, "column": 1 },
+          "source": "src/index.js",
+          "original": { "line": 87, "column": 0 }
+        }
+      ],
+      "sources": {
+        "src/index.js": "import createState from 'state-watcher';\n\nimport './styles.css';\n\nimport renderVerseBox from './renderVerseBox';\nimport renderText from './renderText';\nimport renderContentBox from './renderContentBox';\nimport parse from './dotSermon';\n\nimport { BOX_PADDING_X, BOX_PADDING_Y, BOX_WIDTH, BOX_X_START, BOX_Y_START } from './settings';\n\nconst [state, watcher] = createState({\n  blockImage: new Image(),\n  verseColor: '#000',\n  verseBackground: '#000',\n  blockColor: '#000',\n  blockImageReady: false,\n  blockImageOffset: 0,\n  currentBlockText: '',\n  currentVerseText: '',\n  rawText: '',\n  content: [],\n});\n\nconst canvas = document.getElementById('cvs');\nconst ctx = canvas.getContext('2d');\n\nconst fullText =\n  \"In the spring, at the time when kings go off to war, David sent Joab out with the king's men and the whole Israelite army. They destroyed the Ammonites and besieged Rabbah. But David remained in Jerusalem. One evening David got up from his bed and walked around on the roof of the palace. From the roof he saw a woman bathing. The woman was very beautiful, One evening David got up from his bed and walked around on the roof of the palace. From the roof he saw a woman bathing. The woman was very beautiful,\";\n\nrenderVerseBox(ctx, '2 Samuel 11:1-3 NIV');\n\nconst openFilePicker = (id) => () => {\n  document.getElementById(id).click();\n};\n\nconst colorBackground = (name) => (e) => {\n  const el = e.target.parentNode.querySelector('.color-preview');\n  el.style.background = e.target.value.indexOf('#') !== -1 ? e.target.value : `#${e.target.value}`;\n  state[name] = e.target.value;\n};\n\n// File Pickers\ndocument.getElementById('block-image-btn').addEventListener('click', openFilePicker('block-image'));\ndocument\n  .getElementById('sermon-notes-btn')\n  .addEventListener('click', openFilePicker('sermon-notes'));\n\n// Color Pickers\ndocument.getElementById('verse-color').addEventListener('keyup', colorBackground('verseColor'));\ndocument\n  .getElementById('verse-bg-color')\n  .addEventListener('keyup', colorBackground('verseBackground'));\ndocument.getElementById('note-color').addEventListener('keyup', colorBackground('blockColor'));\n\n// File Handlers\ndocument.getElementById('block-image').addEventListener('change', (e) => {\n  state.blockImage.src = URL.createObjectURL(e.target.files[0]);\n  state.blockImage.onload = () => {\n    state.blockImageReady = true;\n  };\n});\ndocument.getElementById('sermon-notes').addEventListener('change', (e) => {\n  const file = e.target.files[0];\n  const fr = new FileReader();\n  fr.onload = () => { state.rawText = fr.result; };\n  fr.readAsText(file);\n});\n\n// Input Listeners\ndocument.getElementById('block-offset').addEventListener('change', (e) => {\n  state.blockImageOffset = parseInt(e.target.value, 10);\n});\n\n// State watchers\nwatcher.on('change', ['blockImageOffset', 'blockImageReady'], (s) => {\n  renderContentBox(ctx, s.blockImage, s.blockImageOffset);\n  if (s.content.length) {\n    renderText(ctx, s.content[0].content, BOX_X_START + BOX_PADDING_X, BOX_Y_START + BOX_PADDING_Y);\n  }\n});\n\nwatcher.on('change', ['rawText'], (s) => {\n  state.content = parse(s.rawText);\n});\n\nwatcher.on('change', ['content'], (s) => {\n  document.getElementById('create').disabled = false;\n  renderText(ctx, s.content[0].content, BOX_X_START + BOX_PADDING_X, BOX_Y_START + BOX_PADDING_Y);\n});\n\n"
+      },
+      "lineCount": null
+    }
+  },
+  "error": null,
+  "hash": "a61a180b901258bdc9c9dd5fe82c7c5e",
+  "cacheData": { "env": {} }
+}

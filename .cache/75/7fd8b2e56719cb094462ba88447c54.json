@@ -1,0 +1,3499 @@
+{
+  "id": "node_modules/state-watcher/dist/index.mjs",
+  "dependencies": [
+    {
+      "name": "/Users/mmcelwee/repos/knkt-thirds/node_modules/state-watcher/dist/index.mjs.map",
+      "includedInParent": true,
+      "mtime": 1585082141821
+    },
+    {
+      "name": "/Users/mmcelwee/repos/knkt-thirds/package.json",
+      "includedInParent": true,
+      "mtime": 1585238106980
+    },
+    {
+      "name": "/Users/mmcelwee/repos/knkt-thirds/node_modules/state-watcher/package.json",
+      "includedInParent": true,
+      "mtime": 1585082141821
+    }
+  ],
+  "generated": {
+    "js": "\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = _default;\n\nfunction t(e) {\n  if (\"object\" != typeof e) return e;\n  var n,\n      r,\n      o = Object.prototype.toString.call(e);\n\n  if (\"[object Object]\" === o) {\n    for (n in r = {}, e) \"__proto__\" === n ? Object.defineProperty(r, n, {\n      value: t(e[n]),\n      configurable: 1,\n      enumerable: 1,\n      writable: 1\n    }) : r[n] = t(e[n]);\n\n    return r;\n  }\n\n  if (\"[object Array]\" === o) {\n    for (n = e.length, r = new Array(n); n--;) r[n] = t(e[n]);\n\n    return r;\n  }\n\n  return \"[object Set]\" === o ? (r = new Set(), e.forEach(function (e) {\n    r.add(t(e));\n  }), r) : \"[object Map]\" === o ? (r = new Map(), e.forEach(function (e, n) {\n    r.set(t(n), t(e));\n  }), r) : \"[object Date]\" === o ? new Date(+e) : \"[object RegExp]\" === o ? ((r = new RegExp(e.source, e.flags)).lastIndex = e.lastIndex, r) : \"Array]\" === o.slice(-6) ? new e.constructor(e) : e;\n}\n\nfunction _default(e) {\n  void 0 === e && (e = {});\n  var n = new Map();\n  return [new Proxy(e, {\n    get: function (t, e) {\n      return t[e];\n    },\n    set: function (e, r, o) {\n      return e[r] = o, n.has(r) ? n.get(r).forEach(function (n) {\n        return n(t(e), t(o), r);\n      }) : n.has(Infinity) && n.get(Infinity).forEach(function (n) {\n        return n(t(e), t(o), r);\n      }), !0;\n    }\n  }), {\n    on: function (t, e, r) {\n      if (\"change\" !== t) throw new Error('Event of type \"' + t + '\" is not currently supported.');\n      if (\"function\" == typeof e && (r = e, e = null), e) e.forEach(function (t) {\n        var e = n.has(t) ? n.get(t).concat([r]) : [r];\n        n.set(t, e);\n      });else {\n        var o = n.has(Infinity) ? n.get(Infinity).concat([r]) : [r];\n        n.set(Infinity, o);\n      }\n    },\n    has: function (t) {\n      return n.has(t);\n    },\n    keys: function () {\n      return n.keys();\n    }\n  }];\n}"
+  },
+  "sourceMaps": {
+    "js": {
+      "mappings": [
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 1, "column": 15 },
+          "generated": { "line": 8, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "klona",
+          "original": { "line": 1, "column": 24 },
+          "generated": { "line": 8, "column": 9 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 1, "column": 15 },
+          "generated": { "line": 8, "column": 10 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 1, "column": 30 },
+          "generated": { "line": 8, "column": 11 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 1, "column": 15 },
+          "generated": { "line": 8, "column": 12 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 1, "column": 30 },
+          "generated": { "line": 8, "column": 14 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 2, "column": 1 },
+          "generated": { "line": 9, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 2, "column": 18 },
+          "generated": { "line": 9, "column": 6 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 2, "column": 18 },
+          "generated": { "line": 9, "column": 18 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 2, "column": 12 },
+          "generated": { "line": 9, "column": 25 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 2, "column": 1 },
+          "generated": { "line": 9, "column": 26 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 2, "column": 28 },
+          "generated": { "line": 9, "column": 28 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 2, "column": 35 },
+          "generated": { "line": 9, "column": 35 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 2, "column": 28 },
+          "generated": { "line": 9, "column": 36 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 4, "column": 1 },
+          "generated": { "line": 10, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "k",
+          "original": { "line": 4, "column": 5 },
+          "generated": { "line": 10, "column": 6 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 4, "column": 1 },
+          "generated": { "line": 10, "column": 7 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 4, "column": 1 },
+          "generated": { "line": 11, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 4, "column": 8 },
+          "generated": { "line": 11, "column": 6 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 4, "column": 1 },
+          "generated": { "line": 11, "column": 7 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 4, "column": 1 },
+          "generated": { "line": 12, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "str",
+          "original": { "line": 4, "column": 13 },
+          "generated": { "line": 12, "column": 6 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "str",
+          "original": { "line": 4, "column": 13 },
+          "generated": { "line": 12, "column": 7 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "Object",
+          "original": { "line": 4, "column": 17 },
+          "generated": { "line": 12, "column": 10 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "Object",
+          "original": { "line": 4, "column": 17 },
+          "generated": { "line": 12, "column": 16 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "prototype",
+          "original": { "line": 4, "column": 24 },
+          "generated": { "line": 12, "column": 17 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "Object",
+          "original": { "line": 4, "column": 17 },
+          "generated": { "line": 12, "column": 26 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "toString",
+          "original": { "line": 4, "column": 34 },
+          "generated": { "line": 12, "column": 27 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "Object",
+          "original": { "line": 4, "column": 17 },
+          "generated": { "line": 12, "column": 35 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "call",
+          "original": { "line": 4, "column": 43 },
+          "generated": { "line": 12, "column": 36 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "Object",
+          "original": { "line": 4, "column": 17 },
+          "generated": { "line": 12, "column": 40 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 4, "column": 48 },
+          "generated": { "line": 12, "column": 41 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "Object",
+          "original": { "line": 4, "column": 17 },
+          "generated": { "line": 12, "column": 42 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 4, "column": 1 },
+          "generated": { "line": 12, "column": 43 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 6, "column": 1 },
+          "generated": { "line": 14, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 6, "column": 13 },
+          "generated": { "line": 14, "column": 6 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "str",
+          "original": { "line": 6, "column": 5 },
+          "generated": { "line": 14, "column": 28 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 6, "column": 1 },
+          "generated": { "line": 14, "column": 29 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 6, "column": 32 },
+          "generated": { "line": 14, "column": 31 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 8, "column": 2 },
+          "generated": { "line": 15, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "k",
+          "original": { "line": 8, "column": 7 },
+          "generated": { "line": 15, "column": 9 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 8, "column": 2 },
+          "generated": { "line": 15, "column": 10 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 7, "column": 2 },
+          "generated": { "line": 15, "column": 14 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 7, "column": 2 },
+          "generated": { "line": 15, "column": 15 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 7, "column": 8 },
+          "generated": { "line": 15, "column": 18 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 7, "column": 2 },
+          "generated": { "line": 15, "column": 20 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 8, "column": 12 },
+          "generated": { "line": 15, "column": 22 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 8, "column": 2 },
+          "generated": { "line": 15, "column": 23 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 9, "column": 13 },
+          "generated": { "line": 15, "column": 25 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "k",
+          "original": { "line": 9, "column": 7 },
+          "generated": { "line": 15, "column": 41 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 9, "column": 13 },
+          "generated": { "line": 15, "column": 42 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "Object",
+          "original": { "line": 10, "column": 4 },
+          "generated": { "line": 15, "column": 45 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "Object",
+          "original": { "line": 10, "column": 4 },
+          "generated": { "line": 15, "column": 51 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "defineProperty",
+          "original": { "line": 10, "column": 11 },
+          "generated": { "line": 15, "column": 52 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "Object",
+          "original": { "line": 10, "column": 4 },
+          "generated": { "line": 15, "column": 66 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 10, "column": 26 },
+          "generated": { "line": 15, "column": 67 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "Object",
+          "original": { "line": 10, "column": 4 },
+          "generated": { "line": 15, "column": 68 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "k",
+          "original": { "line": 10, "column": 31 },
+          "generated": { "line": 15, "column": 70 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "Object",
+          "original": { "line": 10, "column": 4 },
+          "generated": { "line": 15, "column": 71 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 10, "column": 34 },
+          "generated": { "line": 15, "column": 73 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "value",
+          "original": { "line": 11, "column": 5 },
+          "generated": { "line": 16, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "value",
+          "original": { "line": 11, "column": 5 },
+          "generated": { "line": 16, "column": 6 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "value",
+          "original": { "line": 11, "column": 5 },
+          "generated": { "line": 16, "column": 11 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "klona",
+          "original": { "line": 11, "column": 12 },
+          "generated": { "line": 16, "column": 13 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "klona",
+          "original": { "line": 11, "column": 12 },
+          "generated": { "line": 16, "column": 14 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 11, "column": 18 },
+          "generated": { "line": 16, "column": 15 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 11, "column": 18 },
+          "generated": { "line": 16, "column": 16 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "k",
+          "original": { "line": 11, "column": 20 },
+          "generated": { "line": 16, "column": 17 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 11, "column": 18 },
+          "generated": { "line": 16, "column": 18 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "klona",
+          "original": { "line": 11, "column": 12 },
+          "generated": { "line": 16, "column": 19 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 10, "column": 34 },
+          "generated": { "line": 16, "column": 20 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "configurable",
+          "original": { "line": 12, "column": 5 },
+          "generated": { "line": 17, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "configurable",
+          "original": { "line": 12, "column": 5 },
+          "generated": { "line": 17, "column": 6 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "configurable",
+          "original": { "line": 12, "column": 5 },
+          "generated": { "line": 17, "column": 18 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 12, "column": 19 },
+          "generated": { "line": 17, "column": 20 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 10, "column": 34 },
+          "generated": { "line": 17, "column": 21 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "enumerable",
+          "original": { "line": 13, "column": 5 },
+          "generated": { "line": 18, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "enumerable",
+          "original": { "line": 13, "column": 5 },
+          "generated": { "line": 18, "column": 6 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "enumerable",
+          "original": { "line": 13, "column": 5 },
+          "generated": { "line": 18, "column": 16 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 13, "column": 17 },
+          "generated": { "line": 18, "column": 18 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 10, "column": 34 },
+          "generated": { "line": 18, "column": 19 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "writable",
+          "original": { "line": 14, "column": 5 },
+          "generated": { "line": 19, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "writable",
+          "original": { "line": 14, "column": 5 },
+          "generated": { "line": 19, "column": 6 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "writable",
+          "original": { "line": 14, "column": 5 },
+          "generated": { "line": 19, "column": 14 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 14, "column": 15 },
+          "generated": { "line": 19, "column": 16 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 10, "column": 34 },
+          "generated": { "line": 20, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "Object",
+          "original": { "line": 10, "column": 4 },
+          "generated": { "line": 20, "column": 5 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 9, "column": 13 },
+          "generated": { "line": 20, "column": 6 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 17, "column": 4 },
+          "generated": { "line": 20, "column": 9 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 17, "column": 4 },
+          "generated": { "line": 20, "column": 10 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "k",
+          "original": { "line": 17, "column": 8 },
+          "generated": { "line": 20, "column": 11 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 17, "column": 4 },
+          "generated": { "line": 20, "column": 12 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 17, "column": 4 },
+          "generated": { "line": 20, "column": 13 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "klona",
+          "original": { "line": 17, "column": 13 },
+          "generated": { "line": 20, "column": 16 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "klona",
+          "original": { "line": 17, "column": 13 },
+          "generated": { "line": 20, "column": 17 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 17, "column": 19 },
+          "generated": { "line": 20, "column": 18 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 17, "column": 19 },
+          "generated": { "line": 20, "column": 19 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "k",
+          "original": { "line": 17, "column": 21 },
+          "generated": { "line": 20, "column": 20 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 17, "column": 19 },
+          "generated": { "line": 20, "column": 21 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "klona",
+          "original": { "line": 17, "column": 13 },
+          "generated": { "line": 20, "column": 22 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 9, "column": 13 },
+          "generated": { "line": 20, "column": 23 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 20, "column": 2 },
+          "generated": { "line": 22, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 20, "column": 9 },
+          "generated": { "line": 22, "column": 11 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 20, "column": 2 },
+          "generated": { "line": 22, "column": 12 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 23, "column": 1 },
+          "generated": { "line": 23, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 23, "column": 1 },
+          "generated": { "line": 25, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 23, "column": 13 },
+          "generated": { "line": 25, "column": 6 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "str",
+          "original": { "line": 23, "column": 5 },
+          "generated": { "line": 25, "column": 27 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 23, "column": 1 },
+          "generated": { "line": 25, "column": 28 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 23, "column": 31 },
+          "generated": { "line": 25, "column": 30 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 25, "column": 2 },
+          "generated": { "line": 26, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "k",
+          "original": { "line": 24, "column": 2 },
+          "generated": { "line": 26, "column": 9 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "k",
+          "original": { "line": 24, "column": 2 },
+          "generated": { "line": 26, "column": 10 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 24, "column": 6 },
+          "generated": { "line": 26, "column": 13 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 24, "column": 6 },
+          "generated": { "line": 26, "column": 14 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "length",
+          "original": { "line": 24, "column": 8 },
+          "generated": { "line": 26, "column": 15 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "k",
+          "original": { "line": 24, "column": 2 },
+          "generated": { "line": 26, "column": 21 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 25, "column": 7 },
+          "generated": { "line": 26, "column": 23 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 25, "column": 7 },
+          "generated": { "line": 26, "column": 24 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 25, "column": 11 },
+          "generated": { "line": 26, "column": 27 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "Array",
+          "original": { "line": 25, "column": 15 },
+          "generated": { "line": 26, "column": 31 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 25, "column": 11 },
+          "generated": { "line": 26, "column": 36 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "k",
+          "original": { "line": 25, "column": 21 },
+          "generated": { "line": 26, "column": 37 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 25, "column": 11 },
+          "generated": { "line": 26, "column": 38 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 25, "column": 2 },
+          "generated": { "line": 26, "column": 39 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "k",
+          "original": { "line": 25, "column": 25 },
+          "generated": { "line": 26, "column": 41 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "k",
+          "original": { "line": 25, "column": 25 },
+          "generated": { "line": 26, "column": 42 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 25, "column": 2 },
+          "generated": { "line": 26, "column": 44 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 26, "column": 3 },
+          "generated": { "line": 26, "column": 47 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 26, "column": 3 },
+          "generated": { "line": 26, "column": 48 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "k",
+          "original": { "line": 26, "column": 7 },
+          "generated": { "line": 26, "column": 49 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 26, "column": 3 },
+          "generated": { "line": 26, "column": 50 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 26, "column": 3 },
+          "generated": { "line": 26, "column": 51 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "klona",
+          "original": { "line": 26, "column": 12 },
+          "generated": { "line": 26, "column": 54 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "klona",
+          "original": { "line": 26, "column": 12 },
+          "generated": { "line": 26, "column": 55 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 26, "column": 18 },
+          "generated": { "line": 26, "column": 56 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 26, "column": 18 },
+          "generated": { "line": 26, "column": 57 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "k",
+          "original": { "line": 26, "column": 20 },
+          "generated": { "line": 26, "column": 58 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 26, "column": 18 },
+          "generated": { "line": 26, "column": 59 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "klona",
+          "original": { "line": 26, "column": 12 },
+          "generated": { "line": 26, "column": 60 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 26, "column": 3 },
+          "generated": { "line": 26, "column": 61 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 28, "column": 2 },
+          "generated": { "line": 28, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 28, "column": 9 },
+          "generated": { "line": 28, "column": 11 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 28, "column": 2 },
+          "generated": { "line": 28, "column": 12 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 31, "column": 1 },
+          "generated": { "line": 29, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 31, "column": 1 },
+          "generated": { "line": 31, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 31, "column": 13 },
+          "generated": { "line": 31, "column": 9 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "str",
+          "original": { "line": 31, "column": 5 },
+          "generated": { "line": 31, "column": 28 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 31, "column": 13 },
+          "generated": { "line": 31, "column": 29 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 32, "column": 2 },
+          "generated": { "line": 31, "column": 33 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 32, "column": 2 },
+          "generated": { "line": 31, "column": 34 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 32, "column": 8 },
+          "generated": { "line": 31, "column": 37 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "Set",
+          "original": { "line": 32, "column": 12 },
+          "generated": { "line": 31, "column": 41 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 32, "column": 8 },
+          "generated": { "line": 31, "column": 44 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 32, "column": 2 },
+          "generated": { "line": 31, "column": 46 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 33, "column": 2 },
+          "generated": { "line": 31, "column": 48 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 33, "column": 2 },
+          "generated": { "line": 31, "column": 49 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "forEach",
+          "original": { "line": 33, "column": 4 },
+          "generated": { "line": 31, "column": 50 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 33, "column": 2 },
+          "generated": { "line": 31, "column": 57 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 33, "column": 12 },
+          "generated": { "line": 31, "column": 58 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "val",
+          "original": { "line": 33, "column": 22 },
+          "generated": { "line": 31, "column": 68 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 33, "column": 12 },
+          "generated": { "line": 31, "column": 69 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "val",
+          "original": { "line": 33, "column": 22 },
+          "generated": { "line": 31, "column": 71 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 34, "column": 3 },
+          "generated": { "line": 32, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 34, "column": 3 },
+          "generated": { "line": 32, "column": 4 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 34, "column": 3 },
+          "generated": { "line": 32, "column": 5 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "add",
+          "original": { "line": 34, "column": 7 },
+          "generated": { "line": 32, "column": 6 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 34, "column": 3 },
+          "generated": { "line": 32, "column": 9 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "klona",
+          "original": { "line": 34, "column": 11 },
+          "generated": { "line": 32, "column": 10 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "klona",
+          "original": { "line": 34, "column": 11 },
+          "generated": { "line": 32, "column": 11 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "val",
+          "original": { "line": 34, "column": 17 },
+          "generated": { "line": 32, "column": 12 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "klona",
+          "original": { "line": 34, "column": 11 },
+          "generated": { "line": 32, "column": 13 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 34, "column": 3 },
+          "generated": { "line": 32, "column": 14 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "val",
+          "original": { "line": 34, "column": 17 },
+          "generated": { "line": 33, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 33, "column": 2 },
+          "generated": { "line": 33, "column": 3 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 32, "column": 2 },
+          "generated": { "line": 33, "column": 4 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 36, "column": 9 },
+          "generated": { "line": 33, "column": 6 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 31, "column": 13 },
+          "generated": { "line": 33, "column": 7 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 39, "column": 13 },
+          "generated": { "line": 33, "column": 11 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "str",
+          "original": { "line": 39, "column": 5 },
+          "generated": { "line": 33, "column": 30 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 39, "column": 13 },
+          "generated": { "line": 33, "column": 31 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 40, "column": 2 },
+          "generated": { "line": 33, "column": 35 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 40, "column": 2 },
+          "generated": { "line": 33, "column": 36 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 40, "column": 8 },
+          "generated": { "line": 33, "column": 39 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "Map",
+          "original": { "line": 40, "column": 12 },
+          "generated": { "line": 33, "column": 43 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 40, "column": 8 },
+          "generated": { "line": 33, "column": 46 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 40, "column": 2 },
+          "generated": { "line": 33, "column": 48 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 41, "column": 2 },
+          "generated": { "line": 33, "column": 50 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 41, "column": 2 },
+          "generated": { "line": 33, "column": 51 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "forEach",
+          "original": { "line": 41, "column": 4 },
+          "generated": { "line": 33, "column": 52 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 41, "column": 2 },
+          "generated": { "line": 33, "column": 59 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 41, "column": 12 },
+          "generated": { "line": 33, "column": 60 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "val",
+          "original": { "line": 41, "column": 22 },
+          "generated": { "line": 33, "column": 70 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 41, "column": 12 },
+          "generated": { "line": 33, "column": 71 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "key",
+          "original": { "line": 41, "column": 27 },
+          "generated": { "line": 33, "column": 73 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 41, "column": 12 },
+          "generated": { "line": 33, "column": 74 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "key",
+          "original": { "line": 41, "column": 27 },
+          "generated": { "line": 33, "column": 76 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 42, "column": 3 },
+          "generated": { "line": 34, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 42, "column": 3 },
+          "generated": { "line": 34, "column": 4 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 42, "column": 3 },
+          "generated": { "line": 34, "column": 5 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "set",
+          "original": { "line": 42, "column": 7 },
+          "generated": { "line": 34, "column": 6 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 42, "column": 3 },
+          "generated": { "line": 34, "column": 9 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "klona",
+          "original": { "line": 42, "column": 11 },
+          "generated": { "line": 34, "column": 10 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "klona",
+          "original": { "line": 42, "column": 11 },
+          "generated": { "line": 34, "column": 11 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "key",
+          "original": { "line": 42, "column": 17 },
+          "generated": { "line": 34, "column": 12 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "klona",
+          "original": { "line": 42, "column": 11 },
+          "generated": { "line": 34, "column": 13 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 42, "column": 3 },
+          "generated": { "line": 34, "column": 14 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "klona",
+          "original": { "line": 42, "column": 23 },
+          "generated": { "line": 34, "column": 16 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "klona",
+          "original": { "line": 42, "column": 23 },
+          "generated": { "line": 34, "column": 17 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "val",
+          "original": { "line": 42, "column": 29 },
+          "generated": { "line": 34, "column": 18 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "klona",
+          "original": { "line": 42, "column": 23 },
+          "generated": { "line": 34, "column": 19 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 42, "column": 3 },
+          "generated": { "line": 34, "column": 20 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "val",
+          "original": { "line": 42, "column": 29 },
+          "generated": { "line": 35, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 41, "column": 2 },
+          "generated": { "line": 35, "column": 3 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 40, "column": 2 },
+          "generated": { "line": 35, "column": 4 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 44, "column": 9 },
+          "generated": { "line": 35, "column": 6 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 39, "column": 13 },
+          "generated": { "line": 35, "column": 7 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 47, "column": 13 },
+          "generated": { "line": 35, "column": 11 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "str",
+          "original": { "line": 47, "column": 5 },
+          "generated": { "line": 35, "column": 31 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 47, "column": 13 },
+          "generated": { "line": 35, "column": 32 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 48, "column": 9 },
+          "generated": { "line": 35, "column": 35 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "Date",
+          "original": { "line": 48, "column": 13 },
+          "generated": { "line": 35, "column": 39 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 48, "column": 9 },
+          "generated": { "line": 35, "column": 43 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "Date",
+          "original": { "line": 48, "column": 13 },
+          "generated": { "line": 35, "column": 44 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 48, "column": 19 },
+          "generated": { "line": 35, "column": 45 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 48, "column": 9 },
+          "generated": { "line": 35, "column": 46 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 47, "column": 13 },
+          "generated": { "line": 35, "column": 47 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 51, "column": 13 },
+          "generated": { "line": 35, "column": 50 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "str",
+          "original": { "line": 51, "column": 5 },
+          "generated": { "line": 35, "column": 72 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 51, "column": 13 },
+          "generated": { "line": 35, "column": 73 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "str",
+          "original": { "line": 51, "column": 5 },
+          "generated": { "line": 35, "column": 77 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 52, "column": 2 },
+          "generated": { "line": 35, "column": 78 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 52, "column": 2 },
+          "generated": { "line": 35, "column": 79 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 52, "column": 8 },
+          "generated": { "line": 35, "column": 82 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "RegExp",
+          "original": { "line": 52, "column": 12 },
+          "generated": { "line": 35, "column": 86 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 52, "column": 8 },
+          "generated": { "line": 35, "column": 92 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 52, "column": 19 },
+          "generated": { "line": 35, "column": 93 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 52, "column": 19 },
+          "generated": { "line": 35, "column": 94 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "source",
+          "original": { "line": 52, "column": 21 },
+          "generated": { "line": 35, "column": 95 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 52, "column": 8 },
+          "generated": { "line": 35, "column": 101 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 52, "column": 29 },
+          "generated": { "line": 35, "column": 103 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 52, "column": 29 },
+          "generated": { "line": 35, "column": 104 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "flags",
+          "original": { "line": 52, "column": 31 },
+          "generated": { "line": 35, "column": 105 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 52, "column": 8 },
+          "generated": { "line": 35, "column": 110 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "str",
+          "original": { "line": 51, "column": 5 },
+          "generated": { "line": 35, "column": 111 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "lastIndex",
+          "original": { "line": 53, "column": 6 },
+          "generated": { "line": 35, "column": 113 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "str",
+          "original": { "line": 51, "column": 5 },
+          "generated": { "line": 35, "column": 122 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 53, "column": 18 },
+          "generated": { "line": 35, "column": 125 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 53, "column": 18 },
+          "generated": { "line": 35, "column": 126 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "lastIndex",
+          "original": { "line": 53, "column": 20 },
+          "generated": { "line": 35, "column": 127 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "str",
+          "original": { "line": 51, "column": 5 },
+          "generated": { "line": 35, "column": 136 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "tmp",
+          "original": { "line": 54, "column": 9 },
+          "generated": { "line": 35, "column": 138 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 51, "column": 13 },
+          "generated": { "line": 35, "column": 139 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 57, "column": 23 },
+          "generated": { "line": 35, "column": 143 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "str",
+          "original": { "line": 57, "column": 5 },
+          "generated": { "line": 35, "column": 156 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "str",
+          "original": { "line": 57, "column": 5 },
+          "generated": { "line": 35, "column": 157 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "slice",
+          "original": { "line": 57, "column": 9 },
+          "generated": { "line": 35, "column": 158 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "str",
+          "original": { "line": 57, "column": 5 },
+          "generated": { "line": 35, "column": 163 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "slice",
+          "original": { "line": 57, "column": 9 },
+          "generated": { "line": 35, "column": 164 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 57, "column": 16 },
+          "generated": { "line": 35, "column": 165 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "str",
+          "original": { "line": 57, "column": 5 },
+          "generated": { "line": 35, "column": 166 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 57, "column": 23 },
+          "generated": { "line": 35, "column": 167 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 58, "column": 9 },
+          "generated": { "line": 35, "column": 170 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 58, "column": 13 },
+          "generated": { "line": 35, "column": 174 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 58, "column": 13 },
+          "generated": { "line": 35, "column": 175 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "constructor",
+          "original": { "line": 58, "column": 15 },
+          "generated": { "line": 35, "column": 176 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 58, "column": 9 },
+          "generated": { "line": 35, "column": 187 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 58, "column": 27 },
+          "generated": { "line": 35, "column": 188 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 58, "column": 9 },
+          "generated": { "line": 35, "column": 189 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 57, "column": 23 },
+          "generated": { "line": 35, "column": 190 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 61, "column": 8 },
+          "generated": { "line": 35, "column": 193 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": null,
+          "original": { "line": 31, "column": 1 },
+          "generated": { "line": 35, "column": 194 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 61, "column": 8 },
+          "generated": { "line": 36, "column": 0 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 61, "column": 8 },
+          "generated": { "line": 38, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "obj",
+          "original": { "line": 3, "column": 16 },
+          "generated": { "line": 38, "column": 18 }
+        },
+        {
+          "source": "../node_modules/klona/dist/klona.mjs",
+          "name": "x",
+          "original": { "line": 61, "column": 8 },
+          "generated": { "line": 38, "column": 19 }
+        },
+        {
+          "source": "../index.js",
+          "name": "obj",
+          "original": { "line": 3, "column": 16 },
+          "generated": { "line": 38, "column": 21 }
+        },
+        {
+          "source": "../index.js",
+          "name": "obj",
+          "original": { "line": 3, "column": 16 },
+          "generated": { "line": 39, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "obj",
+          "original": { "line": 3, "column": 16 },
+          "generated": { "line": 39, "column": 7 }
+        },
+        {
+          "source": "../index.js",
+          "name": "obj",
+          "original": { "line": 3, "column": 16 },
+          "generated": { "line": 39, "column": 8 }
+        },
+        {
+          "source": "../index.js",
+          "name": "obj",
+          "original": { "line": 3, "column": 16 },
+          "generated": { "line": 39, "column": 13 }
+        },
+        {
+          "source": "../index.js",
+          "name": "obj",
+          "original": { "line": 3, "column": 16 },
+          "generated": { "line": 39, "column": 14 }
+        },
+        {
+          "source": "../index.js",
+          "name": "obj",
+          "original": { "line": 3, "column": 16 },
+          "generated": { "line": 39, "column": 19 }
+        },
+        {
+          "source": "../index.js",
+          "name": "obj",
+          "original": { "line": 3, "column": 16 },
+          "generated": { "line": 39, "column": 20 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 3, "column": 22 },
+          "generated": { "line": 39, "column": 23 }
+        },
+        {
+          "source": "../index.js",
+          "name": "obj",
+          "original": { "line": 3, "column": 16 },
+          "generated": { "line": 39, "column": 25 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 3, "column": 22 },
+          "generated": { "line": 40, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 4, "column": 8 },
+          "generated": { "line": 40, "column": 6 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 4, "column": 8 },
+          "generated": { "line": 40, "column": 7 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 4, "column": 20 },
+          "generated": { "line": 40, "column": 10 }
+        },
+        {
+          "source": "../index.js",
+          "name": "Map",
+          "original": { "line": 4, "column": 24 },
+          "generated": { "line": 40, "column": 14 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 4, "column": 20 },
+          "generated": { "line": 40, "column": 17 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 3, "column": 22 },
+          "generated": { "line": 40, "column": 19 }
+        },
+        {
+          "source": "../index.js",
+          "name": "Map",
+          "original": { "line": 4, "column": 24 },
+          "generated": { "line": 41, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 46, "column": 9 },
+          "generated": { "line": 41, "column": 9 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 6, "column": 16 },
+          "generated": { "line": 41, "column": 10 }
+        },
+        {
+          "source": "../index.js",
+          "name": "Proxy",
+          "original": { "line": 6, "column": 20 },
+          "generated": { "line": 41, "column": 14 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 6, "column": 16 },
+          "generated": { "line": 41, "column": 19 }
+        },
+        {
+          "source": "../index.js",
+          "name": "obj",
+          "original": { "line": 6, "column": 26 },
+          "generated": { "line": 41, "column": 20 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 6, "column": 16 },
+          "generated": { "line": 41, "column": 21 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 6, "column": 31 },
+          "generated": { "line": 41, "column": 23 }
+        },
+        {
+          "source": "../index.js",
+          "name": "get",
+          "original": { "line": 7, "column": 4 },
+          "generated": { "line": 42, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "get",
+          "original": { "line": 7, "column": 4 },
+          "generated": { "line": 42, "column": 4 }
+        },
+        {
+          "source": "../index.js",
+          "name": "get",
+          "original": { "line": 7, "column": 4 },
+          "generated": { "line": 42, "column": 7 }
+        },
+        {
+          "source": "../index.js",
+          "name": "get",
+          "original": { "line": 7, "column": 4 },
+          "generated": { "line": 42, "column": 9 }
+        },
+        {
+          "source": "../index.js",
+          "name": "o",
+          "original": { "line": 7, "column": 10 },
+          "generated": { "line": 42, "column": 19 }
+        },
+        {
+          "source": "../index.js",
+          "name": "get",
+          "original": { "line": 7, "column": 4 },
+          "generated": { "line": 42, "column": 20 }
+        },
+        {
+          "source": "../index.js",
+          "name": "k",
+          "original": { "line": 7, "column": 13 },
+          "generated": { "line": 42, "column": 22 }
+        },
+        {
+          "source": "../index.js",
+          "name": "get",
+          "original": { "line": 7, "column": 4 },
+          "generated": { "line": 42, "column": 23 }
+        },
+        {
+          "source": "../index.js",
+          "name": "k",
+          "original": { "line": 7, "column": 13 },
+          "generated": { "line": 42, "column": 25 }
+        },
+        {
+          "source": "../index.js",
+          "name": "k",
+          "original": { "line": 7, "column": 13 },
+          "generated": { "line": 43, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "o",
+          "original": { "line": 7, "column": 19 },
+          "generated": { "line": 43, "column": 13 }
+        },
+        {
+          "source": "../index.js",
+          "name": "o",
+          "original": { "line": 7, "column": 19 },
+          "generated": { "line": 43, "column": 14 }
+        },
+        {
+          "source": "../index.js",
+          "name": "k",
+          "original": { "line": 7, "column": 21 },
+          "generated": { "line": 43, "column": 15 }
+        },
+        {
+          "source": "../index.js",
+          "name": "o",
+          "original": { "line": 7, "column": 19 },
+          "generated": { "line": 43, "column": 16 }
+        },
+        {
+          "source": "../index.js",
+          "name": "k",
+          "original": { "line": 7, "column": 13 },
+          "generated": { "line": 43, "column": 17 }
+        },
+        {
+          "source": "../index.js",
+          "name": "k",
+          "original": { "line": 7, "column": 21 },
+          "generated": { "line": 44, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 6, "column": 31 },
+          "generated": { "line": 44, "column": 5 }
+        },
+        {
+          "source": "../index.js",
+          "name": "set",
+          "original": { "line": 8, "column": 4 },
+          "generated": { "line": 45, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "set",
+          "original": { "line": 8, "column": 4 },
+          "generated": { "line": 45, "column": 4 }
+        },
+        {
+          "source": "../index.js",
+          "name": "set",
+          "original": { "line": 8, "column": 4 },
+          "generated": { "line": 45, "column": 7 }
+        },
+        {
+          "source": "../index.js",
+          "name": "set",
+          "original": { "line": 8, "column": 4 },
+          "generated": { "line": 45, "column": 9 }
+        },
+        {
+          "source": "../index.js",
+          "name": "o",
+          "original": { "line": 8, "column": 10 },
+          "generated": { "line": 45, "column": 19 }
+        },
+        {
+          "source": "../index.js",
+          "name": "set",
+          "original": { "line": 8, "column": 4 },
+          "generated": { "line": 45, "column": 20 }
+        },
+        {
+          "source": "../index.js",
+          "name": "k",
+          "original": { "line": 8, "column": 13 },
+          "generated": { "line": 45, "column": 22 }
+        },
+        {
+          "source": "../index.js",
+          "name": "set",
+          "original": { "line": 8, "column": 4 },
+          "generated": { "line": 45, "column": 23 }
+        },
+        {
+          "source": "../index.js",
+          "name": "v",
+          "original": { "line": 8, "column": 16 },
+          "generated": { "line": 45, "column": 25 }
+        },
+        {
+          "source": "../index.js",
+          "name": "set",
+          "original": { "line": 8, "column": 4 },
+          "generated": { "line": 45, "column": 26 }
+        },
+        {
+          "source": "../index.js",
+          "name": "v",
+          "original": { "line": 8, "column": 16 },
+          "generated": { "line": 45, "column": 28 }
+        },
+        {
+          "source": "../index.js",
+          "name": "v",
+          "original": { "line": 8, "column": 16 },
+          "generated": { "line": 46, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "o",
+          "original": { "line": 9, "column": 6 },
+          "generated": { "line": 46, "column": 13 }
+        },
+        {
+          "source": "../index.js",
+          "name": "o",
+          "original": { "line": 9, "column": 6 },
+          "generated": { "line": 46, "column": 14 }
+        },
+        {
+          "source": "../index.js",
+          "name": "k",
+          "original": { "line": 9, "column": 8 },
+          "generated": { "line": 46, "column": 15 }
+        },
+        {
+          "source": "../index.js",
+          "name": "o",
+          "original": { "line": 9, "column": 6 },
+          "generated": { "line": 46, "column": 16 }
+        },
+        {
+          "source": "../index.js",
+          "name": "o",
+          "original": { "line": 9, "column": 6 },
+          "generated": { "line": 46, "column": 17 }
+        },
+        {
+          "source": "../index.js",
+          "name": "v",
+          "original": { "line": 9, "column": 13 },
+          "generated": { "line": 46, "column": 20 }
+        },
+        {
+          "source": "../index.js",
+          "name": "o",
+          "original": { "line": 9, "column": 6 },
+          "generated": { "line": 46, "column": 21 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 11, "column": 10 },
+          "generated": { "line": 46, "column": 23 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 11, "column": 10 },
+          "generated": { "line": 46, "column": 24 }
+        },
+        {
+          "source": "../index.js",
+          "name": "has",
+          "original": { "line": 11, "column": 20 },
+          "generated": { "line": 46, "column": 25 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 11, "column": 10 },
+          "generated": { "line": 46, "column": 28 }
+        },
+        {
+          "source": "../index.js",
+          "name": "k",
+          "original": { "line": 11, "column": 24 },
+          "generated": { "line": 46, "column": 29 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 11, "column": 10 },
+          "generated": { "line": 46, "column": 30 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 12, "column": 8 },
+          "generated": { "line": 46, "column": 34 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 12, "column": 8 },
+          "generated": { "line": 46, "column": 35 }
+        },
+        {
+          "source": "../index.js",
+          "name": "get",
+          "original": { "line": 12, "column": 18 },
+          "generated": { "line": 46, "column": 36 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 12, "column": 8 },
+          "generated": { "line": 46, "column": 39 }
+        },
+        {
+          "source": "../index.js",
+          "name": "k",
+          "original": { "line": 12, "column": 22 },
+          "generated": { "line": 46, "column": 40 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 12, "column": 8 },
+          "generated": { "line": 46, "column": 41 }
+        },
+        {
+          "source": "../index.js",
+          "name": "forEach",
+          "original": { "line": 12, "column": 25 },
+          "generated": { "line": 46, "column": 43 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 12, "column": 8 },
+          "generated": { "line": 46, "column": 50 }
+        },
+        {
+          "source": "../index.js",
+          "name": "forEach",
+          "original": { "line": 12, "column": 25 },
+          "generated": { "line": 46, "column": 51 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 12, "column": 34 },
+          "generated": { "line": 46, "column": 61 }
+        },
+        {
+          "source": "../index.js",
+          "name": "forEach",
+          "original": { "line": 12, "column": 25 },
+          "generated": { "line": 46, "column": 62 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 12, "column": 34 },
+          "generated": { "line": 46, "column": 64 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 12, "column": 34 },
+          "generated": { "line": 47, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 12, "column": 41 },
+          "generated": { "line": 47, "column": 15 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 12, "column": 41 },
+          "generated": { "line": 47, "column": 16 }
+        },
+        {
+          "source": "../index.js",
+          "name": "klona",
+          "original": { "line": 12, "column": 44 },
+          "generated": { "line": 47, "column": 17 }
+        },
+        {
+          "source": "../index.js",
+          "name": "klona",
+          "original": { "line": 12, "column": 44 },
+          "generated": { "line": 47, "column": 18 }
+        },
+        {
+          "source": "../index.js",
+          "name": "o",
+          "original": { "line": 12, "column": 50 },
+          "generated": { "line": 47, "column": 19 }
+        },
+        {
+          "source": "../index.js",
+          "name": "klona",
+          "original": { "line": 12, "column": 44 },
+          "generated": { "line": 47, "column": 20 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 12, "column": 41 },
+          "generated": { "line": 47, "column": 21 }
+        },
+        {
+          "source": "../index.js",
+          "name": "klona",
+          "original": { "line": 12, "column": 54 },
+          "generated": { "line": 47, "column": 23 }
+        },
+        {
+          "source": "../index.js",
+          "name": "klona",
+          "original": { "line": 12, "column": 54 },
+          "generated": { "line": 47, "column": 24 }
+        },
+        {
+          "source": "../index.js",
+          "name": "v",
+          "original": { "line": 12, "column": 60 },
+          "generated": { "line": 47, "column": 25 }
+        },
+        {
+          "source": "../index.js",
+          "name": "klona",
+          "original": { "line": 12, "column": 54 },
+          "generated": { "line": 47, "column": 26 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 12, "column": 41 },
+          "generated": { "line": 47, "column": 27 }
+        },
+        {
+          "source": "../index.js",
+          "name": "k",
+          "original": { "line": 12, "column": 64 },
+          "generated": { "line": 47, "column": 29 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 12, "column": 41 },
+          "generated": { "line": 47, "column": 30 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 12, "column": 34 },
+          "generated": { "line": 47, "column": 31 }
+        },
+        {
+          "source": "../index.js",
+          "name": "k",
+          "original": { "line": 12, "column": 64 },
+          "generated": { "line": 48, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 12, "column": 8 },
+          "generated": { "line": 48, "column": 7 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 11, "column": 10 },
+          "generated": { "line": 48, "column": 8 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 13, "column": 17 },
+          "generated": { "line": 48, "column": 11 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 13, "column": 17 },
+          "generated": { "line": 48, "column": 12 }
+        },
+        {
+          "source": "../index.js",
+          "name": "has",
+          "original": { "line": 13, "column": 27 },
+          "generated": { "line": 48, "column": 13 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 13, "column": 17 },
+          "generated": { "line": 48, "column": 16 }
+        },
+        {
+          "source": "../index.js",
+          "name": "Infinity",
+          "original": { "line": 13, "column": 31 },
+          "generated": { "line": 48, "column": 17 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 13, "column": 17 },
+          "generated": { "line": 48, "column": 25 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 14, "column": 8 },
+          "generated": { "line": 48, "column": 30 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 14, "column": 8 },
+          "generated": { "line": 48, "column": 31 }
+        },
+        {
+          "source": "../index.js",
+          "name": "get",
+          "original": { "line": 14, "column": 18 },
+          "generated": { "line": 48, "column": 32 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 14, "column": 8 },
+          "generated": { "line": 48, "column": 35 }
+        },
+        {
+          "source": "../index.js",
+          "name": "Infinity",
+          "original": { "line": 14, "column": 22 },
+          "generated": { "line": 48, "column": 36 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 14, "column": 8 },
+          "generated": { "line": 48, "column": 44 }
+        },
+        {
+          "source": "../index.js",
+          "name": "forEach",
+          "original": { "line": 14, "column": 32 },
+          "generated": { "line": 48, "column": 46 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 14, "column": 8 },
+          "generated": { "line": 48, "column": 53 }
+        },
+        {
+          "source": "../index.js",
+          "name": "forEach",
+          "original": { "line": 14, "column": 32 },
+          "generated": { "line": 48, "column": 54 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 14, "column": 41 },
+          "generated": { "line": 48, "column": 64 }
+        },
+        {
+          "source": "../index.js",
+          "name": "forEach",
+          "original": { "line": 14, "column": 32 },
+          "generated": { "line": 48, "column": 65 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 14, "column": 41 },
+          "generated": { "line": 48, "column": 67 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 14, "column": 41 },
+          "generated": { "line": 49, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 14, "column": 48 },
+          "generated": { "line": 49, "column": 15 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 14, "column": 48 },
+          "generated": { "line": 49, "column": 16 }
+        },
+        {
+          "source": "../index.js",
+          "name": "klona",
+          "original": { "line": 14, "column": 51 },
+          "generated": { "line": 49, "column": 17 }
+        },
+        {
+          "source": "../index.js",
+          "name": "klona",
+          "original": { "line": 14, "column": 51 },
+          "generated": { "line": 49, "column": 18 }
+        },
+        {
+          "source": "../index.js",
+          "name": "o",
+          "original": { "line": 14, "column": 57 },
+          "generated": { "line": 49, "column": 19 }
+        },
+        {
+          "source": "../index.js",
+          "name": "klona",
+          "original": { "line": 14, "column": 51 },
+          "generated": { "line": 49, "column": 20 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 14, "column": 48 },
+          "generated": { "line": 49, "column": 21 }
+        },
+        {
+          "source": "../index.js",
+          "name": "klona",
+          "original": { "line": 14, "column": 61 },
+          "generated": { "line": 49, "column": 23 }
+        },
+        {
+          "source": "../index.js",
+          "name": "klona",
+          "original": { "line": 14, "column": 61 },
+          "generated": { "line": 49, "column": 24 }
+        },
+        {
+          "source": "../index.js",
+          "name": "v",
+          "original": { "line": 14, "column": 67 },
+          "generated": { "line": 49, "column": 25 }
+        },
+        {
+          "source": "../index.js",
+          "name": "klona",
+          "original": { "line": 14, "column": 61 },
+          "generated": { "line": 49, "column": 26 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 14, "column": 48 },
+          "generated": { "line": 49, "column": 27 }
+        },
+        {
+          "source": "../index.js",
+          "name": "k",
+          "original": { "line": 14, "column": 71 },
+          "generated": { "line": 49, "column": 29 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 14, "column": 48 },
+          "generated": { "line": 49, "column": 30 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 14, "column": 41 },
+          "generated": { "line": 49, "column": 31 }
+        },
+        {
+          "source": "../index.js",
+          "name": "k",
+          "original": { "line": 14, "column": 71 },
+          "generated": { "line": 50, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 14, "column": 8 },
+          "generated": { "line": 50, "column": 7 }
+        },
+        {
+          "source": "../index.js",
+          "name": "o",
+          "original": { "line": 9, "column": 6 },
+          "generated": { "line": 50, "column": 8 }
+        },
+        {
+          "source": "../index.js",
+          "name": "k",
+          "original": { "line": 14, "column": 71 },
+          "generated": { "line": 50, "column": 10 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 17, "column": 13 },
+          "generated": { "line": 50, "column": 11 }
+        },
+        {
+          "source": "../index.js",
+          "name": "v",
+          "original": { "line": 8, "column": 16 },
+          "generated": { "line": 50, "column": 12 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 17, "column": 13 },
+          "generated": { "line": 51, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 6, "column": 31 },
+          "generated": { "line": 52, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 6, "column": 16 },
+          "generated": { "line": 52, "column": 3 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 46, "column": 9 },
+          "generated": { "line": 52, "column": 4 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 21, "column": 18 },
+          "generated": { "line": 52, "column": 6 }
+        },
+        {
+          "source": "../index.js",
+          "name": "on",
+          "original": { "line": 22, "column": 4 },
+          "generated": { "line": 53, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "on",
+          "original": { "line": 22, "column": 4 },
+          "generated": { "line": 53, "column": 4 }
+        },
+        {
+          "source": "../index.js",
+          "name": "on",
+          "original": { "line": 22, "column": 4 },
+          "generated": { "line": 53, "column": 6 }
+        },
+        {
+          "source": "../index.js",
+          "name": "on",
+          "original": { "line": 22, "column": 4 },
+          "generated": { "line": 53, "column": 8 }
+        },
+        {
+          "source": "../index.js",
+          "name": "type",
+          "original": { "line": 22, "column": 9 },
+          "generated": { "line": 53, "column": 18 }
+        },
+        {
+          "source": "../index.js",
+          "name": "on",
+          "original": { "line": 22, "column": 4 },
+          "generated": { "line": 53, "column": 19 }
+        },
+        {
+          "source": "../index.js",
+          "name": "fields",
+          "original": { "line": 22, "column": 15 },
+          "generated": { "line": 53, "column": 21 }
+        },
+        {
+          "source": "../index.js",
+          "name": "on",
+          "original": { "line": 22, "column": 4 },
+          "generated": { "line": 53, "column": 22 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 22, "column": 23 },
+          "generated": { "line": 53, "column": 24 }
+        },
+        {
+          "source": "../index.js",
+          "name": "on",
+          "original": { "line": 22, "column": 4 },
+          "generated": { "line": 53, "column": 25 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 22, "column": 23 },
+          "generated": { "line": 53, "column": 27 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 22, "column": 23 },
+          "generated": { "line": 54, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 23, "column": 19 },
+          "generated": { "line": 54, "column": 10 }
+        },
+        {
+          "source": "../index.js",
+          "name": "type",
+          "original": { "line": 23, "column": 10 },
+          "generated": { "line": 54, "column": 23 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 22, "column": 23 },
+          "generated": { "line": 54, "column": 24 }
+        },
+        {
+          "source": "../index.js",
+          "name": "type",
+          "original": { "line": 23, "column": 10 },
+          "generated": { "line": 54, "column": 26 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 24, "column": 14 },
+          "generated": { "line": 54, "column": 32 }
+        },
+        {
+          "source": "../index.js",
+          "name": "Error",
+          "original": { "line": 24, "column": 18 },
+          "generated": { "line": 54, "column": 36 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 24, "column": 14 },
+          "generated": { "line": 54, "column": 41 }
+        },
+        {
+          "source": "../index.js",
+          "name": "Error",
+          "original": { "line": 24, "column": 18 },
+          "generated": { "line": 54, "column": 42 }
+        },
+        {
+          "source": "../index.js",
+          "name": "type",
+          "original": { "line": 24, "column": 42 },
+          "generated": { "line": 54, "column": 62 }
+        },
+        {
+          "source": "../index.js",
+          "name": "Error",
+          "original": { "line": 24, "column": 18 },
+          "generated": { "line": 54, "column": 63 }
+        },
+        {
+          "source": "../index.js",
+          "name": "type",
+          "original": { "line": 24, "column": 42 },
+          "generated": { "line": 54, "column": 66 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 24, "column": 14 },
+          "generated": { "line": 54, "column": 97 }
+        },
+        {
+          "source": "../index.js",
+          "name": "type",
+          "original": { "line": 23, "column": 10 },
+          "generated": { "line": 54, "column": 98 }
+        },
+        {
+          "source": "../index.js",
+          "name": "type",
+          "original": { "line": 24, "column": 42 },
+          "generated": { "line": 55, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 27, "column": 28 },
+          "generated": { "line": 55, "column": 10 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 27, "column": 28 },
+          "generated": { "line": 55, "column": 24 }
+        },
+        {
+          "source": "../index.js",
+          "name": "fields",
+          "original": { "line": 27, "column": 17 },
+          "generated": { "line": 55, "column": 31 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 27, "column": 28 },
+          "generated": { "line": 55, "column": 32 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 28, "column": 8 },
+          "generated": { "line": 55, "column": 37 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 28, "column": 8 },
+          "generated": { "line": 55, "column": 38 }
+        },
+        {
+          "source": "../index.js",
+          "name": "fields",
+          "original": { "line": 28, "column": 13 },
+          "generated": { "line": 55, "column": 41 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 28, "column": 8 },
+          "generated": { "line": 55, "column": 42 }
+        },
+        {
+          "source": "../index.js",
+          "name": "fields",
+          "original": { "line": 29, "column": 8 },
+          "generated": { "line": 55, "column": 44 }
+        },
+        {
+          "source": "../index.js",
+          "name": "fields",
+          "original": { "line": 29, "column": 8 },
+          "generated": { "line": 55, "column": 45 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 29, "column": 17 },
+          "generated": { "line": 55, "column": 48 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 27, "column": 28 },
+          "generated": { "line": 55, "column": 52 }
+        },
+        {
+          "source": "../index.js",
+          "name": "fields",
+          "original": { "line": 32, "column": 11 },
+          "generated": { "line": 55, "column": 55 }
+        },
+        {
+          "source": "../index.js",
+          "name": "type",
+          "original": { "line": 24, "column": 42 },
+          "generated": { "line": 55, "column": 56 }
+        },
+        {
+          "source": "../index.js",
+          "name": "fields",
+          "original": { "line": 36, "column": 8 },
+          "generated": { "line": 55, "column": 58 }
+        },
+        {
+          "source": "../index.js",
+          "name": "fields",
+          "original": { "line": 36, "column": 8 },
+          "generated": { "line": 55, "column": 59 }
+        },
+        {
+          "source": "../index.js",
+          "name": "forEach",
+          "original": { "line": 36, "column": 15 },
+          "generated": { "line": 55, "column": 60 }
+        },
+        {
+          "source": "../index.js",
+          "name": "fields",
+          "original": { "line": 36, "column": 8 },
+          "generated": { "line": 55, "column": 67 }
+        },
+        {
+          "source": "../index.js",
+          "name": "forEach",
+          "original": { "line": 36, "column": 15 },
+          "generated": { "line": 55, "column": 68 }
+        },
+        {
+          "source": "../index.js",
+          "name": "field",
+          "original": { "line": 36, "column": 24 },
+          "generated": { "line": 55, "column": 78 }
+        },
+        {
+          "source": "../index.js",
+          "name": "forEach",
+          "original": { "line": 36, "column": 15 },
+          "generated": { "line": 55, "column": 79 }
+        },
+        {
+          "source": "../index.js",
+          "name": "field",
+          "original": { "line": 36, "column": 24 },
+          "generated": { "line": 55, "column": 81 }
+        },
+        {
+          "source": "../index.js",
+          "name": "field",
+          "original": { "line": 36, "column": 24 },
+          "generated": { "line": 56, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cbs",
+          "original": { "line": 37, "column": 16 },
+          "generated": { "line": 56, "column": 12 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cbs",
+          "original": { "line": 37, "column": 16 },
+          "generated": { "line": 56, "column": 13 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 37, "column": 22 },
+          "generated": { "line": 56, "column": 16 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 37, "column": 22 },
+          "generated": { "line": 56, "column": 17 }
+        },
+        {
+          "source": "../index.js",
+          "name": "has",
+          "original": { "line": 37, "column": 32 },
+          "generated": { "line": 56, "column": 18 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 37, "column": 22 },
+          "generated": { "line": 56, "column": 21 }
+        },
+        {
+          "source": "../index.js",
+          "name": "field",
+          "original": { "line": 37, "column": 36 },
+          "generated": { "line": 56, "column": 22 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 37, "column": 22 },
+          "generated": { "line": 56, "column": 23 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 37, "column": 45 },
+          "generated": { "line": 56, "column": 27 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 37, "column": 45 },
+          "generated": { "line": 56, "column": 28 }
+        },
+        {
+          "source": "../index.js",
+          "name": "get",
+          "original": { "line": 37, "column": 59 },
+          "generated": { "line": 56, "column": 29 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 37, "column": 45 },
+          "generated": { "line": 56, "column": 32 }
+        },
+        {
+          "source": "../index.js",
+          "name": "field",
+          "original": { "line": 37, "column": 63 },
+          "generated": { "line": 56, "column": 33 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 37, "column": 45 },
+          "generated": { "line": 56, "column": 34 }
+        },
+        {
+          "source": "../index.js",
+          "name": "field",
+          "original": { "line": 37, "column": 63 },
+          "generated": { "line": 56, "column": 36 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 37, "column": 45 },
+          "generated": { "line": 56, "column": 42 }
+        },
+        {
+          "source": "../index.js",
+          "name": "field",
+          "original": { "line": 37, "column": 63 },
+          "generated": { "line": 56, "column": 43 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 37, "column": 71 },
+          "generated": { "line": 56, "column": 44 }
+        },
+        {
+          "source": "../index.js",
+          "name": "field",
+          "original": { "line": 37, "column": 63 },
+          "generated": { "line": 56, "column": 45 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 37, "column": 45 },
+          "generated": { "line": 56, "column": 46 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 37, "column": 22 },
+          "generated": { "line": 56, "column": 47 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 37, "column": 77 },
+          "generated": { "line": 56, "column": 50 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 37, "column": 78 },
+          "generated": { "line": 56, "column": 51 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 37, "column": 77 },
+          "generated": { "line": 56, "column": 52 }
+        },
+        {
+          "source": "../index.js",
+          "name": "field",
+          "original": { "line": 36, "column": 24 },
+          "generated": { "line": 56, "column": 53 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 38, "column": 10 },
+          "generated": { "line": 57, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 38, "column": 10 },
+          "generated": { "line": 57, "column": 8 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 38, "column": 10 },
+          "generated": { "line": 57, "column": 9 }
+        },
+        {
+          "source": "../index.js",
+          "name": "set",
+          "original": { "line": 38, "column": 20 },
+          "generated": { "line": 57, "column": 10 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 38, "column": 10 },
+          "generated": { "line": 57, "column": 13 }
+        },
+        {
+          "source": "../index.js",
+          "name": "field",
+          "original": { "line": 38, "column": 24 },
+          "generated": { "line": 57, "column": 14 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 38, "column": 10 },
+          "generated": { "line": 57, "column": 15 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cbs",
+          "original": { "line": 38, "column": 31 },
+          "generated": { "line": 57, "column": 17 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 38, "column": 10 },
+          "generated": { "line": 57, "column": 18 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cbs",
+          "original": { "line": 38, "column": 31 },
+          "generated": { "line": 58, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "fields",
+          "original": { "line": 36, "column": 8 },
+          "generated": { "line": 58, "column": 7 }
+        },
+        {
+          "source": "../index.js",
+          "name": "type",
+          "original": { "line": 24, "column": 42 },
+          "generated": { "line": 58, "column": 9 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 32, "column": 19 },
+          "generated": { "line": 58, "column": 14 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 32, "column": 19 },
+          "generated": { "line": 59, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cbs",
+          "original": { "line": 33, "column": 14 },
+          "generated": { "line": 59, "column": 12 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cbs",
+          "original": { "line": 33, "column": 14 },
+          "generated": { "line": 59, "column": 13 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 33, "column": 20 },
+          "generated": { "line": 59, "column": 16 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 33, "column": 20 },
+          "generated": { "line": 59, "column": 17 }
+        },
+        {
+          "source": "../index.js",
+          "name": "has",
+          "original": { "line": 33, "column": 30 },
+          "generated": { "line": 59, "column": 18 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 33, "column": 20 },
+          "generated": { "line": 59, "column": 21 }
+        },
+        {
+          "source": "../index.js",
+          "name": "Infinity",
+          "original": { "line": 33, "column": 34 },
+          "generated": { "line": 59, "column": 22 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 33, "column": 20 },
+          "generated": { "line": 59, "column": 30 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 33, "column": 46 },
+          "generated": { "line": 59, "column": 34 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 33, "column": 46 },
+          "generated": { "line": 59, "column": 35 }
+        },
+        {
+          "source": "../index.js",
+          "name": "get",
+          "original": { "line": 33, "column": 60 },
+          "generated": { "line": 59, "column": 36 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 33, "column": 46 },
+          "generated": { "line": 59, "column": 39 }
+        },
+        {
+          "source": "../index.js",
+          "name": "Infinity",
+          "original": { "line": 33, "column": 64 },
+          "generated": { "line": 59, "column": 40 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 33, "column": 46 },
+          "generated": { "line": 59, "column": 48 }
+        },
+        {
+          "source": "../index.js",
+          "name": "Infinity",
+          "original": { "line": 33, "column": 64 },
+          "generated": { "line": 59, "column": 50 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 33, "column": 46 },
+          "generated": { "line": 59, "column": 56 }
+        },
+        {
+          "source": "../index.js",
+          "name": "Infinity",
+          "original": { "line": 33, "column": 64 },
+          "generated": { "line": 59, "column": 57 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 33, "column": 75 },
+          "generated": { "line": 59, "column": 58 }
+        },
+        {
+          "source": "../index.js",
+          "name": "Infinity",
+          "original": { "line": 33, "column": 64 },
+          "generated": { "line": 59, "column": 59 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 33, "column": 46 },
+          "generated": { "line": 59, "column": 60 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 33, "column": 20 },
+          "generated": { "line": 59, "column": 61 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 33, "column": 81 },
+          "generated": { "line": 59, "column": 64 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cb",
+          "original": { "line": 33, "column": 82 },
+          "generated": { "line": 59, "column": 65 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 33, "column": 81 },
+          "generated": { "line": 59, "column": 66 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 32, "column": 19 },
+          "generated": { "line": 59, "column": 67 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 34, "column": 8 },
+          "generated": { "line": 60, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 34, "column": 8 },
+          "generated": { "line": 60, "column": 8 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 34, "column": 8 },
+          "generated": { "line": 60, "column": 9 }
+        },
+        {
+          "source": "../index.js",
+          "name": "set",
+          "original": { "line": 34, "column": 18 },
+          "generated": { "line": 60, "column": 10 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 34, "column": 8 },
+          "generated": { "line": 60, "column": 13 }
+        },
+        {
+          "source": "../index.js",
+          "name": "Infinity",
+          "original": { "line": 34, "column": 22 },
+          "generated": { "line": 60, "column": 14 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 34, "column": 8 },
+          "generated": { "line": 60, "column": 22 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cbs",
+          "original": { "line": 34, "column": 32 },
+          "generated": { "line": 60, "column": 24 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 34, "column": 8 },
+          "generated": { "line": 60, "column": 25 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cbs",
+          "original": { "line": 34, "column": 32 },
+          "generated": { "line": 61, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "cbs",
+          "original": { "line": 34, "column": 32 },
+          "generated": { "line": 62, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 21, "column": 18 },
+          "generated": { "line": 62, "column": 5 }
+        },
+        {
+          "source": "../index.js",
+          "name": "has",
+          "original": { "line": 42, "column": 4 },
+          "generated": { "line": 63, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "has",
+          "original": { "line": 42, "column": 4 },
+          "generated": { "line": 63, "column": 4 }
+        },
+        {
+          "source": "../index.js",
+          "name": "has",
+          "original": { "line": 42, "column": 4 },
+          "generated": { "line": 63, "column": 7 }
+        },
+        {
+          "source": "../index.js",
+          "name": "has",
+          "original": { "line": 42, "column": 4 },
+          "generated": { "line": 63, "column": 9 }
+        },
+        {
+          "source": "../index.js",
+          "name": "search",
+          "original": { "line": 42, "column": 10 },
+          "generated": { "line": 63, "column": 19 }
+        },
+        {
+          "source": "../index.js",
+          "name": "has",
+          "original": { "line": 42, "column": 4 },
+          "generated": { "line": 63, "column": 20 }
+        },
+        {
+          "source": "../index.js",
+          "name": "search",
+          "original": { "line": 42, "column": 10 },
+          "generated": { "line": 63, "column": 22 }
+        },
+        {
+          "source": "../index.js",
+          "name": "search",
+          "original": { "line": 42, "column": 10 },
+          "generated": { "line": 64, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 42, "column": 21 },
+          "generated": { "line": 64, "column": 13 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 42, "column": 21 },
+          "generated": { "line": 64, "column": 14 }
+        },
+        {
+          "source": "../index.js",
+          "name": "has",
+          "original": { "line": 42, "column": 31 },
+          "generated": { "line": 64, "column": 15 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 42, "column": 21 },
+          "generated": { "line": 64, "column": 18 }
+        },
+        {
+          "source": "../index.js",
+          "name": "search",
+          "original": { "line": 42, "column": 35 },
+          "generated": { "line": 64, "column": 19 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 42, "column": 21 },
+          "generated": { "line": 64, "column": 20 }
+        },
+        {
+          "source": "../index.js",
+          "name": "search",
+          "original": { "line": 42, "column": 10 },
+          "generated": { "line": 64, "column": 21 }
+        },
+        {
+          "source": "../index.js",
+          "name": "search",
+          "original": { "line": 42, "column": 35 },
+          "generated": { "line": 65, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 21, "column": 18 },
+          "generated": { "line": 65, "column": 5 }
+        },
+        {
+          "source": "../index.js",
+          "name": "keys",
+          "original": { "line": 43, "column": 4 },
+          "generated": { "line": 66, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "keys",
+          "original": { "line": 43, "column": 4 },
+          "generated": { "line": 66, "column": 4 }
+        },
+        {
+          "source": "../index.js",
+          "name": "keys",
+          "original": { "line": 43, "column": 4 },
+          "generated": { "line": 66, "column": 8 }
+        },
+        {
+          "source": "../index.js",
+          "name": "keys",
+          "original": { "line": 43, "column": 4 },
+          "generated": { "line": 66, "column": 10 }
+        },
+        {
+          "source": "../index.js",
+          "name": "keys",
+          "original": { "line": 43, "column": 4 },
+          "generated": { "line": 66, "column": 22 }
+        },
+        {
+          "source": "../index.js",
+          "name": "keys",
+          "original": { "line": 43, "column": 4 },
+          "generated": { "line": 67, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 43, "column": 16 },
+          "generated": { "line": 67, "column": 13 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 43, "column": 16 },
+          "generated": { "line": 67, "column": 14 }
+        },
+        {
+          "source": "../index.js",
+          "name": "keys",
+          "original": { "line": 43, "column": 26 },
+          "generated": { "line": 67, "column": 15 }
+        },
+        {
+          "source": "../index.js",
+          "name": "callbacks",
+          "original": { "line": 43, "column": 16 },
+          "generated": { "line": 67, "column": 19 }
+        },
+        {
+          "source": "../index.js",
+          "name": "keys",
+          "original": { "line": 43, "column": 4 },
+          "generated": { "line": 67, "column": 21 }
+        },
+        {
+          "source": "../index.js",
+          "name": "keys",
+          "original": { "line": 43, "column": 26 },
+          "generated": { "line": 68, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 21, "column": 18 },
+          "generated": { "line": 69, "column": 0 }
+        },
+        {
+          "source": "../index.js",
+          "name": null,
+          "original": { "line": 46, "column": 9 },
+          "generated": { "line": 69, "column": 3 }
+        },
+        {
+          "source": "../index.js",
+          "name": "Map",
+          "original": { "line": 4, "column": 24 },
+          "generated": { "line": 69, "column": 4 }
+        },
+        {
+          "source": "../index.js",
+          "name": "keys",
+          "original": { "line": 43, "column": 26 },
+          "generated": { "line": 70, "column": 0 }
+        }
+      ],
+      "sources": {
+        "../node_modules/klona/dist/klona.mjs": "export default function klona(x) {\n\tif (typeof x !== 'object') return x;\n\n\tvar k, tmp, str=Object.prototype.toString.call(x);\n\n\tif (str === '[object Object]') {\n\t\ttmp = {};\n\t\tfor (k in x) {\n\t\t\tif (k === '__proto__') {\n\t\t\t\tObject.defineProperty(tmp, k, {\n\t\t\t\t\tvalue: klona(x[k]),\n\t\t\t\t\tconfigurable: 1,\n\t\t\t\t\tenumerable: 1,\n\t\t\t\t\twritable: 1,\n\t\t\t\t});\n\t\t\t} else {\n\t\t\t\ttmp[k] = klona(x[k]);\n\t\t\t}\n\t\t}\n\t\treturn tmp;\n\t}\n\n\tif (str === '[object Array]') {\n\t\tk = x.length;\n\t\tfor (tmp=new Array(k); k--;) {\n\t\t\ttmp[k] = klona(x[k]);\n\t\t}\n\t\treturn tmp;\n\t}\n\n\tif (str === '[object Set]') {\n\t\ttmp = new Set();\n\t\tx.forEach(function (val) {\n\t\t\ttmp.add(klona(val));\n\t\t});\n\t\treturn tmp;\n\t}\n\n\tif (str === '[object Map]') {\n\t\ttmp = new Map();\n\t\tx.forEach(function (val, key) {\n\t\t\ttmp.set(klona(key), klona(val));\n\t\t});\n\t\treturn tmp;\n\t}\n\n\tif (str === '[object Date]') {\n\t\treturn new Date(+x);\n\t}\n\n\tif (str === '[object RegExp]') {\n\t\ttmp = new RegExp(x.source, x.flags);\n\t\ttmp.lastIndex = x.lastIndex;\n\t\treturn tmp;\n\t}\n\n\tif (str.slice(-6) === 'Array]') {\n\t\treturn new x.constructor(x);\n\t}\n\n\treturn x;\n}\n",
+        "../index.js": "import klona from 'klona';\n\nexport default (obj = {}) => {\n  const callbacks = new Map();\n\n  const state = new Proxy(obj, {\n    get: (o, k) => o[k],\n    set: (o, k, v) => {\n      o[k] = v;\n\n      if (callbacks.has(k)) {\n        callbacks.get(k).forEach((cb) => cb(klona(o), klona(v), k));\n      } else if (callbacks.has(Infinity)) {\n        callbacks.get(Infinity).forEach((cb) => cb(klona(o), klona(v), k));\n      }\n\n      return true;\n    },\n  });\n\n  const watcher = {\n    on: (type, fields, cb) => {\n      if (type !== 'change') {\n        throw new Error(`Event of type \"${type}\" is not currently supported.`);\n      }\n\n      if (typeof fields === 'function') {\n        cb = fields;\n        fields = null;\n      }\n\n      if (!fields) {\n        const cbs = callbacks.has(Infinity) ? [...callbacks.get(Infinity), cb] : [cb];\n        callbacks.set(Infinity, cbs);\n      } else {\n        fields.forEach((field) => {\n          const cbs = callbacks.has(field) ? [...callbacks.get(field), cb] : [cb];\n          callbacks.set(field, cbs);\n        });\n      }\n    },\n    has: (search) => callbacks.has(search),\n    keys: () => callbacks.keys(),\n  };\n\n  return [state, watcher];\n};\n"
+      },
+      "lineCount": null
+    }
+  },
+  "error": null,
+  "hash": "1fbeaaaf178ff0e40629a29342be00b7",
+  "cacheData": { "env": {} }
+}

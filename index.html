@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Thirds • Lower-thirds graphics pack for sermon videos</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  </head>
+  <body>
+    <canvas width="1920" height="1080" id="cvs"></canvas>
+    <svg id="content-box-scale"></svg>
+    <div class="controls">
+      <section>
+        <button class="icon" id="sermon-notes-btn">
+          <span class="material-icons">
+            description
+          </span>
+          <span>Upload Sermon Notes</span>
+        </button>
+        <input type="file" id="sermon-notes" name="notes" accept="application/toml" />
+        <div class="field block">
+          <label for="note-color">Point/Verse Color</label>
+          <input id="note-color" type="text" value="#000" />
+          <div class="color-preview"></div>
+        </div>
+        <div class="field block">
+          <label for="verse-color">Verse Reference Color</label>
+          <input id="verse-color" type="text" value="#000" />
+          <div class="color-preview"></div>
+        </div>
+      </section>
+      <section>
+        <h2>Main Block</h2>
+        <button class="icon" id="block-image-btn">
+          <span class="material-icons">
+            insert_photo
+          </span>
+          <span>Main Block Image</span>
+        </button>
+        <input type="file" id="block-image" name="block" accept="image/*" />
+        <div class="field">
+          <label for="block-offset">Vertical Offset</label>
+          <input id="block-offset" type="number" value="0" step="50" />
+        </div>
+      </section>
+      <section>
+        <h2>Verse Block</h2>
+        <div class="field block">
+          <label for="verse-bg-color">Background Color</label>
+          <input id="verse-bg-color" type="text" value="#000" />
+          <div class="color-preview"></div>
+        </div>
+      </section>
+      <section>
+        <button id="create" class="primary" disabled>Create Pack</button>
+        <button id="download" disabled>Download</button>
+      </section>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>

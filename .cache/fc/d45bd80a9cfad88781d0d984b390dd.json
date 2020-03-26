@@ -1,0 +1,18 @@
+{
+  "id": "index.html",
+  "dependencies": [
+    {
+      "name": "./src/index.js",
+      "dynamic": true,
+      "resolved": "/Users/mmcelwee/repos/knkt-thirds/src/index.js",
+      "parent": "/Users/mmcelwee/repos/knkt-thirds/index.html"
+    }
+  ],
+  "generated": {
+    "html": "<!DOCTYPE html>\n<html>\n  <head>\n    <title>Thirds • Lower-thirds graphics pack for sermon videos</title>\n    <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  </head>\n  <body>\n    <canvas width=\"1920\" height=\"1080\" id=\"cvs\"></canvas>\n    <svg id=\"content-box-scale\"></svg>\n    <div class=\"controls\">\n      <section>\n        <button class=\"icon\" id=\"sermon-notes-btn\">\n          <span class=\"material-icons\">\n            description\n          </span>\n          <span>Upload Sermon Notes</span>\n        </button>\n        <input type=\"file\" id=\"sermon-notes\" name=\"notes\" accept=\"application/toml\">\n        <div class=\"field block\">\n          <label for=\"note-color\">Point/Verse Color</label>\n          <input id=\"note-color\" type=\"text\" value=\"#000\">\n          <div class=\"color-preview\"></div>\n        </div>\n        <div class=\"field block\">\n          <label for=\"verse-color\">Verse Reference Color</label>\n          <input id=\"verse-color\" type=\"text\" value=\"#000\">\n          <div class=\"color-preview\"></div>\n        </div>\n      </section>\n      <section>\n        <h2>Main Block</h2>\n        <button class=\"icon\" id=\"block-image-btn\">\n          <span class=\"material-icons\">\n            insert_photo\n          </span>\n          <span>Main Block Image</span>\n        </button>\n        <input type=\"file\" id=\"block-image\" name=\"block\" accept=\"image/*\">\n        <div class=\"field\">\n          <label for=\"block-offset\">Vertical Offset</label>\n          <input id=\"block-offset\" type=\"number\" value=\"0\" step=\"50\">\n        </div>\n      </section>\n      <section>\n        <h2>Verse Block</h2>\n        <div class=\"field block\">\n          <label for=\"verse-bg-color\">Background Color</label>\n          <input id=\"verse-bg-color\" type=\"text\" value=\"#000\">\n          <div class=\"color-preview\"></div>\n        </div>\n      </section>\n      <section>\n        <button id=\"create\" class=\"primary\" disabled=\"\">Create Pack</button>\n        <button id=\"download\" disabled=\"\">Download</button>\n      </section>\n    </div>\n    <script src=\"/1fdf421c05c1140f6d71444ea2b27638.js\"></script>\n  </body>\n</html>\n"
+  },
+  "sourceMaps": null,
+  "error": null,
+  "hash": "be2da0665350db75bd897f5484d9bd62",
+  "cacheData": {}
+}

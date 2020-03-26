@@ -1,0 +1,1041 @@
+{
+  "id": "src/renderText.js",
+  "dependencies": [
+    {
+      "name": "/Users/mmcelwee/repos/knkt-thirds/package.json",
+      "includedInParent": true,
+      "mtime": 1585238106980
+    },
+    {
+      "name": "./settings",
+      "loc": { "line": 1, "column": 49 },
+      "parent": "/Users/mmcelwee/repos/knkt-thirds/src/renderText.js",
+      "resolved": "/Users/mmcelwee/repos/knkt-thirds/src/settings.js"
+    }
+  ],
+  "generated": {
+    "js": "\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = void 0;\n\nvar _settings = require(\"./settings\");\n\nvar renderText = function renderText(ctx, content, x, y) {\n  ctx.save(); // Render text\n\n  ctx.font = \"600 40px \".concat(_settings.FONT);\n  var words = content.split(' ');\n  var line = '';\n  var lines = 0;\n  y += ctx.measureText(content).emHeightAscent;\n\n  for (var n = 0; n < words.length; n++) {\n    var testLine = line + words[n] + ' ';\n    var testWidth = ctx.measureText(testLine).width;\n\n    if (testWidth > _settings.CONTENT_WIDTH && n > 0) {\n      ctx.fillText(line, x, y);\n      line = words[n] + ' ';\n      y += _settings.LINE_HEIGHT;\n      lines++;\n    } else {\n      line = testLine;\n    }\n\n    if (lines === 3) {\n      return words.slice(n).join(' ');\n    }\n\n    ctx.fillText(line, x, y);\n  }\n\n  ctx.restore();\n};\n\nvar _default = renderText;\nexports.default = _default;"
+  },
+  "sourceMaps": {
+    "js": {
+      "mappings": [
+        {
+          "generated": { "line": 8, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 1, "column": 0 }
+        },
+        {
+          "generated": { "line": 10, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 3, "column": 0 }
+        },
+        {
+          "name": "renderText",
+          "generated": { "line": 10, "column": 4 },
+          "source": "src/renderText.js",
+          "original": { "line": 3, "column": 6 }
+        },
+        {
+          "generated": { "line": 10, "column": 14 },
+          "source": "src/renderText.js",
+          "original": { "line": 3, "column": 16 }
+        },
+        {
+          "generated": { "line": 10, "column": 17 },
+          "source": "src/renderText.js",
+          "original": { "line": 3, "column": 19 }
+        },
+        {
+          "name": "renderText",
+          "generated": { "line": 10, "column": 26 },
+          "source": "src/renderText.js",
+          "original": { "line": 3, "column": 6 }
+        },
+        {
+          "generated": { "line": 10, "column": 36 },
+          "source": "src/renderText.js",
+          "original": { "line": 3, "column": 19 }
+        },
+        {
+          "name": "ctx",
+          "generated": { "line": 10, "column": 37 },
+          "source": "src/renderText.js",
+          "original": { "line": 3, "column": 20 }
+        },
+        {
+          "generated": { "line": 10, "column": 40 },
+          "source": "src/renderText.js",
+          "original": { "line": 3, "column": 19 }
+        },
+        {
+          "name": "content",
+          "generated": { "line": 10, "column": 42 },
+          "source": "src/renderText.js",
+          "original": { "line": 3, "column": 25 }
+        },
+        {
+          "generated": { "line": 10, "column": 49 },
+          "source": "src/renderText.js",
+          "original": { "line": 3, "column": 19 }
+        },
+        {
+          "name": "x",
+          "generated": { "line": 10, "column": 51 },
+          "source": "src/renderText.js",
+          "original": { "line": 3, "column": 34 }
+        },
+        {
+          "generated": { "line": 10, "column": 52 },
+          "source": "src/renderText.js",
+          "original": { "line": 3, "column": 19 }
+        },
+        {
+          "name": "y",
+          "generated": { "line": 10, "column": 54 },
+          "source": "src/renderText.js",
+          "original": { "line": 3, "column": 37 }
+        },
+        {
+          "generated": { "line": 10, "column": 55 },
+          "source": "src/renderText.js",
+          "original": { "line": 3, "column": 19 }
+        },
+        {
+          "generated": { "line": 10, "column": 57 },
+          "source": "src/renderText.js",
+          "original": { "line": 3, "column": 43 }
+        },
+        {
+          "name": "ctx",
+          "generated": { "line": 11, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 4, "column": 2 }
+        },
+        {
+          "name": "ctx",
+          "generated": { "line": 11, "column": 2 },
+          "source": "src/renderText.js",
+          "original": { "line": 4, "column": 2 }
+        },
+        {
+          "generated": { "line": 11, "column": 5 },
+          "source": "src/renderText.js",
+          "original": { "line": 4, "column": 5 }
+        },
+        {
+          "name": "save",
+          "generated": { "line": 11, "column": 6 },
+          "source": "src/renderText.js",
+          "original": { "line": 4, "column": 6 }
+        },
+        {
+          "generated": { "line": 11, "column": 10 },
+          "source": "src/renderText.js",
+          "original": { "line": 4, "column": 2 }
+        },
+        {
+          "generated": { "line": 11, "column": 13 },
+          "source": "src/renderText.js",
+          "original": { "line": 3, "column": 43 }
+        },
+        {
+          "generated": { "line": 11, "column": 14 },
+          "source": "src/renderText.js",
+          "original": { "line": 6, "column": 2 }
+        },
+        {
+          "name": "ctx",
+          "generated": { "line": 13, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 7, "column": 2 }
+        },
+        {
+          "name": "ctx",
+          "generated": { "line": 13, "column": 2 },
+          "source": "src/renderText.js",
+          "original": { "line": 7, "column": 2 }
+        },
+        {
+          "generated": { "line": 13, "column": 5 },
+          "source": "src/renderText.js",
+          "original": { "line": 7, "column": 5 }
+        },
+        {
+          "name": "font",
+          "generated": { "line": 13, "column": 6 },
+          "source": "src/renderText.js",
+          "original": { "line": 7, "column": 6 }
+        },
+        {
+          "generated": { "line": 13, "column": 10 },
+          "source": "src/renderText.js",
+          "original": { "line": 7, "column": 2 }
+        },
+        {
+          "name": "FONT",
+          "generated": { "line": 13, "column": 32 },
+          "source": "src/renderText.js",
+          "original": { "line": 7, "column": 25 }
+        },
+        {
+          "generated": { "line": 13, "column": 46 },
+          "source": "src/renderText.js",
+          "original": { "line": 7, "column": 2 }
+        },
+        {
+          "generated": { "line": 14, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 8, "column": 2 }
+        },
+        {
+          "name": "words",
+          "generated": { "line": 14, "column": 6 },
+          "source": "src/renderText.js",
+          "original": { "line": 8, "column": 8 }
+        },
+        {
+          "generated": { "line": 14, "column": 11 },
+          "source": "src/renderText.js",
+          "original": { "line": 8, "column": 13 }
+        },
+        {
+          "name": "content",
+          "generated": { "line": 14, "column": 14 },
+          "source": "src/renderText.js",
+          "original": { "line": 8, "column": 16 }
+        },
+        {
+          "generated": { "line": 14, "column": 21 },
+          "source": "src/renderText.js",
+          "original": { "line": 8, "column": 23 }
+        },
+        {
+          "name": "split",
+          "generated": { "line": 14, "column": 22 },
+          "source": "src/renderText.js",
+          "original": { "line": 8, "column": 24 }
+        },
+        {
+          "generated": { "line": 14, "column": 27 },
+          "source": "src/renderText.js",
+          "original": { "line": 8, "column": 16 }
+        },
+        {
+          "generated": { "line": 14, "column": 28 },
+          "source": "src/renderText.js",
+          "original": { "line": 8, "column": 30 }
+        },
+        {
+          "generated": { "line": 14, "column": 31 },
+          "source": "src/renderText.js",
+          "original": { "line": 8, "column": 16 }
+        },
+        {
+          "generated": { "line": 14, "column": 32 },
+          "source": "src/renderText.js",
+          "original": { "line": 8, "column": 2 }
+        },
+        {
+          "generated": { "line": 15, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 9, "column": 2 }
+        },
+        {
+          "name": "line",
+          "generated": { "line": 15, "column": 6 },
+          "source": "src/renderText.js",
+          "original": { "line": 9, "column": 6 }
+        },
+        {
+          "generated": { "line": 15, "column": 10 },
+          "source": "src/renderText.js",
+          "original": { "line": 9, "column": 10 }
+        },
+        {
+          "generated": { "line": 15, "column": 13 },
+          "source": "src/renderText.js",
+          "original": { "line": 9, "column": 13 }
+        },
+        {
+          "generated": { "line": 15, "column": 15 },
+          "source": "src/renderText.js",
+          "original": { "line": 9, "column": 2 }
+        },
+        {
+          "generated": { "line": 16, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 10, "column": 2 }
+        },
+        {
+          "name": "lines",
+          "generated": { "line": 16, "column": 6 },
+          "source": "src/renderText.js",
+          "original": { "line": 10, "column": 6 }
+        },
+        {
+          "generated": { "line": 16, "column": 11 },
+          "source": "src/renderText.js",
+          "original": { "line": 10, "column": 11 }
+        },
+        {
+          "generated": { "line": 16, "column": 14 },
+          "source": "src/renderText.js",
+          "original": { "line": 10, "column": 14 }
+        },
+        {
+          "generated": { "line": 16, "column": 15 },
+          "source": "src/renderText.js",
+          "original": { "line": 10, "column": 2 }
+        },
+        {
+          "name": "y",
+          "generated": { "line": 17, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 12, "column": 2 }
+        },
+        {
+          "name": "y",
+          "generated": { "line": 17, "column": 2 },
+          "source": "src/renderText.js",
+          "original": { "line": 12, "column": 2 }
+        },
+        {
+          "generated": { "line": 17, "column": 3 },
+          "source": "src/renderText.js",
+          "original": { "line": 12, "column": 3 }
+        },
+        {
+          "name": "ctx",
+          "generated": { "line": 17, "column": 7 },
+          "source": "src/renderText.js",
+          "original": { "line": 12, "column": 7 }
+        },
+        {
+          "generated": { "line": 17, "column": 10 },
+          "source": "src/renderText.js",
+          "original": { "line": 12, "column": 10 }
+        },
+        {
+          "name": "measureText",
+          "generated": { "line": 17, "column": 11 },
+          "source": "src/renderText.js",
+          "original": { "line": 12, "column": 11 }
+        },
+        {
+          "generated": { "line": 17, "column": 22 },
+          "source": "src/renderText.js",
+          "original": { "line": 12, "column": 7 }
+        },
+        {
+          "name": "content",
+          "generated": { "line": 17, "column": 23 },
+          "source": "src/renderText.js",
+          "original": { "line": 12, "column": 23 }
+        },
+        {
+          "generated": { "line": 17, "column": 30 },
+          "source": "src/renderText.js",
+          "original": { "line": 12, "column": 7 }
+        },
+        {
+          "name": "emHeightAscent",
+          "generated": { "line": 17, "column": 32 },
+          "source": "src/renderText.js",
+          "original": { "line": 12, "column": 32 }
+        },
+        {
+          "generated": { "line": 17, "column": 46 },
+          "source": "src/renderText.js",
+          "original": { "line": 12, "column": 2 }
+        },
+        {
+          "generated": { "line": 19, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 14, "column": 2 }
+        },
+        {
+          "generated": { "line": 19, "column": 7 },
+          "source": "src/renderText.js",
+          "original": { "line": 14, "column": 7 }
+        },
+        {
+          "name": "n",
+          "generated": { "line": 19, "column": 11 },
+          "source": "src/renderText.js",
+          "original": { "line": 14, "column": 11 }
+        },
+        {
+          "generated": { "line": 19, "column": 12 },
+          "source": "src/renderText.js",
+          "original": { "line": 14, "column": 12 }
+        },
+        {
+          "generated": { "line": 19, "column": 15 },
+          "source": "src/renderText.js",
+          "original": { "line": 14, "column": 15 }
+        },
+        {
+          "generated": { "line": 19, "column": 16 },
+          "source": "src/renderText.js",
+          "original": { "line": 14, "column": 2 }
+        },
+        {
+          "name": "n",
+          "generated": { "line": 19, "column": 18 },
+          "source": "src/renderText.js",
+          "original": { "line": 14, "column": 18 }
+        },
+        {
+          "generated": { "line": 19, "column": 19 },
+          "source": "src/renderText.js",
+          "original": { "line": 14, "column": 19 }
+        },
+        {
+          "name": "words",
+          "generated": { "line": 19, "column": 22 },
+          "source": "src/renderText.js",
+          "original": { "line": 14, "column": 22 }
+        },
+        {
+          "generated": { "line": 19, "column": 27 },
+          "source": "src/renderText.js",
+          "original": { "line": 14, "column": 27 }
+        },
+        {
+          "name": "length",
+          "generated": { "line": 19, "column": 28 },
+          "source": "src/renderText.js",
+          "original": { "line": 14, "column": 28 }
+        },
+        {
+          "generated": { "line": 19, "column": 34 },
+          "source": "src/renderText.js",
+          "original": { "line": 14, "column": 2 }
+        },
+        {
+          "name": "n",
+          "generated": { "line": 19, "column": 36 },
+          "source": "src/renderText.js",
+          "original": { "line": 14, "column": 36 }
+        },
+        {
+          "generated": { "line": 19, "column": 37 },
+          "source": "src/renderText.js",
+          "original": { "line": 14, "column": 37 }
+        },
+        {
+          "generated": { "line": 19, "column": 39 },
+          "source": "src/renderText.js",
+          "original": { "line": 14, "column": 2 }
+        },
+        {
+          "generated": { "line": 19, "column": 41 },
+          "source": "src/renderText.js",
+          "original": { "line": 14, "column": 41 }
+        },
+        {
+          "generated": { "line": 20, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 15, "column": 4 }
+        },
+        {
+          "name": "testLine",
+          "generated": { "line": 20, "column": 8 },
+          "source": "src/renderText.js",
+          "original": { "line": 15, "column": 10 }
+        },
+        {
+          "generated": { "line": 20, "column": 16 },
+          "source": "src/renderText.js",
+          "original": { "line": 15, "column": 18 }
+        },
+        {
+          "name": "line",
+          "generated": { "line": 20, "column": 19 },
+          "source": "src/renderText.js",
+          "original": { "line": 15, "column": 21 }
+        },
+        {
+          "generated": { "line": 20, "column": 23 },
+          "source": "src/renderText.js",
+          "original": { "line": 15, "column": 25 }
+        },
+        {
+          "name": "words",
+          "generated": { "line": 20, "column": 26 },
+          "source": "src/renderText.js",
+          "original": { "line": 15, "column": 28 }
+        },
+        {
+          "generated": { "line": 20, "column": 31 },
+          "source": "src/renderText.js",
+          "original": { "line": 15, "column": 33 }
+        },
+        {
+          "name": "n",
+          "generated": { "line": 20, "column": 32 },
+          "source": "src/renderText.js",
+          "original": { "line": 15, "column": 34 }
+        },
+        {
+          "generated": { "line": 20, "column": 33 },
+          "source": "src/renderText.js",
+          "original": { "line": 15, "column": 33 }
+        },
+        {
+          "generated": { "line": 20, "column": 34 },
+          "source": "src/renderText.js",
+          "original": { "line": 15, "column": 21 }
+        },
+        {
+          "generated": { "line": 20, "column": 37 },
+          "source": "src/renderText.js",
+          "original": { "line": 15, "column": 39 }
+        },
+        {
+          "generated": { "line": 20, "column": 40 },
+          "source": "src/renderText.js",
+          "original": { "line": 15, "column": 4 }
+        },
+        {
+          "generated": { "line": 21, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 16, "column": 4 }
+        },
+        {
+          "name": "testWidth",
+          "generated": { "line": 21, "column": 8 },
+          "source": "src/renderText.js",
+          "original": { "line": 16, "column": 10 }
+        },
+        {
+          "generated": { "line": 21, "column": 17 },
+          "source": "src/renderText.js",
+          "original": { "line": 16, "column": 19 }
+        },
+        {
+          "name": "ctx",
+          "generated": { "line": 21, "column": 20 },
+          "source": "src/renderText.js",
+          "original": { "line": 16, "column": 22 }
+        },
+        {
+          "generated": { "line": 21, "column": 23 },
+          "source": "src/renderText.js",
+          "original": { "line": 16, "column": 25 }
+        },
+        {
+          "name": "measureText",
+          "generated": { "line": 21, "column": 24 },
+          "source": "src/renderText.js",
+          "original": { "line": 16, "column": 26 }
+        },
+        {
+          "generated": { "line": 21, "column": 35 },
+          "source": "src/renderText.js",
+          "original": { "line": 16, "column": 22 }
+        },
+        {
+          "name": "testLine",
+          "generated": { "line": 21, "column": 36 },
+          "source": "src/renderText.js",
+          "original": { "line": 16, "column": 38 }
+        },
+        {
+          "generated": { "line": 21, "column": 44 },
+          "source": "src/renderText.js",
+          "original": { "line": 16, "column": 22 }
+        },
+        {
+          "name": "width",
+          "generated": { "line": 21, "column": 46 },
+          "source": "src/renderText.js",
+          "original": { "line": 16, "column": 48 }
+        },
+        {
+          "generated": { "line": 21, "column": 51 },
+          "source": "src/renderText.js",
+          "original": { "line": 16, "column": 4 }
+        },
+        {
+          "generated": { "line": 23, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 18, "column": 4 }
+        },
+        {
+          "name": "testWidth",
+          "generated": { "line": 23, "column": 8 },
+          "source": "src/renderText.js",
+          "original": { "line": 18, "column": 8 }
+        },
+        {
+          "generated": { "line": 23, "column": 17 },
+          "source": "src/renderText.js",
+          "original": { "line": 18, "column": 17 }
+        },
+        {
+          "name": "CONTENT_WIDTH",
+          "generated": { "line": 23, "column": 20 },
+          "source": "src/renderText.js",
+          "original": { "line": 18, "column": 20 }
+        },
+        {
+          "generated": { "line": 23, "column": 43 },
+          "source": "src/renderText.js",
+          "original": { "line": 18, "column": 8 }
+        },
+        {
+          "name": "n",
+          "generated": { "line": 23, "column": 47 },
+          "source": "src/renderText.js",
+          "original": { "line": 18, "column": 37 }
+        },
+        {
+          "generated": { "line": 23, "column": 48 },
+          "source": "src/renderText.js",
+          "original": { "line": 18, "column": 38 }
+        },
+        {
+          "generated": { "line": 23, "column": 51 },
+          "source": "src/renderText.js",
+          "original": { "line": 18, "column": 41 }
+        },
+        {
+          "generated": { "line": 23, "column": 52 },
+          "source": "src/renderText.js",
+          "original": { "line": 18, "column": 4 }
+        },
+        {
+          "generated": { "line": 23, "column": 54 },
+          "source": "src/renderText.js",
+          "original": { "line": 18, "column": 44 }
+        },
+        {
+          "name": "ctx",
+          "generated": { "line": 24, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 19, "column": 6 }
+        },
+        {
+          "name": "ctx",
+          "generated": { "line": 24, "column": 6 },
+          "source": "src/renderText.js",
+          "original": { "line": 19, "column": 6 }
+        },
+        {
+          "generated": { "line": 24, "column": 9 },
+          "source": "src/renderText.js",
+          "original": { "line": 19, "column": 9 }
+        },
+        {
+          "name": "fillText",
+          "generated": { "line": 24, "column": 10 },
+          "source": "src/renderText.js",
+          "original": { "line": 19, "column": 10 }
+        },
+        {
+          "generated": { "line": 24, "column": 18 },
+          "source": "src/renderText.js",
+          "original": { "line": 19, "column": 6 }
+        },
+        {
+          "name": "line",
+          "generated": { "line": 24, "column": 19 },
+          "source": "src/renderText.js",
+          "original": { "line": 19, "column": 19 }
+        },
+        {
+          "generated": { "line": 24, "column": 23 },
+          "source": "src/renderText.js",
+          "original": { "line": 19, "column": 6 }
+        },
+        {
+          "name": "x",
+          "generated": { "line": 24, "column": 25 },
+          "source": "src/renderText.js",
+          "original": { "line": 19, "column": 25 }
+        },
+        {
+          "generated": { "line": 24, "column": 26 },
+          "source": "src/renderText.js",
+          "original": { "line": 19, "column": 6 }
+        },
+        {
+          "name": "y",
+          "generated": { "line": 24, "column": 28 },
+          "source": "src/renderText.js",
+          "original": { "line": 19, "column": 28 }
+        },
+        {
+          "generated": { "line": 24, "column": 29 },
+          "source": "src/renderText.js",
+          "original": { "line": 19, "column": 6 }
+        },
+        {
+          "name": "line",
+          "generated": { "line": 25, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 20, "column": 6 }
+        },
+        {
+          "name": "line",
+          "generated": { "line": 25, "column": 6 },
+          "source": "src/renderText.js",
+          "original": { "line": 20, "column": 6 }
+        },
+        {
+          "generated": { "line": 25, "column": 10 },
+          "source": "src/renderText.js",
+          "original": { "line": 20, "column": 10 }
+        },
+        {
+          "name": "words",
+          "generated": { "line": 25, "column": 13 },
+          "source": "src/renderText.js",
+          "original": { "line": 20, "column": 13 }
+        },
+        {
+          "generated": { "line": 25, "column": 18 },
+          "source": "src/renderText.js",
+          "original": { "line": 20, "column": 18 }
+        },
+        {
+          "name": "n",
+          "generated": { "line": 25, "column": 19 },
+          "source": "src/renderText.js",
+          "original": { "line": 20, "column": 19 }
+        },
+        {
+          "generated": { "line": 25, "column": 20 },
+          "source": "src/renderText.js",
+          "original": { "line": 20, "column": 18 }
+        },
+        {
+          "generated": { "line": 25, "column": 21 },
+          "source": "src/renderText.js",
+          "original": { "line": 20, "column": 13 }
+        },
+        {
+          "generated": { "line": 25, "column": 24 },
+          "source": "src/renderText.js",
+          "original": { "line": 20, "column": 24 }
+        },
+        {
+          "generated": { "line": 25, "column": 27 },
+          "source": "src/renderText.js",
+          "original": { "line": 20, "column": 6 }
+        },
+        {
+          "name": "y",
+          "generated": { "line": 26, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 21, "column": 6 }
+        },
+        {
+          "name": "y",
+          "generated": { "line": 26, "column": 6 },
+          "source": "src/renderText.js",
+          "original": { "line": 21, "column": 6 }
+        },
+        {
+          "generated": { "line": 26, "column": 7 },
+          "source": "src/renderText.js",
+          "original": { "line": 21, "column": 7 }
+        },
+        {
+          "name": "LINE_HEIGHT",
+          "generated": { "line": 26, "column": 11 },
+          "source": "src/renderText.js",
+          "original": { "line": 21, "column": 11 }
+        },
+        {
+          "generated": { "line": 26, "column": 32 },
+          "source": "src/renderText.js",
+          "original": { "line": 21, "column": 6 }
+        },
+        {
+          "name": "lines",
+          "generated": { "line": 27, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 22, "column": 6 }
+        },
+        {
+          "name": "lines",
+          "generated": { "line": 27, "column": 6 },
+          "source": "src/renderText.js",
+          "original": { "line": 22, "column": 6 }
+        },
+        {
+          "generated": { "line": 27, "column": 11 },
+          "source": "src/renderText.js",
+          "original": { "line": 22, "column": 11 }
+        },
+        {
+          "generated": { "line": 28, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 23, "column": 5 }
+        },
+        {
+          "generated": { "line": 28, "column": 5 },
+          "source": "src/renderText.js",
+          "original": { "line": 18, "column": 4 }
+        },
+        {
+          "generated": { "line": 28, "column": 11 },
+          "source": "src/renderText.js",
+          "original": { "line": 23, "column": 11 }
+        },
+        {
+          "name": "line",
+          "generated": { "line": 29, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 24, "column": 6 }
+        },
+        {
+          "name": "line",
+          "generated": { "line": 29, "column": 6 },
+          "source": "src/renderText.js",
+          "original": { "line": 24, "column": 6 }
+        },
+        {
+          "generated": { "line": 29, "column": 10 },
+          "source": "src/renderText.js",
+          "original": { "line": 24, "column": 10 }
+        },
+        {
+          "name": "testLine",
+          "generated": { "line": 29, "column": 13 },
+          "source": "src/renderText.js",
+          "original": { "line": 24, "column": 13 }
+        },
+        {
+          "generated": { "line": 29, "column": 21 },
+          "source": "src/renderText.js",
+          "original": { "line": 24, "column": 6 }
+        },
+        {
+          "generated": { "line": 30, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 25, "column": 5 }
+        },
+        {
+          "generated": { "line": 32, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 27, "column": 4 }
+        },
+        {
+          "name": "lines",
+          "generated": { "line": 32, "column": 8 },
+          "source": "src/renderText.js",
+          "original": { "line": 27, "column": 8 }
+        },
+        {
+          "generated": { "line": 32, "column": 13 },
+          "source": "src/renderText.js",
+          "original": { "line": 27, "column": 13 }
+        },
+        {
+          "generated": { "line": 32, "column": 18 },
+          "source": "src/renderText.js",
+          "original": { "line": 27, "column": 18 }
+        },
+        {
+          "generated": { "line": 32, "column": 19 },
+          "source": "src/renderText.js",
+          "original": { "line": 27, "column": 4 }
+        },
+        {
+          "generated": { "line": 32, "column": 21 },
+          "source": "src/renderText.js",
+          "original": { "line": 27, "column": 21 }
+        },
+        {
+          "generated": { "line": 33, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 28, "column": 6 }
+        },
+        {
+          "name": "words",
+          "generated": { "line": 33, "column": 13 },
+          "source": "src/renderText.js",
+          "original": { "line": 28, "column": 13 }
+        },
+        {
+          "generated": { "line": 33, "column": 18 },
+          "source": "src/renderText.js",
+          "original": { "line": 28, "column": 18 }
+        },
+        {
+          "name": "slice",
+          "generated": { "line": 33, "column": 19 },
+          "source": "src/renderText.js",
+          "original": { "line": 28, "column": 19 }
+        },
+        {
+          "generated": { "line": 33, "column": 24 },
+          "source": "src/renderText.js",
+          "original": { "line": 28, "column": 13 }
+        },
+        {
+          "name": "n",
+          "generated": { "line": 33, "column": 25 },
+          "source": "src/renderText.js",
+          "original": { "line": 28, "column": 25 }
+        },
+        {
+          "generated": { "line": 33, "column": 26 },
+          "source": "src/renderText.js",
+          "original": { "line": 28, "column": 13 }
+        },
+        {
+          "name": "join",
+          "generated": { "line": 33, "column": 28 },
+          "source": "src/renderText.js",
+          "original": { "line": 28, "column": 28 }
+        },
+        {
+          "generated": { "line": 33, "column": 32 },
+          "source": "src/renderText.js",
+          "original": { "line": 28, "column": 13 }
+        },
+        {
+          "generated": { "line": 33, "column": 33 },
+          "source": "src/renderText.js",
+          "original": { "line": 28, "column": 33 }
+        },
+        {
+          "generated": { "line": 33, "column": 36 },
+          "source": "src/renderText.js",
+          "original": { "line": 28, "column": 13 }
+        },
+        {
+          "generated": { "line": 33, "column": 37 },
+          "source": "src/renderText.js",
+          "original": { "line": 28, "column": 6 }
+        },
+        {
+          "generated": { "line": 34, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 29, "column": 5 }
+        },
+        {
+          "name": "ctx",
+          "generated": { "line": 36, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 31, "column": 4 }
+        },
+        {
+          "name": "ctx",
+          "generated": { "line": 36, "column": 4 },
+          "source": "src/renderText.js",
+          "original": { "line": 31, "column": 4 }
+        },
+        {
+          "generated": { "line": 36, "column": 7 },
+          "source": "src/renderText.js",
+          "original": { "line": 31, "column": 7 }
+        },
+        {
+          "name": "fillText",
+          "generated": { "line": 36, "column": 8 },
+          "source": "src/renderText.js",
+          "original": { "line": 31, "column": 8 }
+        },
+        {
+          "generated": { "line": 36, "column": 16 },
+          "source": "src/renderText.js",
+          "original": { "line": 31, "column": 4 }
+        },
+        {
+          "name": "line",
+          "generated": { "line": 36, "column": 17 },
+          "source": "src/renderText.js",
+          "original": { "line": 31, "column": 17 }
+        },
+        {
+          "generated": { "line": 36, "column": 21 },
+          "source": "src/renderText.js",
+          "original": { "line": 31, "column": 4 }
+        },
+        {
+          "name": "x",
+          "generated": { "line": 36, "column": 23 },
+          "source": "src/renderText.js",
+          "original": { "line": 31, "column": 23 }
+        },
+        {
+          "generated": { "line": 36, "column": 24 },
+          "source": "src/renderText.js",
+          "original": { "line": 31, "column": 4 }
+        },
+        {
+          "name": "y",
+          "generated": { "line": 36, "column": 26 },
+          "source": "src/renderText.js",
+          "original": { "line": 31, "column": 26 }
+        },
+        {
+          "generated": { "line": 36, "column": 27 },
+          "source": "src/renderText.js",
+          "original": { "line": 31, "column": 4 }
+        },
+        {
+          "generated": { "line": 37, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 32, "column": 3 }
+        },
+        {
+          "name": "ctx",
+          "generated": { "line": 39, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 34, "column": 2 }
+        },
+        {
+          "name": "ctx",
+          "generated": { "line": 39, "column": 2 },
+          "source": "src/renderText.js",
+          "original": { "line": 34, "column": 2 }
+        },
+        {
+          "generated": { "line": 39, "column": 5 },
+          "source": "src/renderText.js",
+          "original": { "line": 34, "column": 5 }
+        },
+        {
+          "name": "restore",
+          "generated": { "line": 39, "column": 6 },
+          "source": "src/renderText.js",
+          "original": { "line": 34, "column": 6 }
+        },
+        {
+          "generated": { "line": 39, "column": 13 },
+          "source": "src/renderText.js",
+          "original": { "line": 34, "column": 2 }
+        },
+        {
+          "generated": { "line": 40, "column": 0 },
+          "source": "src/renderText.js",
+          "original": { "line": 35, "column": 1 }
+        },
+        {
+          "generated": { "line": 40, "column": 1 },
+          "source": "src/renderText.js",
+          "original": { "line": 3, "column": 0 }
+        },
+        {
+          "name": "renderText",
+          "generated": { "line": 42, "column": 15 },
+          "source": "src/renderText.js",
+          "original": { "line": 37, "column": 15 }
+        }
+      ],
+      "sources": {
+        "src/renderText.js": "import { LINE_HEIGHT, FONT, CONTENT_WIDTH } from './settings';\n\nconst renderText = (ctx, content, x, y) => {\n  ctx.save();\n\n  // Render text\n  ctx.font = `600 40px ${FONT}`;\n  const words = content.split(' ');\n  let line = '';\n  let lines = 0;\n\n  y += ctx.measureText(content).emHeightAscent;\n\n  for (let n = 0; n < words.length; n++) {\n    const testLine = line + words[n] + ' ';\n    const testWidth = ctx.measureText(testLine).width;\n\n    if (testWidth > CONTENT_WIDTH && n > 0) {\n      ctx.fillText(line, x, y);\n      line = words[n] + ' ';\n      y += LINE_HEIGHT;\n      lines++;\n    } else {\n      line = testLine;\n    }\n\n    if (lines === 3) {\n      return words.slice(n).join(' ');\n    }\n\n    ctx.fillText(line, x, y);\n  }\n\n  ctx.restore();\n};\n\nexport default renderText;\n"
+      },
+      "lineCount": null
+    }
+  },
+  "error": null,
+  "hash": "b8eaa5b1f6f14054dcbcec47d85b7a12",
+  "cacheData": { "env": {} }
+}
