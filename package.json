@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@agilie/canvas-image-cover-position": "^1.1.1",
+    "jszip": "^3.3.0",
     "state-watcher": "^0.5.0",
     "toml": "^3.0.0"
   }

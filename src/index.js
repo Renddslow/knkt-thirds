@@ -1,4 +1,5 @@
 import createState from 'state-watcher';
+import JSZip from 'jszip';
 
 import './styles.css';
 
@@ -7,7 +8,9 @@ import renderText from './renderText';
 import renderContentBox from './renderContentBox';
 import parse from './dotSermon';
 
-import { BOX_PADDING_X, BOX_PADDING_Y, BOX_WIDTH, BOX_X_START, BOX_Y_START } from './settings';
+import { BOX_PADDING_X, BOX_PADDING_Y, BOX_X_START, BOX_Y_START } from './settings';
+import renderPoint from './renderPoint';
+import save from './saveBlob';
 
 const [state, watcher] = createState({
   blockImage: new Image(),
@@ -16,19 +19,15 @@ const [state, watcher] = createState({
   blockColor: '#000',
   blockImageReady: false,
   blockImageOffset: 0,
-  currentBlockText: '',
-  currentVerseText: '',
+  current: null,
+  currentIdx: 0,
   rawText: '',
   content: [],
+  imgs: [],
 });
 
 const canvas = document.getElementById('cvs');
 const ctx = canvas.getContext('2d');
-
-const fullText =
-  "In the spring, at the time when kings go off to war, David sent Joab out with the king's men and the whole Israelite army. They destroyed the Ammonites and besieged Rabbah. But David remained in Jerusalem. One evening David got up from his bed and walked around on the roof of the palace. From the roof he saw a woman bathing. The woman was very beautiful, One evening David got up from his bed and walked around on the roof of the palace. From the roof he saw a woman bathing. The woman was very beautiful,";
-
-renderVerseBox(ctx, '2 Samuel 11:1-3 NIV');
 
 const openFilePicker = (id) => () => {
   document.getElementById(id).click();
@@ -74,19 +73,89 @@ document.getElementById('block-offset').addEventListener('change', (e) => {
   state.blockImageOffset = parseInt(e.target.value, 10);
 });
 
-// State watchers
-watcher.on('change', ['blockImageOffset', 'blockImageReady'], (s) => {
-  renderContentBox(ctx, s.blockImage, s.blockImageOffset);
-  if (s.content.length) {
-    renderText(ctx, s.content[0].content, BOX_X_START + BOX_PADDING_X, BOX_Y_START + BOX_PADDING_Y);
+// Button Listeners
+document.getElementById('create').addEventListener('click', (e) => {
+  e.preventDefault();
+  document.getElementById('create').disabled = true;
+
+  let slide = -1;
+
+  while (state.currentIdx < state.content.length) {
+    state.current = state.content[state.currentIdx];
+    let remainingText = render(state);
+    if (remainingText) {
+      state.current.content = remainingText;
+    } else {
+      state.currentIdx++;
+    }
+
+    slide++;
+
+    canvas.toBlob((t) => {
+      const blobUrl = URL.createObjectURL(t);
+      const img = document.createElement('img');
+      img.src = blobUrl;
+      document.getElementById('img-bin').appendChild(img);
+      state.imgs.push({ blob: t, slide });
+    });
   }
 });
 
+document.getElementById('zip').addEventListener('click', (e) => {
+  e.preventDefault();
+
+  const zip = new JSZip();
+
+  state.imgs.forEach((img) => {
+    zip.file(`slide-${img.slide}`, img.blob);
+  });
+
+  zip.generateAsync({ type: 'blob' }).then((content) => save(content));
+});
+
+// State watchers
+watcher.on(
+  'change',
+  ['blockImageOffset', 'blockImageReady', 'verseColor', 'verseBackground', 'blockColor'],
+  (s) => {
+    render(s);
+  },
+);
+
 watcher.on('change', ['rawText'], (s) => {
-  state.content = parse(s.rawText);
+  const content = parse(s.rawText);
+  state.current = content[0];
+  state.content = content;
 });
 
 watcher.on('change', ['content'], (s) => {
   document.getElementById('create').disabled = false;
-  renderText(ctx, s.content[0].content, BOX_X_START + BOX_PADDING_X, BOX_Y_START + BOX_PADDING_Y);
+  render(s);
 });
+
+function render(s) {
+  ctx.clearRect(0, 0, 1920, 1080);
+  if (s.blockImageReady) {
+    renderContentBox(ctx, s.blockImage, s.blockImageOffset);
+  }
+
+  if (s.content.length && s.current) {
+    if (s.current.type === 'point') {
+      renderPoint(ctx, s.current.content, '#fff');
+    } else {
+      renderVerseBox(
+        ctx,
+        `${s.current.reference} ${s.current.version}`,
+        s.verseColor,
+        s.verseBackground,
+      );
+      return renderText(
+        ctx,
+        s.current.content,
+        BOX_X_START + BOX_PADDING_X,
+        BOX_Y_START + BOX_PADDING_Y,
+        s.blockColor,
+      );
+    }
+  }
+}
