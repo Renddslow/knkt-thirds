@@ -141,7 +141,7 @@ function render(s) {
 
   if (s.content.length && s.current) {
     if (s.current.type === 'point') {
-      renderPoint(ctx, s.current.content, '#fff');
+      renderPoint(ctx, s.current.content, s.blockColor);
     } else {
       renderVerseBox(
         ctx,

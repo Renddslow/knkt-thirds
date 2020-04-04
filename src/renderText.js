@@ -1,10 +1,11 @@
 import { LINE_HEIGHT, FONT, CONTENT_WIDTH } from './settings';
 
-const renderText = (ctx, content, x, y) => {
+const renderText = (ctx, content, x, y, color) => {
   ctx.save();
 
   // Render text
   ctx.font = `600 40px ${FONT}`;
+  ctx.fillStyle = color;
   const words = content.split(' ');
   let line = '';
   let lines = 0;
