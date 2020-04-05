@@ -4,7 +4,7 @@ const renderText = (ctx, content, x, y, color) => {
   ctx.save();
 
   // Render text
-  ctx.font = `600 40px ${FONT}`;
+  ctx.font = `600 55px ${FONT}`;
   ctx.fillStyle = color;
   const words = content.split(' ');
   let line = '';
@@ -25,7 +25,7 @@ const renderText = (ctx, content, x, y, color) => {
       line = testLine;
     }
 
-    if (lines === 3) {
+    if (lines === 2) {
       return words.slice(n).join(' ');
     }
 
