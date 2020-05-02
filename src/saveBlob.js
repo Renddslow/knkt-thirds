@@ -25,9 +25,23 @@ const save = (cvs) => {
     }
   };
 
-  cvs.toBlob((t) => {
+  if (cvs.toBlob) {
+    cvs.toBlob((t) => {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(t);
+      a.download = `slide`;
+      a.rel = 'noopener';
+
+      setTimeout(() => {
+        URL.revokeObjectURL(a.href);
+      }, 4e4);
+      setTimeout(() => {
+        click(a);
+      }, 0);
+    });
+  } else {
     const a = document.createElement('a');
-    a.href = URL.createObjectURL(t);
+    a.href = URL.createObjectURL(cvs);
     a.download = `slide`;
     a.rel = 'noopener';
 
@@ -37,7 +51,7 @@ const save = (cvs) => {
     setTimeout(() => {
       click(a);
     }, 0);
-  });
+  }
 };
 
 export default save;

@@ -105,9 +105,10 @@ document.getElementById('zip').addEventListener('click', (e) => {
   e.preventDefault();
 
   const zip = new JSZip();
+  const folder = zip.folder('slides');
 
   state.imgs.forEach((img) => {
-    zip.file(`slide-${img.slide}`, img.blob);
+    folder.file(`slide-${img.slide}`, img.blob);
   });
 
   zip.generateAsync({ type: 'blob' }).then((content) => save(content));
