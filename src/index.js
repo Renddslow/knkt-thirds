@@ -1,5 +1,5 @@
 import createState from 'state-watcher';
-import JSZip from 'jszip';
+import multi from 'multi-download';
 
 import './styles.css';
 
@@ -23,7 +23,7 @@ const [state, watcher] = createState({
   currentIdx: 0,
   rawText: '',
   content: [],
-  imgs: [],
+  downloadReady: false,
 });
 
 const canvas = document.getElementById('cvs');
@@ -73,12 +73,16 @@ document.getElementById('block-offset').addEventListener('change', (e) => {
   state.blockImageOffset = parseInt(e.target.value, 10);
 });
 
+const toBlob = (c) => new Promise((resolve) => c.toBlob(resolve));
+
 // Button Listeners
 document.getElementById('create').addEventListener('click', (e) => {
   e.preventDefault();
   document.getElementById('create').disabled = true;
 
   let slide = -1;
+
+  const promises = [];
 
   while (state.currentIdx < state.content.length) {
     state.current = state.content[state.currentIdx];
@@ -90,28 +94,42 @@ document.getElementById('create').addEventListener('click', (e) => {
     }
 
     slide++;
-
-    canvas.toBlob((t) => {
-      const blobUrl = URL.createObjectURL(t);
-      const img = document.createElement('img');
-      img.src = blobUrl;
-      document.getElementById('img-bin').appendChild(img);
-      state.imgs.push({ blob: t, slide });
+    promises.push({
+      p: toBlob(canvas),
+      slide: slide,
     });
   }
+
+  Promise.all(
+    promises.map(({ p, slide }) => {
+      p.then((url) => {
+        const blobUrl = URL.createObjectURL(url);
+
+        const img = document.createElement('img');
+        img.src = blobUrl;
+        img.title = `slide-${slide}`;
+
+        document.getElementById('img-bin').appendChild(img);
+      });
+    }),
+  );
+
+  state.downloadReady = true;
 });
 
 document.getElementById('zip').addEventListener('click', (e) => {
   e.preventDefault();
 
-  const zip = new JSZip();
-  const folder = zip.folder('slides');
+  const imgs = document.getElementById('img-bin').children;
+  const urls = [];
 
-  state.imgs.forEach((img) => {
-    folder.file(`slide-${img.slide}`, img.blob);
+  for (const img of imgs) {
+    urls.push(img.src);
+  }
+
+  multi(urls, {
+    rename: ({ index }) => imgs[index].title,
   });
-
-  zip.generateAsync({ type: 'blob' }).then((content) => save(content));
 });
 
 // State watchers
@@ -132,6 +150,10 @@ watcher.on('change', ['rawText'], (s) => {
 watcher.on('change', ['content'], (s) => {
   document.getElementById('create').disabled = false;
   render(s);
+});
+
+watcher.on('change', ['downloadReady'], (s) => {
+  document.getElementById('zip').disabled = !s.downloadReady;
 });
 
 function render(s) {
