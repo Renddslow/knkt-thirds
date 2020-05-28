@@ -10,7 +10,7 @@ const renderContentBox = (ctx, img, oy = 0) => {
 
   const pattern = ctx.createPattern(img, 'no-repeat');
   if (scale !== 1) {
-    pattern.setTransform(matrix.scale(scale).translate(46, oy));
+    pattern.setTransform(matrix.scale(scale).translate(96, oy));
   }
   ctx.fillStyle = pattern;
   ctx.fillRect(BOX_X_START, BOX_Y_START, BOX_WIDTH, BOX_HEIGHT);
