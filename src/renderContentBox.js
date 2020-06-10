@@ -1,7 +1,7 @@
 import { BOX_HEIGHT, BOX_WIDTH, BOX_X_START, BOX_Y_START } from './settings';
 
 const renderContentBox = (ctx, img, oy = 0) => {
-  const svg = document.getElementById('content-box-scale');
+  const svg = document.querySelector('svg');
   const matrix = svg.createSVGMatrix();
   ctx.save();
   ctx.clearRect(BOX_X_START, BOX_Y_START, BOX_WIDTH, BOX_HEIGHT);
